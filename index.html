@@ -9,7 +9,6 @@
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
       background-color: #f9f9f9;
       color: #333;
     }
@@ -32,11 +31,16 @@
     }
     section {
       padding: 2em 1em;
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
       background: white;
       margin-top: 1em;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      border-left: 5px solid #005b96;
+      padding-left: 0.5em;
+      margin-top: 0;
     }
     footer {
       text-align: center;
@@ -46,23 +50,54 @@
       background-color: #f1f1f1;
       margin-top: 2em;
     }
-    h2 {
-      border-left: 5px solid #005b96;
-      padding-left: 0.5em;
-      margin-top: 0;
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      justify-content: space-between;
     }
-    ul#rss-feed {
-      list-style: none;
-      padding-left: 0;
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      width: 100%;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
-    ul#rss-feed li {
-      margin-bottom: 1.5em;
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
     }
-    ul#rss-feed li span {
-      display: block;
-      margin-top: 0.3em;
+    .card-body {
+      padding: 1em;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-body h3 {
+      font-size: 1.1em;
+      margin: 0 0 0.5em;
+    }
+    .card-body p {
       font-size: 0.9em;
       color: #555;
+      flex-grow: 1;
+    }
+    .card-body .date {
+      font-size: 0.8em;
+      color: #888;
+      margin-top: 0.5em;
+    }
+    @media (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -97,9 +132,7 @@
       <li>スマートモビリティ（持続可能な交通：歩車共存、公共交通＋自転車、ライドシェア）</li>
       <li>上記3項目を通じた地域活性化</li>
     </ol>
-    <p>
-      これらのテーマに関心のある学部生・大学院生を歓迎します。
-    </p>
+    <p>これらのテーマに関心のある学部生・大学院生を歓迎します。</p>
   </section>
 
   <section id="members">
@@ -120,11 +153,11 @@
     </p>
   </section>
 
-  <section id="blog" style="padding:2em 1em; max-width:800px; margin:auto;">
+  <section id="blog" style="padding:2em 1em; max-width:1000px; margin:auto;">
     <h2>研究室ブログ（Note）</h2>
-    <ul id="rss-feed">
-      <li>読み込み中...</li>
-    </ul>
+    <div id="rss-feed" class="card-container">
+      <p>読み込み中...</p>
+    </div>
     <p style="font-size:0.8em; color:gray;">
       ※新しい投稿が反映されるまで10〜30分程度かかることがあります。
     </p>
@@ -149,13 +182,22 @@
         data.items.slice(0, 5).forEach(item => {
           const date = new Date(item.pubDate).toLocaleDateString();
           const summary = item.description.replace(/<[^>]+>/g, "").slice(0, 100);
-          const li = document.createElement("li");
-          li.innerHTML = `<strong>${date}</strong>：<a href="${item.link}" target="_blank">${item.title}</a><br><span>${summary}...</span>`;
-          container.appendChild(li);
+          const thumbnail = item.thumbnail || "https://via.placeholder.com/300x180?text=No+Image";
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+            <a href="${item.link}" target="_blank"><img src="${thumbnail}" alt=""></a>
+            <div class="card-body">
+              <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+              <p>${summary}...</p>
+              <div class="date">${date}</div>
+            </div>
+          `;
+          container.appendChild(card);
         });
       })
       .catch(err => {
-        document.getElementById("rss-feed").innerHTML = '<li>ブログの読み込みに失敗しました。</li>';
+        document.getElementById("rss-feed").innerHTML = '<p>ブログの読み込みに失敗しました。</p>';
         console.error("RSS読み込みエラー:", err);
       });
   </script>
