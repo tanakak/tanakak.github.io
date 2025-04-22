@@ -119,27 +119,21 @@
   </footer>
 
   <script>
-    const rssUrl = 'https://tanakalab.hatenablog.jp/rss';
-    const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(rssUrl);
+    const feedUrl = "https://tanakalab.hatenablog.jp/rss";
+    const apiUrl = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feedUrl);
 
-    fetch(proxy)
+    fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
-        const str = data.contents;
-        const xml = (new window.DOMParser()).parseFromString(str, "text/xml");
-        const items = xml.querySelectorAll("item");
         const container = document.getElementById("rss-feed");
         container.innerHTML = "";
-        for (let i = 0; i < Math.min(items.length, 5); i++) {
-          const title = items[i].querySelector("title").textContent;
-          const link = items[i].querySelector("link").textContent;
-          const pubDate = new Date(items[i].querySelector("pubDate").textContent).toLocaleDateString();
-          const rawDesc = items[i].querySelector("description").textContent;
-          const desc = rawDesc.replace(/<[^>]+>/g, "").slice(0, 100);
+        data.items.slice(0, 5).forEach(item => {
+          const date = new Date(item.pubDate).toLocaleDateString();
+          const summary = item.description.replace(/<[^>]+>/g, "").slice(0, 100);
           const li = document.createElement("li");
-          li.innerHTML = `<strong>${pubDate}</strong>：<a href="${link}" target="_blank">${title}</a><br><span>${desc}...</span>`;
+          li.innerHTML = `<strong>${date}</strong>：<a href="${item.link}" target="_blank">${item.title}</a><br><span>${summary}...</span>`;
           container.appendChild(li);
-        }
+        });
       })
       .catch(err => {
         document.getElementById("rss-feed").innerHTML = '<li>ブログの読み込みに失敗しました。</li>';
