@@ -109,9 +109,6 @@
     <ul id="rss-feed">
       <li>読み込み中...</li>
     </ul>
-    <p style="font-size:0.8em; color:gray;">
-      ※Noteの仕様により、新しい投稿が反映されるまで10〜30分程度かかることがあります。
-    </p>
     <p style="text-align:right;">
       <a href="https://note.com/tanakak_lab" target="_blank">→ すべての投稿を見る</a>
     </p>
@@ -122,24 +119,27 @@
   </footer>
 
   <script>
-    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://note.com/tanakak_lab/rss&nocache=' + Date.now())
-      .then(response => response.json())
+    fetch('https://note.com/tanakak_lab/rss')
+      .then(response => response.text())
+      .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
       .then(data => {
-        const container = document.getElementById('rss-feed');
-        container.innerHTML = '';
-        data.items.slice(0, 5).forEach(item => {
-          const li = document.createElement('li');
-          const date = new Date(item.pubDate).toLocaleDateString();
-          const summary = item.description.replace(/<[^>]+>/g, '').slice(0, 100);
-          li.innerHTML = `
-            <strong>${date}</strong>：<a href="${item.link}" target="_blank">${item.title}</a>
-            <span>${summary}...</span>
-          `;
+        const items = data.querySelectorAll("item");
+        const container = document.getElementById("rss-feed");
+        container.innerHTML = "";
+        for (let i = 0; i < Math.min(items.length, 5); i++) {
+          const title = items[i].querySelector("title").textContent;
+          const link = items[i].querySelector("link").textContent;
+          const pubDate = new Date(items[i].querySelector("pubDate").textContent).toLocaleDateString();
+          const rawDesc = items[i].querySelector("description").textContent;
+          const desc = rawDesc.replace(/<[^>]+>/g, "").slice(0, 100);
+          const li = document.createElement("li");
+          li.innerHTML = `<strong>${pubDate}</strong>：<a href="${link}" target="_blank">${title}</a><br><span>${desc}...</span>`;
           container.appendChild(li);
-        });
+        }
       })
       .catch(err => {
-        document.getElementById('rss-feed').innerHTML = '<li>現在、ブログを取得できません。</li>';
+        document.getElementById("rss-feed").innerHTML = '<li>ブログの読み込みに失敗しました。</li>';
+        console.error("RSS読み込みエラー:", err);
       });
   </script>
 
