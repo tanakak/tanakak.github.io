@@ -81,4 +81,51 @@
   </section>
 
   <section id="members">
-    <h2>メン
+    <h2>メンバー</h2>
+    <p>
+      教員：田中 勝也（滋賀大学環境総合研究センター 教授）<br />
+      ゼミ所属学生：3回生、4回生、大学院生が在籍しています。<br />
+      ゼミでは自分の興味を深め、実証分析の技術を学びながら、社会課題にアプローチしています。
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>連絡先</h2>
+    <p>
+      滋賀大学 経済学部 田中研究室<br />
+      〒522-8522 滋賀県彦根市馬場1丁目1番1号<br />
+      Email: tanaka [at] shiga-u.ac.jp
+    </p>
+  </section>
+
+  <section id="blog" style="padding:2em 1em; max-width:800px; margin:auto;">
+    <h2>研究室ブログ（Noteより自動取得）</h2>
+    <ul id="rss-feed">
+      <li>読み込み中...</li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; 2025 Tanaka Laboratory. All rights reserved.
+  </footer>
+
+  <script>
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://note.com/tanakak_lab/rss')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('rss-feed');
+        container.innerHTML = '';
+        data.items.slice(0, 5).forEach(item => {
+          const li = document.createElement('li');
+          const date = new Date(item.pubDate).toLocaleDateString();
+          li.innerHTML = `<strong>${date}</strong>：<a href="${item.link}" target="_blank">${item.title}</a>`;
+          container.appendChild(li);
+        });
+      })
+      .catch(err => {
+        document.getElementById('rss-feed').innerHTML = '<li>現在、ブログを取得できません。</li>';
+      });
+  </script>
+
+</body>
+</html>
