@@ -174,37 +174,48 @@
     const feedUrl = "https://note.com/tanakak_lab/rss";
     const apiUrl = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feedUrl);
 
+    function checkImage(url, callback) {
+      const img = new Image();
+      img.onload = () => callback(true, url);
+      img.onerror = () => callback(false, url);
+      img.src = url;
+    }
+
     fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
         const container = document.getElementById("rss-feed");
         container.innerHTML = "";
+        const fallback = "https://via.placeholder.com/300x180?text=No+Image";
+
         data.items.slice(0, 5).forEach(item => {
           const date = new Date(item.pubDate).toLocaleDateString();
           const summary = item.description.replace(/<[^>]+>/g, "").slice(0, 100);
-
-          let thumbnail = item.thumbnail;
-          const invalidThumbnails = [
-            "",
-            null,
-            "https://note.com/images/note_default.jpg",
-            "https://static-cdn.note.st/images/ogp/note_default.png"
-          ];
-          if (!thumbnail || invalidThumbnails.includes(thumbnail.trim())) {
-            thumbnail = "https://via.placeholder.com/300x180?text=No+Image";
-          }
+          const title = item.title;
+          const link = item.link;
+          const requestedThumbnail = item.thumbnail || "";
 
           const card = document.createElement("div");
           card.className = "card";
           card.innerHTML = `
-            <a href="${item.link}" target="_blank"><img src="${thumbnail}" alt=""></a>
+            <a href="${link}" target="_blank"><img src="${fallback}" alt="Loading..." class="card-img"></a>
             <div class="card-body">
-              <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+              <h3><a href="${link}" target="_blank">${title}</a></h3>
               <p>${summary}...</p>
               <div class="date">${date}</div>
             </div>
           `;
           container.appendChild(card);
+
+          // 動的に画像が使えるか確認してから差し替え
+          if (requestedThumbnail.trim()) {
+            checkImage(requestedThumbnail, (success, url) => {
+              if (success) {
+                const img = card.querySelector("img");
+                img.src = url;
+              }
+            });
+          }
         });
       })
       .catch(err => {
