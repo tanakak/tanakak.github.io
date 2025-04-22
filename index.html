@@ -182,7 +182,7 @@
         data.items.slice(0, 5).forEach(item => {
           const date = new Date(item.pubDate).toLocaleDateString();
           const summary = item.description.replace(/<[^>]+>/g, "").slice(0, 100);
-          const thumbnail = item.thumbnail || "https://via.placeholder.com/300x180?text=No+Image";
+          const thumbnail = (item.thumbnail && item.thumbnail.trim()) ? item.thumbnail : "https://via.placeholder.com/300x180?text=No+Image";
           const card = document.createElement("div");
           card.className = "card";
           card.innerHTML = `
