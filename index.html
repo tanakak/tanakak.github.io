@@ -182,7 +182,18 @@
         data.items.slice(0, 5).forEach(item => {
           const date = new Date(item.pubDate).toLocaleDateString();
           const summary = item.description.replace(/<[^>]+>/g, "").slice(0, 100);
-          const thumbnail = (item.thumbnail && item.thumbnail.trim()) ? item.thumbnail : "https://via.placeholder.com/300x180?text=No+Image";
+
+          let thumbnail = item.thumbnail;
+          const invalidThumbnails = [
+            "",
+            null,
+            "https://note.com/images/note_default.jpg",
+            "https://static-cdn.note.st/images/ogp/note_default.png"
+          ];
+          if (!thumbnail || invalidThumbnails.includes(thumbnail.trim())) {
+            thumbnail = "https://via.placeholder.com/300x180?text=No+Image";
+          }
+
           const card = document.createElement("div");
           card.className = "card";
           card.innerHTML = `
