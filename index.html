@@ -5,100 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>田中研究室 – 持続可能な都市環境のためのデータ分析</title>
   <style>
-    body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background-color: #005b96;
-      color: white;
-      padding: 1.5em 2em;
-      text-align: center;
-    }
-    nav {
-      background-color: #00497a;
-      padding: 0.5em;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 1.5em;
-      font-weight: bold;
-    }
-    section {
-      padding: 2em 1em;
-      max-width: 1000px;
-      margin: auto;
-      background: white;
-      margin-top: 1em;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    h2 {
-      border-left: 5px solid #005b96;
-      padding-left: 0.5em;
-      margin-top: 0;
-    }
-    footer {
-      text-align: center;
-      padding: 1em;
-      font-size: 0.9em;
-      color: #666;
-      background-color: #f1f1f1;
-      margin-top: 2em;
-    }
+    body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
+    header { background: #005b96; color: white; padding: 1.5em 2em; text-align: center; }
+    nav { background: #00497a; padding: 0.5em; text-align: center; }
+    nav a { color: white; text-decoration: none; margin: 0 1.5em; font-weight: bold; }
+    section { padding: 2em 1em; max-width: 1000px; margin: auto; background: white; margin-top: 1em; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
+    h2 { border-left: 5px solid #005b96; padding-left: 0.5em; margin-top: 0; }
+    footer { text-align: center; padding: 1em; font-size: 0.9em; color: #666; background: #f1f1f1; margin-top: 2em; }
 
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1em;
-      justify-content: space-between;
-    }
-    .card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      width: 100%;
-      max-width: 300px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .card-body {
-      padding: 1em;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .card-body h3 {
-      font-size: 1.1em;
-      margin: 0 0 0.5em;
-    }
-    .card-body p {
-      font-size: 0.9em;
-      color: #555;
-      flex-grow: 1;
-    }
-    .card-body .date {
-      font-size: 0.8em;
-      color: #888;
-      margin-top: 0.5em;
-    }
-    @media (max-width: 768px) {
-      .card-container {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
+    .card-container { display: flex; flex-wrap: wrap; gap: 1em; justify-content: space-between; }
+    .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); width: 100%; max-width: 300px; display: flex; flex-direction: column; overflow: hidden; }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card-body { padding: 1em; flex-grow: 1; display: flex; flex-direction: column; }
+    .card-body h3 { font-size: 1.1em; margin: 0 0 0.5em; }
+    .card-body p { font-size: 0.9em; color: #555; flex-grow: 1; }
+    .card-body .date { font-size: 0.8em; color: #888; margin-top: 0.5em; }
+    @media (max-width: 768px) { .card-container { flex-direction: column; align-items: center; } }
   </style>
 </head>
 <body>
@@ -117,19 +39,12 @@
   <section id="about">
     <h2>研究紹介</h2>
     <p>持続可能な都市環境に関する研究室です。</p>
-    <p>
-      <strong>田中 勝也</strong><br>
-      滋賀大学 経済学部 / 環境総合研究センター / データサイエンス・AI研究推進センター 教授<br>
-      米国ポートランド州立大学 グローバルシニアフェロー<br>
-      韓国梨花女子大学 グローバルフェロー
-    </p>
-    <p>
-      本研究室では、持続可能な都市環境の実現に向けたデータ分析を推進しています。重点トピックは以下の4点です。
-    </p>
+    <p><strong>田中 勝也</strong><br>滋賀大学 経済学部 / 環境総合研究センター / データサイエンス・AI研究推進センター 教授<br>米国ポートランド州立大学 グローバルシニアフェロー<br>韓国梨花女子大学 グローバルフェロー</p>
+    <p>本研究室では、持続可能な都市環境の実現に向けたデータ分析を推進しています。重点トピックは以下の4点です。</p>
     <ol>
       <li>災害への備えと都市のレジリエンス</li>
       <li>グリーンインフラによる防災と温暖化適応策</li>
-      <li>スマートモビリティ（持続可能な交通：歩車共存、公共交通＋自転車、ライドシェア）</li>
+      <li>スマートモビリティ（歩車共存、公共交通＋自転車、ライドシェア）</li>
       <li>上記3項目を通じた地域活性化</li>
     </ol>
     <p>これらのテーマに関心のある学部生・大学院生を歓迎します。</p>
@@ -137,30 +52,20 @@
 
   <section id="members">
     <h2>メンバー</h2>
-    <p>
-      教員：田中 勝也（滋賀大学環境総合研究センター 教授）<br />
-      ゼミ所属学生：3回生、4回生、大学院生が在籍しています。<br />
-      ゼミでは自分の興味を深め、実証分析の技術を学びながら、社会課題にアプローチしています。
-    </p>
+    <p>教員：田中 勝也（滋賀大学環境総合研究センター 教授）<br>ゼミ所属学生：3回生、4回生、大学院生が在籍しています。</p>
   </section>
 
   <section id="contact">
     <h2>連絡先</h2>
-    <p>
-      滋賀大学 経済学部 田中研究室<br />
-      〒522-8522 滋賀県彦根市馬場1丁目1番1号<br />
-      Email: tanaka [at] shiga-u.ac.jp
-    </p>
+    <p>滋賀大学 経済学部 田中研究室<br>〒522-8522 滋賀県彦根市馬場1丁目1番1号<br>Email: tanaka [at] shiga-u.ac.jp</p>
   </section>
 
-  <section id="blog" style="padding:2em 1em; max-width:1000px; margin:auto;">
+  <section id="blog">
     <h2>研究室ブログ（Note）</h2>
     <div id="rss-feed" class="card-container">
       <p>読み込み中...</p>
     </div>
-    <p style="font-size:0.8em; color:gray;">
-      ※新しい投稿が反映されるまで10〜30分程度かかることがあります。
-    </p>
+    <p style="font-size:0.8em; color:gray;">※投稿後すぐに反映されます。</p>
     <p style="text-align:right;">
       <a href="https://note.com/tanakak_lab" target="_blank">→ すべての投稿を見る</a>
     </p>
@@ -172,54 +77,44 @@
 
   <script>
     const feedUrl = "https://note.com/tanakak_lab/rss";
-    const apiUrl = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feedUrl);
+    const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(feedUrl);
+    const fallback = "https://via.placeholder.com/300x180?text=No+Image";
 
-    function checkImage(url, callback) {
-      const img = new Image();
-      img.onload = () => callback(true, url);
-      img.onerror = () => callback(false, url);
-      img.src = url;
-    }
-
-    fetch(apiUrl)
-      .then(response => response.json())
+    fetch(proxyUrl)
+      .then(res => res.json())
       .then(data => {
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(data.contents, "text/xml");
+        const items = xml.querySelectorAll("item");
         const container = document.getElementById("rss-feed");
         container.innerHTML = "";
-        const fallback = "https://via.placeholder.com/300x180?text=No+Image";
 
-        data.items.slice(0, 5).forEach(item => {
-          const date = new Date(item.pubDate).toLocaleDateString();
-          const summary = item.description.replace(/<[^>]+>/g, "").slice(0, 100);
-          const title = item.title;
-          const link = item.link;
-          const requestedThumbnail = item.thumbnail || "";
+        items.forEach((item, index) => {
+          if (index >= 5) return;
+          const title = item.querySelector("title").textContent;
+          const link = item.querySelector("link").textContent;
+          const pubDate = new Date(item.querySelector("pubDate").textContent).toLocaleDateString();
+          const desc = item.querySelector("description").textContent.replace(/<[^>]+>/g, "").slice(0, 100);
+          
+          // サムネイル画像がdescription中に含まれている場合を抽出
+          const imgMatch = item.querySelector("description").textContent.match(/<img[^>]+src="([^"]+)"/);
+          let imgUrl = imgMatch ? imgMatch[1] : fallback;
 
           const card = document.createElement("div");
           card.className = "card";
           card.innerHTML = `
-            <a href="${link}" target="_blank"><img src="${fallback}" alt="Loading..." class="card-img"></a>
+            <a href="${link}" target="_blank"><img src="${imgUrl}" onerror="this.src='${fallback}'"></a>
             <div class="card-body">
               <h3><a href="${link}" target="_blank">${title}</a></h3>
-              <p>${summary}...</p>
-              <div class="date">${date}</div>
+              <p>${desc}...</p>
+              <div class="date">${pubDate}</div>
             </div>
           `;
           container.appendChild(card);
-
-          // 動的に画像が使えるか確認してから差し替え
-          if (requestedThumbnail.trim()) {
-            checkImage(requestedThumbnail, (success, url) => {
-              if (success) {
-                const img = card.querySelector("img");
-                img.src = url;
-              }
-            });
-          }
         });
       })
       .catch(err => {
-        document.getElementById("rss-feed").innerHTML = '<p>ブログの読み込みに失敗しました。</p>';
+        document.getElementById("rss-feed").innerHTML = "<p>ブログの読み込みに失敗しました。</p>";
         console.error("RSS読み込みエラー:", err);
       });
   </script>
