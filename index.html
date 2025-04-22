@@ -105,12 +105,12 @@
   </section>
 
   <section id="blog" style="padding:2em 1em; max-width:800px; margin:auto;">
-    <h2>研究室ブログ（Noteより自動取得）</h2>
+    <h2>研究室ブログ（はてなブログ）</h2>
     <ul id="rss-feed">
       <li>読み込み中...</li>
     </ul>
     <p style="text-align:right;">
-      <a href="https://note.com/tanakak_lab" target="_blank">→ すべての投稿を見る</a>
+      <a href="https://tanakalab.hatenablog.jp/" target="_blank">→ すべての投稿を見る</a>
     </p>
   </section>
 
@@ -119,11 +119,15 @@
   </footer>
 
   <script>
-    fetch('https://note.com/tanakak_lab/rss')
-      .then(response => response.text())
-      .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
+    const rssUrl = 'https://tanakalab.hatenablog.jp/rss';
+    const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(rssUrl);
+
+    fetch(proxy)
+      .then(response => response.json())
       .then(data => {
-        const items = data.querySelectorAll("item");
+        const str = data.contents;
+        const xml = (new window.DOMParser()).parseFromString(str, "text/xml");
+        const items = xml.querySelectorAll("item");
         const container = document.getElementById("rss-feed");
         container.innerHTML = "";
         for (let i = 0; i < Math.min(items.length, 5); i++) {
