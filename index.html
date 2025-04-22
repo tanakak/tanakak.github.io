@@ -80,6 +80,18 @@
     const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(feedUrl);
     const fallback = "https://via.placeholder.com/300x180?text=No+Image";
 
+    function extractImageFromHTML(html) {
+      const match = html.match(/<img[^>]+src="([^">]+)"/i);
+      return match ? match[1] : null;
+    }
+
+    function checkImage(url, callback) {
+      const img = new Image();
+      img.onload = () => callback(true, url);
+      img.onerror = () => callback(false, url);
+      img.src = url;
+    }
+
     fetch(proxyUrl)
       .then(res => res.json())
       .then(data => {
@@ -94,23 +106,31 @@
           const title = item.querySelector("title").textContent;
           const link = item.querySelector("link").textContent;
           const pubDate = new Date(item.querySelector("pubDate").textContent).toLocaleDateString();
-          const desc = item.querySelector("description").textContent.replace(/<[^>]+>/g, "").slice(0, 100);
-          
-          // サムネイル画像がdescription中に含まれている場合を抽出
-          const imgMatch = item.querySelector("description").textContent.match(/<img[^>]+src="([^"]+)"/);
-          let imgUrl = imgMatch ? imgMatch[1] : fallback;
+          const descHTML = item.querySelector("description").textContent;
+          const descText = descHTML.replace(/<[^>]+>/g, "").slice(0, 100);
+          const extractedImg = extractImageFromHTML(descHTML);
 
           const card = document.createElement("div");
           card.className = "card";
+          const imgTag = document.createElement("img");
+          imgTag.src = fallback;
+          imgTag.alt = "Loading...";
           card.innerHTML = `
-            <a href="${link}" target="_blank"><img src="${imgUrl}" onerror="this.src='${fallback}'"></a>
+            <a href="${link}" target="_blank"></a>
             <div class="card-body">
               <h3><a href="${link}" target="_blank">${title}</a></h3>
-              <p>${desc}...</p>
+              <p>${descText}...</p>
               <div class="date">${pubDate}</div>
             </div>
           `;
+          card.querySelector("a").appendChild(imgTag);
           container.appendChild(card);
+
+          if (extractedImg) {
+            checkImage(extractedImg, (ok, url) => {
+              if (ok) imgTag.src = url;
+            });
+          }
         });
       })
       .catch(err => {
