@@ -9,18 +9,11 @@
     header { background: #005b96; color: white; padding: 1.5em 2em; text-align: center; }
     nav { background: #00497a; padding: 0.5em; text-align: center; }
     nav a { color: white; text-decoration: none; margin: 0 1.5em; font-weight: bold; }
-    section { padding: 2em 1em; max-width: 1000px; margin: auto; background: white; margin-top: 1em; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
+    section { padding: 2em 1em; max-width: 800px; margin: auto; background: white; margin-top: 1em; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
     h2 { border-left: 5px solid #005b96; padding-left: 0.5em; margin-top: 0; }
+    ul { padding-left: 1em; }
     footer { text-align: center; padding: 1em; font-size: 0.9em; color: #666; background: #f1f1f1; margin-top: 2em; }
-
-    .card-container { display: flex; flex-wrap: wrap; gap: 1em; justify-content: space-between; }
-    .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); width: 100%; max-width: 300px; display: flex; flex-direction: column; overflow: hidden; }
-    .card img { width: 100%; height: 180px; object-fit: cover; }
-    .card-body { padding: 1em; flex-grow: 1; display: flex; flex-direction: column; }
-    .card-body h3 { font-size: 1.1em; margin: 0 0 0.5em; }
-    .card-body p { font-size: 0.9em; color: #555; flex-grow: 1; }
-    .card-body .date { font-size: 0.8em; color: #888; margin-top: 0.5em; }
-    @media (max-width: 768px) { .card-container { flex-direction: column; align-items: center; } }
+    li { margin-bottom: 1em; }
   </style>
 </head>
 <body>
@@ -33,13 +26,17 @@
   <nav>
     <a href="#about">研究紹介</a>
     <a href="#members">メンバー</a>
+    <a href="#blog">研究室ブログ</a>
     <a href="#contact">連絡先</a>
   </nav>
 
   <section id="about">
     <h2>研究紹介</h2>
-    <p>持続可能な都市環境に関する研究室です。</p>
-    <p><strong>田中 勝也</strong><br>滋賀大学 経済学部 / 環境総合研究センター / データサイエンス・AI研究推進センター 教授<br>米国ポートランド州立大学 グローバルシニアフェロー<br>韓国梨花女子大学 グローバルフェロー</p>
+    <p><strong>田中 勝也</strong><br>
+      滋賀大学 経済学部 / 環境総合研究センター / データサイエンス・AI研究推進センター 教授<br>
+      米国ポートランド州立大学 グローバルシニアフェロー<br>
+      韓国梨花女子大学 グローバルフェロー
+    </p>
     <p>本研究室では、持続可能な都市環境の実現に向けたデータ分析を推進しています。重点トピックは以下の4点です。</p>
     <ol>
       <li>災害への備えと都市のレジリエンス</li>
@@ -52,22 +49,28 @@
 
   <section id="members">
     <h2>メンバー</h2>
-    <p>教員：田中 勝也（滋賀大学環境総合研究センター 教授）<br>ゼミ所属学生：3回生、4回生、大学院生が在籍しています。</p>
-  </section>
-
-  <section id="contact">
-    <h2>連絡先</h2>
-    <p>滋賀大学 経済学部 田中研究室<br>〒522-8522 滋賀県彦根市馬場1丁目1番1号<br>Email: tanaka [at] shiga-u.ac.jp</p>
+    <p>教員：田中 勝也（滋賀大学環境総合研究センター 教授）<br>
+      ゼミ所属学生：3回生、4回生、大学院生が在籍しています。<br>
+      ゼミでは自分の興味を深め、実証分析の技術を学びながら、社会課題にアプローチしています。</p>
   </section>
 
   <section id="blog">
     <h2>研究室ブログ（Note）</h2>
-    <div id="rss-feed" class="card-container">
+    <div id="rss-feed">
       <p>読み込み中...</p>
     </div>
-    <p style="font-size:0.8em; color:gray;">※投稿後すぐに反映されます。</p>
+    <p style="font-size:0.8em; color:gray;">※Noteの最新記事を即時反映（画像は表示されません）</p>
     <p style="text-align:right;">
       <a href="https://note.com/tanakak_lab" target="_blank">→ すべての投稿を見る</a>
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>連絡先</h2>
+    <p>
+      滋賀大学 経済学部 田中研究室<br>
+      〒522-8522 滋賀県彦根市馬場1丁目1番1号<br>
+      Email: tanaka [at] shiga-u.ac.jp
     </p>
   </section>
 
@@ -78,19 +81,6 @@
   <script>
     const feedUrl = "https://note.com/tanakak_lab/rss";
     const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(feedUrl);
-    const fallback = "https://via.placeholder.com/300x180?text=No+Image";
-
-    function extractImageFromHTML(html) {
-      const match = html.match(/<img[^>]+src="([^">]+)"/i);
-      return match ? match[1] : null;
-    }
-
-    function checkImage(url, callback) {
-      const img = new Image();
-      img.onload = () => callback(true, url);
-      img.onerror = () => callback(false, url);
-      img.src = url;
-    }
 
     fetch(proxyUrl)
       .then(res => res.json())
@@ -99,7 +89,9 @@
         const xml = parser.parseFromString(data.contents, "text/xml");
         const items = xml.querySelectorAll("item");
         const container = document.getElementById("rss-feed");
-        container.innerHTML = "";
+        container.innerHTML = "<ul></ul>";
+
+        const list = container.querySelector("ul");
 
         items.forEach((item, index) => {
           if (index >= 5) return;
@@ -107,30 +99,11 @@
           const link = item.querySelector("link").textContent;
           const pubDate = new Date(item.querySelector("pubDate").textContent).toLocaleDateString();
           const descHTML = item.querySelector("description").textContent;
-          const descText = descHTML.replace(/<[^>]+>/g, "").slice(0, 100);
-          const extractedImg = extractImageFromHTML(descHTML);
+          const descText = descHTML.replace(/<[^>]+>/g, "").trim().slice(0, 60);
 
-          const card = document.createElement("div");
-          card.className = "card";
-          const imgTag = document.createElement("img");
-          imgTag.src = fallback;
-          imgTag.alt = "Loading...";
-          card.innerHTML = `
-            <a href="${link}" target="_blank"></a>
-            <div class="card-body">
-              <h3><a href="${link}" target="_blank">${title}</a></h3>
-              <p>${descText}...</p>
-              <div class="date">${pubDate}</div>
-            </div>
-          `;
-          card.querySelector("a").appendChild(imgTag);
-          container.appendChild(card);
-
-          if (extractedImg) {
-            checkImage(extractedImg, (ok, url) => {
-              if (ok) imgTag.src = url;
-            });
-          }
+          const li = document.createElement("li");
+          li.innerHTML = `<strong>📌 ${pubDate}</strong>　<a href="${link}" target="_blank">${title}</a><br><span style="color:#555;">　${descText}...</span>`;
+          list.appendChild(li);
         });
       })
       .catch(err => {
