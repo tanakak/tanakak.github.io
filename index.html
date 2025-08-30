@@ -1,92 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>田中勝也研究室 – データ分析✕持続可能なまちづくり＠滋賀大学</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>田中勝也研究室 – データ分析×持続可能な都市＠滋賀大学</title>
+  <meta name="description" content="滋賀大学 田中勝也研究室：災害レジリエンス、グリーンインフラ、スマートモビリティ、地域活性化に関するデータ分析。">
   <style>
-    body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-    header { background: #005b96; color: white; padding: 1.5em 2em; text-align: center; }
-    nav { background: #00497a; padding: 0.5em; text-align: center; }
-    nav a { color: white; text-decoration: none; margin: 0 1.5em; font-weight: bold; }
-    section { padding: 2em 1em; max-width: 800px; margin: auto; background: white; margin-top: 1em; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
-    h2 { border-left: 5px solid #005b96; padding-left: 0.5em; margin-top: 0; }
-    ul { padding-left: 1em; }
-    footer { text-align: center; padding: 1em; font-size: 0.9em; color: #666; background: #f1f1f1; margin-top: 2em; }
-    li { margin-bottom: 1em; }
+    body{font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", "Yu Gothic", "Meiryo", sans-serif; line-height:1.7; margin:0; color:#111;}
+    header, nav, main, footer{max-width: 880px; margin: 0 auto; padding: 0 16px;}
+    header{padding-top:24px; padding-bottom:8px;}
+    .brand{font-size: 1.3rem; font-weight:700; margin:0;}
+    nav{display:flex; flex-wrap:wrap; gap: 12px; padding: 8px 16px 16px 16px; border-bottom:1px solid #eee;}
+    nav a{color:#0366d6; text-decoration:none}
+    nav a:hover{text-decoration:underline}
+    h2{margin-top:2rem; border-bottom:1px solid #eee; padding-bottom:.25rem}
+    ul{padding-left: 1.25rem;}
+    .muted{color:#666}
+    .grid{display:grid; grid-template-columns: 1fr; gap: 16px;}
+    @media (min-width: 860px){
+      .grid{grid-template-columns: 2fr 1fr;}
+    }
+    footer{margin-top: 3rem; padding-top: 1rem; padding-bottom:2rem; border-top:1px solid #eee; font-size:.95rem}
+    .pubs li{margin-bottom:.4rem}
+    li{margin-bottom:.4rem}
   </style>
 </head>
 <body>
-
-<header>
-  <a href="/index.html" style="text-decoration: none; color: inherit;">
-    <h1>田中勝也研究室</h1>
-    <p>データ分析✕持続可能なまちづくり＠滋賀大学</p>
-  </a>
-</header>
+  <header>
+    <p class="brand">田中勝也研究室 – データサイエンス × 持続可能な都市＠滋賀大学</p>
+  </header>
 
   <nav>
-    <a href="/members.html">メンバー</a>
-    <a href="/pub.html">研究業績</a>
-    <a href="/funding.html">外部資金</a>
-    <a href="/lec">講義</a>
+    <a href="index.html">ホーム</a>
+    <a href="members.html">メンバー</a>
+    <a href="pub.html">研究業績</a>
+    <a href="funding.html">外部資金</a>
+    <a href="lec">講義</a>
     <a href="https://note.com/tanakak_lab" target="_blank" rel="noopener">研究室ブログ</a>
-    <a href="/fs.html">FactorialSurvey</a>
-    <a href="/en.html">English</a>
+    <a href="fs.html">FactorialSurvey</a>
+    <a href="en.html">English</a>
   </nav>
 
-  <section id="about">
-    <h2>研究紹介</h2>
-<p><strong>田中 勝也</strong></p>
-<ul>
-  <li><strong>滋賀大学</strong> 経済学部 / 環境総合研究センター / データサイエンス・AI研究推進センター 教授</li>
-  <li><strong>米国ポートランド州立大学</strong> グローバルシニアフェロー</li>
-  <li><strong>韓国梨花女子大学</strong> グローバルフェロー</li>
-</ul>
-    <p>本研究室では、持続可能な都市環境の実現に向けたデータ分析を推進しています。重点トピックは以下の4点です。</p>
-<ol style="margin-left: 1em;">
-  <li><strong>災害への備えと都市のレジリエンス</strong></li>
-  <li><strong>グリーンインフラによる防災と温暖化適応策</strong></li>
-  <li><strong>スマートモビリティ（歩車共存、公共交通＋自転車、ライドシェア）</strong></li>
-  <li><strong>上記3項目を通じた地域活性化</strong></li>
-</ol>
-    <p>これらのテーマに関心のある学部生・大学院生を歓迎します。</p>
-  </section>
+  <main>
+    <section id="about">
+      <h2>研究紹介</h2>
+      <p><strong>田中 勝也</strong><br>
+         滋賀大学 経済学部 / 環境総合研究センター / データサイエンス・AI研究推進センター 教授<br>
+         米国ポートランド州立大学 グローバルシニアフェロー<br>
+         韓国梨花女子大学 グローバルフェロー
+      </p>
+      <p>本研究室では、持続可能な都市環境の実現に向けたデータ分析を推進しています。重点トピックは以下の4点です。</p>
+      <ol>
+        <li><strong>災害への備えと都市のレジリエンス</strong></li>
+        <li><strong>グリーンインフラ</strong>による防災と温暖化適応策</li>
+        <li><strong>スマートモビリティ</strong>（歩車共存、公共交通＋自転車、ライドシェア）</li>
+        <li><strong>上記3項目を通じた地域活性化</strong></li>
+      </ol>
+      <p>これらのテーマに関心のある学部生・大学院生を歓迎します。</p>
+    </section>
 
-  <section id="members">
-    <h2>メンバー</h2>
-    <p>
-      研究室には現在、博士後期課程4名、博士前期課程3名、学部4回生2名、3回生3名が在籍しています。<br>
-      それぞれ自分の関心を深め、実証分析の技術を学びながら社会課題にアプローチしています。
-    </p>
-    <p>
-      また、学外の客員研究員も4名所属しています。<br>
-      各メンバーの研究テーマは<strong><a href="/members.html">メンバーページ</a></strong>をご覧ください。
-    </p>
-  </section>
+    <div class="grid">
+      <section id="members">
+        <h2>メンバー</h2>
+        <p>
+          研究室には現在、博士後期課程4名、博士前期課程3名、学部4回生2名、3回生3名が在籍しています。<br>
+          それぞれ自分の関心を深め、実証分析の技術を学びながら社会課題にアプローチしています。
+        </p>
+        <p>
+          また、学外の客員研究員も4名所属しています。<br>
+          各メンバーの研究テーマは<strong><a href="/members.html">メンバーページ</a></strong>をご覧ください。
+        </p>
 
-  <section id="blog">
-    <h2>研究室ブログ（Note）</h2>
-    <div id="rss-feed">
-      <p>読み込み中...</p>
+        <h2 id="blog">研究室ブログ（Note）</h2>
+        <div id="rss-feed">
+          <p>読み込み中...</p>
+        </div>
+        <p class="muted">※Noteの最新記事を即時反映（画像は表示されません）</p>
+        <p style="text-align:right;">
+          <a href="https://note.com/tanakak_lab" target="_blank" rel="noopener">→ すべての投稿を見る</a>
+        </p>
+      </section>
+
+      <aside id="contact">
+        <h2>連絡先</h2>
+        <p>
+          滋賀大学 環境総合研究センター 田中勝也研究室<br>
+          〒522-8522 滋賀県彦根市馬場1-1-1<br>
+          Email: tanakak [at] biwako.shiga-u.ac.jp
+        </p>
+      </aside>
     </div>
-    <p style="font-size:0.8em; color:gray;">※Noteの最新記事を即時反映（画像は表示されません）</p>
-    <p style="text-align:right;">
-      <a href="https://note.com/tanakak_lab" target="_blank">→ すべての投稿を見る</a>
-    </p>
-  </section>
-
-  <section id="contact">
-    <h2>連絡先</h2>
-    <p>
-      滋賀大学 環境総合研究センター 田中勝也研究室<br>
-      〒522-8522 滋賀県彦根市馬場1丁目1番1号<br>
-      Email: tanaka [at] shiga-u.ac.jp
-    </p>
-  </section>
+  </main>
 
   <footer>
-    &copy; 2025 Tanaka Laboratory. All rights reserved.
+    © 2025 Tanaka Laboratory. All rights reserved.
   </footer>
 
   <script>
@@ -101,7 +108,6 @@
         const items = xml.querySelectorAll("item");
         const container = document.getElementById("rss-feed");
         container.innerHTML = "<ul></ul>";
-
         const list = container.querySelector("ul");
 
         items.forEach((item, index) => {
@@ -113,7 +119,7 @@
           const descText = descHTML.replace(/<[^>]+>/g, "").trim().slice(0, 60);
 
           const li = document.createElement("li");
-          li.innerHTML = `<strong>📌 ${pubDate}</strong>　<a href="${link}" target="_blank">${title}</a><br><span style="color:#555;">　${descText}...</span>`;
+          li.innerHTML = `<strong>📌 ${pubDate}</strong>　<a href="${link}" target="_blank" rel="noopener">${title}</a><br><span class="muted">　${descText}...</span>`;
           list.appendChild(li);
         });
       })
@@ -122,6 +128,5 @@
         console.error("RSS読み込みエラー:", err);
       });
   </script>
-
 </body>
 </html>
