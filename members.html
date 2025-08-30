@@ -5,36 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>田中勝也研究室 – 研究室メンバー</title>
   <style>
-    body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-    header { background: #005b96; color: white; padding: 1.5em 2em; text-align: center; }
-    nav { background: #00497a; padding: 0.5em; text-align: center; }
-    nav a { color: white; text-decoration: none; margin: 0 1.5em; font-weight: bold; }
-    section { padding: 2em 1em; max-width: 800px; margin: auto; background: white; margin-top: 1em; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
-    h2 { border-left: 5px solid #005b96; padding-left: 0.5em; margin-top: 0; }
-    h3 { color: #005b96; margin-top: 2em; }
-    ul { padding-left: 1.5em; }
-    li { margin-bottom: 0.7em; }
-    footer { text-align: center; padding: 1em; font-size: 0.9em; color: #666; background: #f1f1f1; margin-top: 2em; }
+    body{font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", "Yu Gothic", "Meiryo", sans-serif; line-height:1.7; margin:0; color:#111;}
+    header, nav, main, footer{max-width: 880px; margin: 0 auto; padding: 0 16px;}
+    header{padding-top:24px; padding-bottom:8px;}
+    .brand{font-size: 1.3rem; font-weight:700; margin:0;}
+    nav{display:flex; flex-wrap:wrap; gap: 12px; padding: 8px 16px 16px 16px; border-bottom:1px solid #eee;}
+    nav a{color:#0366d6; text-decoration:none}
+    nav a:hover{text-decoration:underline}
+    h2{margin-top:2rem; border-bottom:1px solid #eee; padding-bottom:.25rem}
+    h3{color: #333; margin-top: 2em; border-bottom: none; padding-left: 0;}
+    ul{padding-left: 1.25rem;}
+    li{margin-bottom:.4rem}
+    footer{margin-top: 3rem; padding-top: 1rem; padding-bottom:2rem; border-top:1px solid #eee; font-size:.95rem}
   </style>
 </head>
 <body>
 
 <header>
-  <a href="/index.html" style="text-decoration: none; color: inherit;">
-    <h1>田中勝也研究室</h1>
-    <p>データ分析✕持続可能なまちづくり＠滋賀大学</p>
-  </a>
+  <p class="brand">田中勝也研究室 – データサイエンス × 持続可能な都市＠滋賀大学</p>
 </header>
 
-  <nav>
-    <a href="/members.html">メンバー</a>
-    <a href="/pub">研究業績</a>
-    <a href="/funding">外部資金</a>
-    <a href="/lec">講義</a>
-    <a href="/fse">要因サーベイ実験</a>
-    <a href="https://note.com/tanakak_lab" target="_blank">研究室ブログ</a>
-  </nav>
+<nav>
+  <a href="index.html">ホーム</a>
+  <a href="members.html">メンバー</a>
+  <a href="pub.html">研究業績</a>
+  <a href="funding.html">外部資金</a>
+  <a href="lec">講義</a>
+  <a href="https://note.com/tanakak_lab" target="_blank" rel="noopener">研究室ブログ</a>
+  <a href="fs.html">FactorialSurvey</a>
+  <a href="en.html">English</a>
+</nav>
 
+<main>
   <section>
     <h2>研究室メンバー</h2>
     <p>2025年度の研究室のメンバーと研究テーマです。</p>
@@ -67,10 +69,11 @@
       <li>井上 裕策（経済3回生）- 現在検討中</li>
     </ul>
   </section>
+</main>
 
-  <footer>
-    &copy; 2025 Tanaka Laboratory. All rights reserved.
-  </footer>
+<footer>
+  © 2025 Tanaka Laboratory. All rights reserved.
+</footer>
 
 </body>
 </html>
