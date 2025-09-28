@@ -4,19 +4,83 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>田中勝也研究室 – 外部資金</title>
+
 <style>
-    body{font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", "Yu Gothic", "Meiryo", sans-serif; line-height:1.7; margin:0; color:#111;}
-    header, nav, main, footer{max-width: 880px; margin: 0 auto; padding: 0 16px;}
-    header{padding-top:24px; padding-bottom:8px;}
-    .brand{font-size: 1.3rem; font-weight:700; margin:0;}
-    nav{display:flex; flex-wrap:wrap; gap: 12px; padding: 8px 16px 16px 16px; border-bottom:1px solid #eee;}
-    nav a{color:#0366d6; text-decoration:none}
-    nav a:hover{text-decoration:underline}
-    h2{margin-top:2rem; border-bottom:1px solid #eee; padding-bottom:.25rem}
-    ul{padding-left: 1.25rem;}
-    li{margin-bottom:.4rem}
-    footer{margin-top: 3rem; padding-top: 1rem; padding-bottom:2rem; border-top:1px solid #eee; font-size:.95rem}
+  /* ---- Base typography & layout ---- */
+  :root{
+    --font-body: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo", sans-serif;
+    --font-head: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo", sans-serif;
+    --text: #111;
+    --muted: #666;
+    --link: #0366d6;
+    --rule: #eee;
+    --accent: #0aa77f;
+    --maxw: 880px;
+  }
+  html { font-size: 16px; }
+  body{
+    font-family: var(--font-body);
+    color: var(--text);
+    line-height: 1.8;
+    margin:0;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #fff;
+  }
+  header, nav, main, footer{max-width: var(--maxw); margin: 0 auto; padding: 0 16px;}
+  header{padding-top:24px; padding-bottom:8px;}
+
+  /* ---- Brand / Title ---- */
+  .brand{
+    font-family: var(--font-head);
+    font-weight: 800;
+    margin:0;
+    letter-spacing: 0.02em;
+    line-height: 1.35;
+    font-size: clamp(1.6rem, 1.8vw + 1.2rem, 2.4rem);
+  }
+
+  /* ---- Navigation ---- */
+  nav{
+    display:flex; flex-wrap:wrap; gap: 12px;
+    padding: 10px 16px 14px 16px;
+    border-bottom:1px solid var(--rule);
+  }
+  nav a{
+    color: var(--link);
+    text-decoration:none;
+    font-weight: 600;
+    font-size: 0.98rem;
+    padding: 4px 0;
+  }
+  nav a:hover{text-decoration:underline}
+
+  /* ---- Headings ---- */
+  h2, h3 { font-family: var(--font-head); line-height: 1.45; margin: 1.4rem 0 .8rem; }
+  h2{
+    font-weight: 700;
+    font-size: clamp(1.35rem, 1.0vw + 1.0rem, 1.8rem);
+    border-left: 6px solid var(--accent);
+    padding-left: 10px;
+  }
+  h3{ font-weight:700; font-size: 1.15rem; color: var(--muted); }
+
+  /* ---- Text & lists ---- */
+  p, li { font-size: 1rem; }
+  ul, ol { padding-left: 1.25rem; }
+  li{ margin-bottom: .45rem; }
+  .muted{ color: var(--muted); }
+
+  /* ---- Sections & footer ---- */
+  section { margin: 2.0rem 0; }
+  footer{
+    margin-top: 3rem; padding-top: 1rem; padding-bottom:2rem;
+    border-top:1px solid var(--rule);
+    font-size:.95rem; color: var(--muted);
+  }
 </style>
+
 </head>
 <body>
 
