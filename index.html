@@ -92,6 +92,26 @@
     #rss-feed ul{ list-style: none; padding-left: 0; }
     #rss-feed li{ margin: .6rem 0; }
     #rss-feed .date{ font-weight:700; }
+
+    /* ---- Notice Box (Pattern A) ---- */
+    .notice-box {
+      background-color: #f0fdf9; /* 薄い緑色の背景 */
+      border: 2px solid var(--accent); /* アクセントカラーの枠線 */
+      border-radius: 6px;
+      padding: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .notice-box h3 {
+      color: var(--accent);
+      margin: 0 0 0.5rem 0;
+      border: none; /* デフォルトの見出しスタイルを打ち消し */
+      padding: 0;
+      font-size: 1.1rem;
+    }
+    .notice-box p {
+      margin: 0;
+      line-height: 1.6;
+    }
   </style>
 
 </head>
@@ -113,6 +133,14 @@
 
   <main>
     <section id="about">
+      <div class="notice-box">
+        <h3>クラウドワークスよりお越しの方へ</h3>
+        <p>
+          現在、本研究室ではアンケート調査の業務をクラウドワークスにて依頼しております。<br>
+          依頼詳細をご確認の上、ご協力いただけますと幸いです。<br>
+          <span class="muted" style="font-size:0.9rem">※本サイトは研究室の公式ページです。依頼主の身元確認としてご覧の方も、どうぞ安心してお引き受けください。</span>
+        </p>
+      </div>
       <h2>研究紹介</h2>
       <p><strong>田中 勝也</strong><br>
          滋賀大学 経済学部 / 環境総合研究センター / データサイエンス・AI研究推進センター 教授<br>
