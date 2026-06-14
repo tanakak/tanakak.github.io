@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)file:///Users/katsuyat/Downloads/oasis-kun_8.html -->
+<!-- saved from url=(0049)file:///Users/katsuyat/Downloads/oasis-kun_9.html -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
@@ -144,7 +144,7 @@
       <button class="skill" data-k="maneki"><span class="kanji">招</span><span class="nm">まねき</span><div class="cd hidden"></div></button>
       <button class="skill" data-k="shukufuku"><span class="kanji">祝</span><span class="nm">いやし</span><div class="cd hidden"></div></button>
     </div>
-    <div id="hint">右側をドラッグして方向を出すと進み続ける／左下が必殺技</div>
+    <div id="hint">ドラッグで進む向きを決定（離しても継続・タップで停止）／左下が必殺技</div>
   </div>
 
   <div class="toast" id="toast"></div>
@@ -161,7 +161,7 @@
     <div class="panel">
       <h2>あそびかた</h2>
       <div class="controls-grid">
-        <div><b>移動</b> 右側をドラッグ→その向きへ進む</div>
+        <div><b>移動</b> ドラッグで向き決定→自動で進む</div>
         <div><b>移動(PC)</b> WASD / 矢印</div>
         <div><b>通常技</b> 進行方向へ自動投擲</div>
         <div><b>狙い</b> 歩いた向きに発射</div>
@@ -263,18 +263,19 @@ window.addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=false;});
 const mouse = {x:VW/2,y:VH/2,active:false};
 cv.addEventListener('mousemove',e=>{mouse.x=e.clientX-frameRect.left;mouse.y=e.clientY-frameRect.top;mouse.active=true;});
 
-/* touch joystick: 方向を出すとその向きにフル速度で進み続ける（矢印キー式） */
-const stick = {active:false, id:null, bx:0, by:0, kx:0, ky:0, dirX:0, dirY:0};
-const STICK_DEAD=8, STICK_MAX=56;
+/* touch: ドラッグで進行方向をセット → 指を離してもその向きに進み続ける。タップで停止 */
+const stick = {active:false, id:null, bx:0, by:0, kx:0, ky:0, maxDrag:0};
+const heading = {x:0, y:0};                 // 現在の進行方向（保持される）
+const STICK_DEAD=10, STICK_MAX=56;
 cv.addEventListener('touchstart',handleTouchStart,{passive:false});
 cv.addEventListener('touchmove',handleTouchMove,{passive:false});
 cv.addEventListener('touchend',handleTouchEnd,{passive:false});
 cv.addEventListener('touchcancel',handleTouchEnd,{passive:false});
 function handleTouchStart(e){
   for(const t of e.changedTouches){
-    if(!stick.active && (t.clientX-frameRect.left) > VW*0.34){   // フレーム右側＝移動エリア
+    if(!stick.active){
       stick.active=true; stick.id=t.identifier;
-      stick.bx=t.clientX; stick.by=t.clientY; stick.kx=0; stick.ky=0; stick.dirX=0; stick.dirY=0;
+      stick.bx=t.clientX; stick.by=t.clientY; stick.kx=0; stick.ky=0; stick.maxDrag=0;
     }
   }
   e.preventDefault();
@@ -282,20 +283,22 @@ function handleTouchStart(e){
 function handleTouchMove(e){
   for(const t of e.changedTouches){
     if(stick.active && t.identifier===stick.id){
-      let dx=t.clientX-stick.bx, dy=t.clientY-stick.by;
-      const m=Math.hypot(dx,dy);
-      if(m>STICK_DEAD){ stick.dirX=dx/m; stick.dirY=dy/m; }   // 向きが決まればフル速度
-      else { stick.dirX=0; stick.dirY=0; }
+      const dx=t.clientX-stick.bx, dy=t.clientY-stick.by, m=Math.hypot(dx,dy);
+      if(m>stick.maxDrag) stick.maxDrag=m;
+      if(m>STICK_DEAD){ heading.x=dx/m; heading.y=dy/m; }   // ドラッグした向きを進行方向にセット
       const km=Math.min(m,STICK_MAX);
-      stick.kx = m>0 ? dx/m*km : 0;
-      stick.ky = m>0 ? dy/m*km : 0;
+      stick.kx = m>0?dx/m*km:0; stick.ky = m>0?dy/m*km:0;
     }
   }
   e.preventDefault();
 }
 function handleTouchEnd(e){
   for(const t of e.changedTouches){
-    if(t.identifier===stick.id){ stick.active=false; stick.id=null; stick.dirX=stick.dirY=0; }
+    if(t.identifier===stick.id){
+      // ほぼ動かさないタップ＝停止。ドラッグしていれば進行方向は保持（離しても進み続ける）
+      if(stick.maxDrag < STICK_DEAD){ heading.x=0; heading.y=0; }
+      stick.active=false; stick.id=null;
+    }
   }
   e.preventDefault();
 }
@@ -698,15 +701,17 @@ function update(dt){
   updateSkillUI();
 
   /* ---- player movement ---- */
-  let ix=0,iy=0;
-  if(keys['w']||keys['arrowup']) iy-=1;
-  if(keys['s']||keys['arrowdown']) iy+=1;
-  if(keys['a']||keys['arrowleft']) ix-=1;
-  if(keys['d']||keys['arrowright']) ix+=1;
-  if(stick.active && (stick.dirX||stick.dirY)){ ix=stick.dirX; iy=stick.dirY; }
+  let kx=0,ky=0;
+  if(keys['w']||keys['arrowup']) ky-=1;
+  if(keys['s']||keys['arrowdown']) ky+=1;
+  if(keys['a']||keys['arrowleft']) kx-=1;
+  if(keys['d']||keys['arrowright']) kx+=1;
+  let ix,iy;
+  if(kx||ky){ ix=kx; iy=ky; heading.x=0; heading.y=0; }   // キーボードは即時上書き
+  else { ix=heading.x; iy=heading.y; }                    // タッチ：設定した進行方向を継続
   let mag=Math.hypot(ix,iy);
   if(mag>1){ ix/=mag; iy/=mag; mag=1; }
-  const targetSpeed = player.speed*(mag>0?1:0);   // 方向が入っていればフル速度
+  const targetSpeed = player.speed*(mag>0?1:0);
   player.vx=lerp(player.vx, ix*targetSpeed, 0.3);
   player.vy=lerp(player.vy, iy*targetSpeed, 0.3);
   player.x+=player.vx*dt; player.y+=player.vy*dt;
@@ -1490,6 +1495,7 @@ function startGame(){
   stageIdx=0; score=0; combo=0; shake=0; freeze=0;
   for(const k in cooldown) cooldown[k]=0;
   player=makePlayer();
+  heading.x=0; heading.y=0;
   buildLevel(0);
   document.getElementById('stageLbl').textContent='STAGE 1';
   document.getElementById('bossbar').classList.add('hidden');
