@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>田中勝也研究室 – 研究室メンバー</title>
+  <title>研究室メンバー｜田中勝也研究室</title>
+<meta content="田中勝也研究室のメンバー紹介。客員研究員、大学院生、学部生の研究テーマを掲載しています。" name="description"/>
   
   <style>
     /* ---- Base typography & layout ---- */
@@ -68,9 +69,15 @@
 
     /* ---- Text & lists ---- */
     p, li { font-size: 1rem; }
-    ul{ padding-left: 1.25rem; }
-    li{ margin-bottom: .45rem; }
+    ul, ol { padding-left: 1.25rem; }
+    li{ margin-bottom: .35rem; }
     .muted{ color: var(--muted); }
+
+    /* ---- Grid for main/aside ---- */
+    .grid{ display:grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 860px){
+      .grid{ grid-template-columns: 2fr 1fr; }
+    }
 
     /* ---- Sections & footer ---- */
     section { margin: 2.0rem 0; }
@@ -79,24 +86,55 @@
       border-top:1px solid var(--rule);
       font-size:.95rem; color: var(--muted);
     }
+
+    /* ---- Blog feed items ---- */
+    .pubs li{ margin-bottom:.45rem }
+    #rss-feed ul{ list-style: none; padding-left: 0; }
+    #rss-feed li{ margin: .6rem 0; }
+    #rss-feed .date{ font-weight:700; }
+
+    /* ---- Notice Box (Pattern A) ---- */
+    .notice-box {
+      background-color: #f0fdf9; /* 薄い緑色の背景 */
+      border: 2px solid var(--accent); /* アクセントカラーの枠線 */
+      border-radius: 6px;
+      padding: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .notice-box h3 {
+      color: var(--accent);
+      margin: 0 0 0.5rem 0;
+      border: none; /* デフォルトの見出しスタイルを打ち消し */
+      padding: 0;
+      font-size: 1.1rem;
+    }
+    .notice-box p {
+      margin: 0;
+      line-height: 1.6;
+    }
+    /* リンクを目立たせるための追加スタイル */
+    .notice-box a.btn-link {
+        font-weight: bold;
+        color: #0366d6;
+    }
   </style>
 
 </head>
 <body>
 
 <header>
-  <p class="brand">田中勝也研究室 – データサイエンス × 持続可能な都市＠滋賀大学</p>
+<p class="brand">田中勝也研究室｜環境経済学 × 気候・災害リスク × データサイエンス</p>
 </header>
 
 <nav>
-  <a href="index.html">ホーム</a>
-  <a href="members.html">メンバー</a>
-  <a href="pub.html">研究業績</a>
-  <a href="funding.html">外部資金</a>
-  <a href="lec">講義</a>
-  <a href="https://note.com/tanakak_lab" target="_blank" rel="noopener">研究室ブログ</a>
-  <a href="fs.html">FactorialSurvey</a>
-  <a href="en.html">English</a>
+<a href="index.html">ホーム</a>
+<a href="members.html">メンバー</a>
+<a href="pub.html">研究業績</a>
+<a href="funding.html">外部資金</a>
+<a href="lec">講義</a>
+<a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">研究室ブログ</a>
+<a href="fs.html">FactorialSurvey</a>
+<a href="en.html">English</a>
 </nav>
 
 <main>
@@ -131,9 +169,7 @@
   </section>
 </main>
 
-<footer>
-  © 2026 Tanaka Laboratory. All rights reserved.
-</footer>
+<footer>© 2026 Tanaka Laboratory. All rights reserved.</footer>
 
 </body>
 </html>
