@@ -2,255 +2,198 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>研究業績｜田中勝也研究室</title>
 <meta content="田中勝也研究室の研究業績一覧。ワーキングペーパー、査読付論文、学会報告、書籍を掲載しています。" name="description"/>
-
-<style>
-    /* ---- Base typography & layout ---- */
-    :root{
-      --font-body: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo", sans-serif;
-      --font-head: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo", sans-serif;
-      --text: #111;
-      --muted: #666;
-      --link: #0366d6;
-      --rule: #eee;
-      --accent: #0aa77f;
-      --maxw: 880px;
-    }
-    html { font-size: 16px; }
-    body{
-      font-family: var(--font-body);
-      color: var(--text);
-      line-height: 1.8;
-      margin:0;
-      letter-spacing: 0.01em;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      background: #fff;
-    }
-    header, nav, main, footer{max-width: var(--maxw); margin: 0 auto; padding: 0 16px;}
-    header{padding-top:24px; padding-bottom:8px;}
-
-    /* ---- Brand / Title ---- */
-    .brand{
-      font-family: var(--font-head);
-      font-weight: 800;
-      margin:0;
-      letter-spacing: 0.02em;
-      line-height: 1.35;
-      font-size: clamp(1.6rem, 1.8vw + 1.2rem, 2.4rem);
-    }
-
-    /* ---- Navigation ---- */
-    nav{
-      display:flex; flex-wrap:wrap; gap: 12px;
-      padding: 10px 16px 14px 16px;
-      border-bottom:1px solid var(--rule);
-    }
-    nav a{
-      color: var(--link);
-      text-decoration:none;
-      font-weight: 600;
-      font-size: 0.98rem;
-      padding: 4px 0;
-    }
-    nav a:hover{text-decoration:underline}
-
-    /* ---- Headings ---- */
-    h2, h3 { font-family: var(--font-head); line-height: 1.45; margin: 1.4rem 0 .8rem; }
-    h2{
-      font-weight: 700;
-      font-size: clamp(1.35rem, 1.0vw + 1.0rem, 1.8rem);
-      border-left: 6px solid var(--accent);
-      padding-left: 10px;
-    }
-    h3{ font-weight:700; font-size: 1.15rem; color: var(--muted); }
-
-    /* ---- Text & lists ---- */
-    p, li { font-size: 1rem; }
-    ul, ol { padding-left: 1.25rem; }
-    li{ margin-bottom: .35rem; }
-    .muted{ color: var(--muted); }
-
-    /* ---- Grid for main/aside ---- */
-    .grid{ display:grid; grid-template-columns: 1fr; gap: 20px; }
-    @media (min-width: 860px){
-      .grid{ grid-template-columns: 2fr 1fr; }
-    }
-
-    /* ---- Sections & footer ---- */
-    section { margin: 2.0rem 0; }
-    footer{
-      margin-top: 3rem; padding-top: 1rem; padding-bottom:2rem;
-      border-top:1px solid var(--rule);
-      font-size:.95rem; color: var(--muted);
-    }
-
-    /* ---- Blog feed items ---- */
-    .pubs li{ margin-bottom:.45rem }
-    #rss-feed ul{ list-style: none; padding-left: 0; }
-    #rss-feed li{ margin: .6rem 0; }
-    #rss-feed .date{ font-weight:700; }
-
-    /* ---- Notice Box (Pattern A) ---- */
-    .notice-box {
-      background-color: #f0fdf9; /* 薄い緑色の背景 */
-      border: 2px solid var(--accent); /* アクセントカラーの枠線 */
-      border-radius: 6px;
-      padding: 1.2rem;
-      margin-bottom: 2rem;
-    }
-    .notice-box h3 {
-      color: var(--accent);
-      margin: 0 0 0.5rem 0;
-      border: none; /* デフォルトの見出しスタイルを打ち消し */
-      padding: 0;
-      font-size: 1.1rem;
-    }
-    .notice-box p {
-      margin: 0;
-      line-height: 1.6;
-    }
-    /* リンクを目立たせるための追加スタイル */
-    .notice-box a.btn-link {
-        font-weight: bold;
-        color: #0366d6;
-    }
-  </style>
-
+<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
 
 <header>
-<p class="brand">田中勝也研究室｜環境経済学 × 気候・災害リスク × データサイエンス</p>
+  <p class="brand"><a href="index.html">田中勝也研究室</a></p>
+  <p class="tagline">環境経済学 × 気候・災害リスク × データサイエンス</p>
 </header>
 
 <nav>
-<a href="index.html">ホーム</a>
-<a href="members.html">メンバー</a>
-<a href="pub.html">研究業績</a>
-<a href="funding.html">外部資金</a>
-<a href="lec">講義</a>
-<a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">研究室ブログ</a>
-<a href="fs.html">FactorialSurvey</a>
-<a href="en.html">English</a>
+  <a href="index.html">ホーム</a>
+  <a href="members.html">メンバー</a>
+  <a href="pub.html" class="active" aria-current="page">研究業績</a>
+  <a href="funding.html">外部資金</a>
+  <a href="lec">講義</a>
+  <a href="fs.html">FactorialSurvey</a>
+  <a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">研究室ブログ ↗</a>
+  <a class="lang" href="en.html">English</a>
 </nav>
 
 <main>
-<section>
-  <h2>研究業績</h2>
-  <div class="toc">
-    <a href="#workingpapers">ワーキングペーパー</a>
-    <a href="#papers">査読付論文</a>
-    <a href="#presentations">学会報告</a>
-    <a href="#books">書籍</a>
-  </div>
 
-  <h3 id="workingpapers">ワーキングペーパー（投稿中論文）</h3>
-  <ul>
-    <li>Tanaka, K., &amp; Nishishiba, M. (2026). Beyond Information Delivery: Communication Effectiveness, Risk Perception, and Earthquake Preparedness in Portland, Oregon. Available at SSRN: <a href="https://ssrn.com/abstract=6864548">https://ssrn.com/abstract=6864548</a></li>
-    <li>Kondo, N., &amp; Tanaka, K. (2026). Strategic Bundling and Political Feasibility: A User-Segmented Valuation of Multimodal Street Redesign. Available at SSRN: <a href="https://ssrn.com/abstract=6025935">https://ssrn.com/abstract=6025935</a></li>
-    <li>Tanaka, K., Takada, G., Dill, J., McNeil, N., Geller, R., &amp; Kondo, N. (2025). Green Streets, Stronger Bonds: Causal Evidence on How Sustainable Transport Infrastructure Builds Urban Resilience. Available at SSRN: <a href="https://ssrn.com/abstract=5736387">https://ssrn.com/abstract=5736387</a></li>
-    <li>Tanaka, K., Akaishi, K., Yokota, T., &amp; Kusano F. (2025). Crossing the Behavioral Threshold: Social Amplification and Climate Risk Management in Urban Flood Evacuation Intention. Available at SSRN: <a href="https://ssrn.com/abstract=5667853">https://ssrn.com/abstract=5667853</a></li>
-    <li>Tanaka, K. (2025). A Unified Framework for Estimating Willingness to Pay Using Factorial Survey Experiments. Available at SSRN: <a href="https://dx.doi.org/10.2139/ssrn.5238343">https://dx.doi.org/10.2139/ssrn.5238343</a></li>
-  </ul>
+<h1 class="page-title">研究業績</h1>
+<p class="muted">最新の被引用情報は <a href="https://scholar.google.com/citations?user=ZWzGPJcAAAAJ&amp;hl=ja" rel="noopener" target="_blank">Google Scholar</a> もご覧ください。</p>
+<div class="toc">
+  <a href="#workingpapers">ワーキングペーパー<span class="count">（5）</span></a>
+  <a href="#papers">査読付論文<span class="count">（58）</span></a>
+  <a href="#presentations">学会報告<span class="count">（14）</span></a>
+  <a href="#books">書籍<span class="count">（7）</span></a>
+</div>
 
-  <h3 id="papers">査読付論文</h3>
-  <ul>
-    <li>Tanaka, K., Dill, J., McNeil, N., Geller, R., &amp; Kondo, N. (Forthcoming). What Are Safer Streets Worth? Bridging Resident Preferences and Policy Design in Traffic Calming. <em>Transportation Research Part A: Policy and Practice</em>.</li>
-    <li>Tanaka, K. &amp; Akaishi, K. (2026). Survival First: How Citizens Prioritize Competing Climate-Health Risk Countermeasures Under Fiscal Constraints. <em>Risk Analysis</em>, 46(8), e70315. <a href="https://doi.org/10.1111/risa.70315">https://doi.org/10.1111/risa.70315</a></li>
-    <li>Tanaka, K., Kito, T., &amp; Tanaka, K. (2026). When Flood Warnings Fail: Psychological Predictors of Information Clarity and Evacuation Intention. <em>International Journal of Disaster Risk Reduction</em>, 137. <a href="https://doi.org/10.1016/j.ijdrr.2026.106075">https://doi.org/10.1016/j.ijdrr.2026.106075</a></li>
-    <li>Du, S., Tanaka, K., Sasaki, H., Horie, T., &amp; Horie, S. (2026). Promoting Methane Reductions Through Behavioural Nudges and Informational Boosts: A Field Choice Experiment in Japanese Rice Farming. <em>Journal of Agricultural Economics </em>. <a href="https://doi.org/10.1111/1477-9552.70038">https://doi.org/10.1111/1477-9552.70038</a></li>
-    <li>Han, J., Kim. Y., &amp; Tanaka, K. (2026). The Role of Green Infrastructure in Enhancing Flood Resilience: A Spatial Perspective. <em>Environmental Management</em>, 76, 169. <a href="https://doi.org/10.1007/s00267-026-02470-9">https://doi.org/10.1007/s00267-026-02470-9</a></li>
-    <li>Wang, N., Liu, H., Qi, G., Hua, W., Tanaka, K., Li, X., Zhang, Y., Wang, Y., Lu, H., & Luo, L. (2026). How to motivate green action among small farmers: Evidence from China. <em>Sustainability</em>, 18(3), 1669. 
-   <a href="https://doi.org/10.3390/su18031669">https://doi.org/10.3390/su18031669</a></li>
-    <li>Tanaka, K., Kito, T., &amp; Tanaka, K. (2026). Who Pays for Preparedness? Valuing Disaster App Features Through a Factorial Survey Experiment in Flood-Prone Communities. <em>International Journal of Disaster Risk Reduction</em>. 133:105933. <a href="https://doi.org/10.1016/j.ijdrr.2025.105933">https://doi.org/10.1016/j.ijdrr.2025.105933</a></li>
-    <li>田中勝也・松本礼史・竹内真司・松岡俊二（2026）「災害リスクの不確実性と市民意識の変容プロセス ― 首都直下地震を考える市民会議における6時点パネルデータの縦断的分析 ―」『災害情報』24(2).</li>
-    <li>王瑒・田中勝也・向山雅之（2026）「札幌市における企業のグリーンインフラ導入に対する選好分析」『都市計画論文集』61(3).</li>
-    <li>上田一慶・田中勝也（2026）「歩道空間の利便性および快適性の改善に向けた住民選好の分析―横浜市を対象として」都市計画論文集, 61(1).</li>
-    <li>Tanaka, K., Akaishi, K. & Yokota, T. (2025). Public preferences for flood warning improvements: An inferred valuation approach addressing social desirability bias. <em>International Journal of Disaster Risk Reduction</em>, 126, 105571. <a href="https://doi.org/10.1016/j.ijdrr.2025.105571">https://doi.org/10.1016/j.ijdrr.2025.105571</a></li>
-    <li>Du, S., Tanaka, K., & Yagi, H. (2025). Farmers’ Adoption of Water Management Practice for Methane Reduction in Rice Paddies: A Spatial Analysis in Shiga, Japan. <em>Sustainability</em>, 17(8), 3468. <a href="https://doi.org/10.3390/su17083468">https://doi.org/10.3390/su17083468</a></li>
-    <li>Lu, C., Tanaka, K., Shen, Q. (2024) Residents’ preferences on green infrastructure in Wuhan, China. Sustainability 16(23):10303. <a href="https://doi.org/10.3390/su162310303">https://doi.org/10.3390/su162310303</a></li>
-    <li>Du, S., Tanaka, K. (2024) “Residents’ preferences for urban agriculture in Shanghai” <em>Heliyon</em>. <a href="https://doi.org/10.1016/j.heliyon.2024.e30974">https://doi.org/10.1016/j.heliyon.2024.e30974</a></li>
-    <li>Yagi, H., Tanaka, K., Fujii, Y., &amp; Inoue, N. (2024). Stakeholder management and organizational form of arable farms: a comparison of paddy farm corporations in Japan. <em>International Food and Agribusiness Management Review</em>. <a href="https://doi.org/10.22434/ifamr2022.0005">https://doi.org/10.22434/ifamr2022.0005</a></li>
-    <li>Kohon, J., Tanaka, K., Himes, D., Toda, E., Carder, P., Carlson, B. (2023) “Extreme Heat Vulnerability among Older Adults: A Multi-level Risk Index for Portland, Oregon” <em>The Gerontologist</em>. <a href="https://doi.org/10.1093/geront/gnad074">https://doi.org/10.1093/geront/gnad074</a></li>
-    <li>Carlson, B., Kohon, J.N., Carder, P.C., Himes, D., Toda, E., Tanaka, K. (2023) “Climate Change Policies and Older Adults: An Analysis of States’ Climate Adaptation Plans” <em>The Gerontologist</em>. <a href="https://doi.org/10.1093/geront/gnad077">https://doi.org/10.1093/geront/gnad077</a></li>
-    <li>Kim, Y., Tanaka, K., Perrings, C. (2023). “The impact of international conservation agreements on protected areas: Empirical findings from the Convention on Biological Diversity using causal inference” <em>Environmental Management</em>. <a href="https://doi.org/10.1007/s00267-023-01818-9">https://doi.org/10.1007/s00267-023-01818-9</a></li>
-    <li>近藤紀章・田中勝也（2023）「まちづくり意識に対する住民の主観評価と推論評価の比較」都市計画論集, 58(3):555-561. <a href="https://doi.org/10.11361/journalcpij.58.555">https://doi.org/10.11361/journalcpij.58.555</a></li>
-    <li>Tanaka, K., Nelson, H., McCullar, N., Parulekar, N., (2022). “Citizens’ preferences on green infrastructure practices and their enhancement in Portland, Oregon” <em>Journal of Environmental Management</em>. 318: 115415. <a href="https://doi.org/10.1016/j.jenvman.2022.115415">https://doi.org/10.1016/j.jenvman.2022.115415</a>  (Working paper pdf)</li>
-    <li>Wu, Z., Hua, W., Luo, L., Tanaka, K. (2022). Technical Efficiency of Maize Production and Its Influencing Factors in the World’s Largest Groundwater Drop Funnel Area, China. <em>Agriculture</em>, 12(5), 649; <a href="https://doi.org/10.3390/agriculture12050649">https://doi.org/10.3390/agriculture12050649</a></li>
-    <li>Tanaka, K., Hanley, N., Kuhfuss, L. (2022) Farmers’ Preferences Toward an Outcome-based Payment for Ecosystem Service Scheme in Japan, <em>Journal of Agricultural Economics</em>. <a href="https://doi.org/10.1111/1477-9552.12478">https://doi.org/10.1111/1477-9552.12478</a></li>
-    <li>Qin, Z., Tanaka, K., Matsuoka, S. (2022) Regional Disparities in Bonding and Bridging Social Capital: An Empirical Study of Rural and Urban Japan, <em>International Journal of Japanese Sociology</em>. <a href="https://doi.org/10.1111/ijjs.12130">https://doi.org/10.1111/ijjs.12130</a></li>
-    <li>Ismono, H., Arifin, B., Tanaka, K., &amp; Kada, R. (2022). Impacts of Coffee Agroforestry and Sustainability Certification on Farmers’ Livelihood in Sumatra-Indonesia. <em>Sustainability Science and Resources</em>, 2, 77–95. <a href="https://doi.org/10.55168/ssr2809-6029.2022.2005">https://doi.org/10.55168/ssr2809-6029.2022.2005</a></li>
-    <li>近藤紀章・田中勝也（2022）「生活道路の空間再編が交通静穏化と身体活動の促進に与える影響」『都市計画論文集』57(3):1295-1300. <a href="https://doi.org/10.11361/journalcpij.57.1295">https://doi.org/10.11361/journalcpij.57.1295</a></li>
-    <li>Takahashi, T. and K. Tanaka（2021）”Models Explaining the Levels of Forest Environmental Taxes and other PES Schemes in Japan” <em>Forests</em> 2021, 12(6), 685. <a href="https://doi.org/10.3390/f12060685">https://doi.org/10.3390/f12060685</a></li>
-    <li>近藤紀章・田中勝也（2021）「COVID-19 pandemicがオレゴン州ポートランドのMobility Mixに与える影響」『環境情報科学論文集』35:49-54. <a href="https://doi.org/10.11492/ceispapers.ceis35.0_49">https://doi.org/10.11492/ceispapers.ceis35.0_49</a></li>
-    <li>Kim, Y., K. Tanaka, S. Matsuoka (2020) Environmental and economic effectiveness of the Kyoto Protocol, <em>PLOS ONE</em> 15(7): e0236299. <a href="https://doi.org/10.1371/journal.pone.0236299">https://doi.org/10.1371/journal.pone.0236299</a></li>
-    <li>Samad, N. S. A., Abdul-Rahim, A. S., Mohd Yusof, M. J., &amp; Tanaka, K. (2020). Assessing the Economic Value of Urban Green Spaces in Kuala Lumpur. <em>Environmental Science and Pollution Research</em>, 27(10), 10367–10390. <a href="https://doi.org/10.1007/s11356-019-07593-7">https://doi.org/10.1007/s11356-019-07593-7</a></li>
-    <li>大西茂・田中勝也（2020）「地場産農産物に対する消費者の選好」『農林業問題研究』56(2):27-37.</li>
-    <li>薗巳晴・田中勝也・柘植隆宏・大沼あゆみ（2019）「遺伝資源へのアクセスと利益配分（ABS）をめぐる法と経済」『環境経済・政策研究』12(2):19-30.</li>
-    <li>田中勝也（2019）「持続可能な農業農村における農業環境支払の役割と課題」『農村計画学会誌』38(2):139-140.</li>
-    <li>田中勝也・長廣修平（2019）「森林の生態系サービスの価値に対する主観評価と推論評価の比較」『環境経済・政策研究』12(1):44-58.</li>
-    <li>京井尋佑・田中勝也 (2019) 「空間的自己相関を考慮した環境直接支払の採択要因」土木学会論文集G（環境）, 75(1):20-29.</li>
-    <li>近藤紀章・中野桂・田中勝也（2019）「生活意識構造の特性をふまえたペットの飼い主による社会参加の可能性」『土木学会論文集G（環境）』75.</li>
-    <li>大西茂・田中勝也（2019）「エシカル消費としての地域農産物に対する消費者選好」『環境情報科学学術研究論文集』Vol.33.</li>
-    <li>近藤紀章・中野桂・田中勝也（2019）「社会属性と地域特性が将来居住地選択に与える影響に関する研究」『都市計画論文集』54(3):766 ～ 771.</li>
-    <li>近藤紀章・中野桂・田中勝也（2019）「コミュニティへの関与実態と関与意向が居住地選好に与える影響」『環境情報科学学術研究論文集』Vol.33.</li>
-    <li>Choi, A.S., C-K. Lee, K. Tanaka, X. Hong (2018) “Value spillovers from the Korean DMZ areas and social desirability” <em>Journal of Behavioral and Experimental Economics</em> 75:95-104.</li>
-    <li>Nur Syafiqah, A.S., A.S. Abdul-Rahim, Mohd Johari, M. Y. and Tanaka, K. (2018) “An Economic Valuation of Urban Green Spaces in Kuala Lumpur City” Pertanika Journal of Social Sciences and Humanities 26(1):469-490.</li>
-    <li>夏吾太・田中勝也（2018）「環境直接支払制度の普及要因に関する都道府県別パネルデータ分析」『土木学会論文集G（環境）』74(30):110-116.</li>
-    <li>田中勝也・中野桂・道上浩也（2018）「ソーシャル・キャピタルが地方創生に与える影響– 市区町村GISデータによる空間計量経済分析 –」『経済分析』Vol.197, pp.53-69.</li>
-    <li>Kim, Y., K. Tanaka, and C. Ge (2017) “Estimating the provincial environmental Kuznets curve in China: a geographically weighted regression approach” Stochastic Environmental Research and Risk Assessment 2017:1-17.</li>
-    <li>Kada, R., B. Arifin, H. Ismono, K. Tanaka (2017) “From Agroforestry to Coffee Certification: An Examination of Sustainability of Smallholder Farmers in Sekampung Watersheds, Sumatra-Indonesia” Proceedings of the Asian Food Safety and Security Association Conference 2016, 87-91.</li>
-    <li>覃子懿・田中勝也（2017）「日本におけるソーシャル・キャピタルの規定要因 – ボンディング型とブリッジング型の比較」『環境情報科学学術研究論文集』31:213-218.</li>
-    <li>胡笳・田中勝也・松岡俊二（2017）「日本のNPO活動水準を規定する組織要因と地域要因の分析」『ノンプロフィット・レビュー』17(1):39-48.</li>
-    <li>Kim, Y. and K. Tanaka, and X. Zhang (2017) “A Spatial Analysis of the Causal Factors Influencing China’s Air Pollution” Asian Journal of Atmospheric Environment 11(3):194-201.</li>
-    <li>Kim, Y., K. Tanaka, and S. Matsuoka (2017) “Institutional Mechanisms and the Consequences of International Environmental Agreements,” Global Environmental Politics 17(1):77-98.</li>
-    <li>Cho, S., K. Tanaka, J. Wu, Rober, R.K., and Kim, T. (2016) “Effects of nuclear power plant shutdowns on electricity consumption and greenhouse gas emissions after the Tohoku Earthquake” Energy Economics 55:223-233.</li>
-    <li>夏吾太・田中勝也（2015）「中国の生態系サービス支払におけるスリップ効果 − 退耕還林政策における分析事例 −」『環境システム研究論文集』 第43巻.</li>
-    <li>田中勝也（2015）「環境直接支払の費用対効果におけるターゲティング戦略の影響」『土木学会論文集G（環境）』71(3):93-101.</li>
-    <li>金柔美・田中勝也・松岡俊二（2012）「国際環境レジームの有効性に関する定量分析：長距離越境大気汚染条約（LRTAP）を事例として」『環境情報科学学術研究論文集』26号.</li>
-    <li>田中勝也・松岡俊二・Thi Thi Kinh (2012)「ミャンマーデルタ地帯における安全な飲料水の供給に向けた便益評価」人間と環境 38(1): 7-12, 2012年.（PDF）</li>
-    <li>Jago-on K.A.B. et al. (2009) “Urbanization and Subsurface Environmental Issues: An Attempt at DPSIR Model Application in Asian Cities,” Science of the Total Environment 407(9): 30</li>
-    <li>Watanabe, M., &amp; Tanaka, K. (2007). Efficiency Analysis of Chinese Industry: A Directional Distance Function Approach. <em>Energy Policy</em>, 35(12), 6323–6331.</li>
-    <li>Wu, J., &amp; Tanaka, K. (2005). Reducing Nitrogen Runoff from the Upper Mississippi River Basin to Control Hypoxia in the Gulf of Mexico: Easements or Taxes? <em>Marine Resource Economics</em>, 20(2), 121–144. <a href="https://doi.org/10.1086/mre.20.2.42629465">https://doi.org/10.1086/mre.20.2.42629465</a></li>
-    <li>Tanaka, K., &amp; Wu, J. (2004). Evaluating the Effect of Conservation Policies on Agricultural Land Use: A Site-specific Modeling Approach. <em>Canadian Journal of Agricultural Economics</em>, 52(3), 217–235.</li>
-    <li>Wu, J., Adams, R. M., Kling, C. L., &amp; Tanaka, K. (2004). From Microlevel Decisions to Landscape Changes: An Assessment of Agricultural Conservation Policies. <em>American Journal of Agricultural Economics</em>, 86(1), 26–41.</li>
-  </ul>
-
-  <h3 id="presentations">学会報告（過去5年間）</h3>
-  <ul>
-    <li>Nishishiba, M., Tanaka, K., (2024) U.S.-Japan Cross-National Comparison on Disaster Communication: A Citizen Survey. American Society for Public Administration’s 2024 Annual Conference.</li>
-    <li>Lu, C., Tanaka, K., McCullar, N., & Parulekar, N. (2024). Exploring the drivers of citizen participation in green infrastructure maintenance: An empirical analysis for Portland. The 13th Congress of the Asian Association of Environmental and Resource Economics.</li>
-    <li>Du, S., Tanaka, K., Sasaki, H., Horie, T., Horie, S. (2024). Effectiveness of nudge in reducing methane emissions from agriculture. The 6th Congress of Research Network on Economic Experiments for the Common Agricultural Policy.</li>
-    <li>Du, S., Tanaka, K., Sasaki, H., Horie, T., Horie, S. (2024). Effectiveness of nudge in reducing methane emissions from agriculture. The 13th Congress of the Asian Association of Environmental and Resource Economics.</li>
-    <li>Wang, Y., & Tanaka, K. (2024). Citizens' preferences for small urban green infrastructure and social desirability bias in Shenzhen, China. The 7th International Eco-Civilization for a Sustainable and Desirable Future (Eco-Summit 2024).</li>
-    <li>Wang, Y., & Tanaka, K. (2024). Citizens' preferences for small urban green infrastructure and social desirability bias in Shenzhen, China. The 13th Congress of the Asian Association of Environmental and Resource Economics.</li>
-    <li>田中勝也・赤石一英（2024年）「横浜市における熱中症対策への市民選好と支払意思額」『日本災害情報学会第29回大会』.</li>
-    <li>田中勝也・赤石一英・横田崇・草野富二雄（2024年）「要因サーベイ実験による豪雨時避難行動の規定要因分析」『日本災害情報学会第28回大会』.</li>
-    <li>李楠森・田中勝也（2024年）「ソーシャル・キャピタルと地域リスクが災害への備えに及ぼす影響：ソフトとハードな対策の統合的分析」『日本災害情報学会第28回大会』.</li>
-    <li>Chang, L., Tanaka, K., Shen, Q. (2023). Citizens' preferences on green infrastructure in Wuhan, China. The 12th Congress of the Asian Association of Environmental and Resource Economics.</li>
-    <li>Du, S., Tanaka, K. (2023). Residents' preferences for urban agriculture in Shanghai. The 12th Congress of the Asian Association of Environmental and Resource Economics.</li>
-    <li>Nishiyama, S., Tanaka, K., Yamaguchi, T., Mukoyama, M. (2023). Firms’ preferences for green infrastructure adoption in Japan. The 13th International Conference on Landscape and Ecological Engineering.</li>
-    <li>田中勝也・赤石一英・横田崇（2023年）「洪水関連情報の社会的価値とバイアスの低減」『日本災害情報学会第27回大会』.</li>
-    <li>杜聖一・田中勝也・八木洋憲（2023年）「保全型農業における水田のメタン排出抑制の空間計量経済分析」『農村計画学会2023年秋期大会』.</li>
-  </ul>
-
-  <h3 id="books">書籍</h3>
-  <ul>
-    <li>ニック・ハンレー、ジェイソン・ショグレン、ベン・ホワイト著、田中勝也監訳（2021）『環境経済学入門』昭和堂.</li>
-    <li>田中勝也（2018）「協働ガバナンスと持続可能な地域社会―全国自治体アンケートによる指標化―」松岡俊二編『社会イノベーションと地域の持続性』有斐閣.</li>
-    <li>田中勝也（2014）「環境こだわり農業の影響評価：MIKEモデルによる定量分析」西澤栄一郎編『農業環境政策の経済分析』日本評論社.</li>
-    <li>田中勝也・金柔美（2013）「国際環境条約の有効性と東アジアの環境協力制度」松岡俊二編『アジアの環境ガバナンスと地域統合』勁草書房.</li>
-    <li>田中勝也（2012）「食料資源と水環境：農業における水質汚染をどう解決するか」馬奈木俊介編『資源と環境の経済学：ケーススタディで学ぶ』昭和堂.</li>
-    <li>Horiuchi, K., Matsumoto, R., &amp; Tanaka, K. (2012). Energy and environmental institutions in East Asia. In S. Amako, S. Matsuoka, &amp; K. Horiuchi (Eds.), <em>Regional Integration in East Asia: Theoretical and Historical Perspectives</em>. Tokyo: United Nations University Press.</li>
-    <li>堀内賢志・松本礼史・田中勝也（2011）「東アジアのエネルギー・環境制度」『アジア地域統合の展開』勁草書房.</li>
-  </ul>
+<section id="workingpapers">
+<h2>ワーキングペーパー（投稿中論文）</h2>
+<ul class="pubs">
+  <li><span class="me">Tanaka, K.</span>, &amp; Nishishiba, M. (2026). Beyond Information Delivery: Communication Effectiveness, Risk Perception, and Earthquake Preparedness in Portland, Oregon. <a class="doi" href="https://ssrn.com/abstract=6864548" rel="noopener" target="_blank">SSRN</a></li>
+  <li>Kondo, N., &amp; <span class="me">Tanaka, K.</span> (2026). Strategic Bundling and Political Feasibility: A User-Segmented Valuation of Multimodal Street Redesign. <a class="doi" href="https://ssrn.com/abstract=6025935" rel="noopener" target="_blank">SSRN</a></li>
+  <li><span class="me">Tanaka, K.</span>, Takada, G., Dill, J., McNeil, N., Geller, R., &amp; Kondo, N. (2025). Green Streets, Stronger Bonds: Causal Evidence on How Sustainable Transport Infrastructure Builds Urban Resilience. <a class="doi" href="https://ssrn.com/abstract=5736387" rel="noopener" target="_blank">SSRN</a></li>
+  <li><span class="me">Tanaka, K.</span>, Akaishi, K., Yokota, T., &amp; Kusano F. (2025). Crossing the Behavioral Threshold: Social Amplification and Climate Risk Management in Urban Flood Evacuation Intention. <a class="doi" href="https://ssrn.com/abstract=5667853" rel="noopener" target="_blank">SSRN</a></li>
+  <li><span class="me">Tanaka, K.</span> (2025). A Unified Framework for Estimating Willingness to Pay Using Factorial Survey Experiments. <a class="doi" href="https://dx.doi.org/10.2139/ssrn.5238343" rel="noopener" target="_blank">SSRN</a></li>
+</ul>
 </section>
+
+<section id="papers">
+<h2>査読付論文</h2>
+<p class="year">採択済み（掲載予定）</p>
+<ul class="pubs">
+  <li><span class="me">Tanaka, K.</span>, Dill, J., McNeil, N., Geller, R., &amp; Kondo, N. (Forthcoming). What Are Safer Streets Worth? Bridging Resident Preferences and Policy Design in Traffic Calming. <em>Transportation Research Part A: Policy and Practice</em>.</li>
+</ul>
+<p class="year">2026年</p>
+<ul class="pubs">
+  <li><span class="me">Tanaka, K.</span> &amp; Akaishi, K. (2026). Survival First: How Citizens Prioritize Competing Climate-Health Risk Countermeasures Under Fiscal Constraints. <em>Risk Analysis</em>, 46(8), e70315. <a class="doi" href="https://doi.org/10.1111/risa.70315" rel="noopener" target="_blank">DOI</a></li>
+  <li><span class="me">Tanaka, K.</span>, Kito, T., &amp; Tanaka, K. (2026). When Flood Warnings Fail: Psychological Predictors of Information Clarity and Evacuation Intention. <em>International Journal of Disaster Risk Reduction</em>, 137. <a class="doi" href="https://doi.org/10.1016/j.ijdrr.2026.106075" rel="noopener" target="_blank">DOI</a></li>
+  <li>Du, S., <span class="me">Tanaka, K.</span>, Sasaki, H., Horie, T., &amp; Horie, S. (2026). Promoting Methane Reductions Through Behavioural Nudges and Informational Boosts: A Field Choice Experiment in Japanese Rice Farming. <em>Journal of Agricultural Economics </em>. <a class="doi" href="https://doi.org/10.1111/1477-9552.70038" rel="noopener" target="_blank">DOI</a></li>
+  <li>Han, J., Kim, Y., &amp; <span class="me">Tanaka, K.</span> (2026). The Role of Green Infrastructure in Enhancing Flood Resilience: A Spatial Perspective. <em>Environmental Management</em>, 76, 169. <a class="doi" href="https://doi.org/10.1007/s00267-026-02470-9" rel="noopener" target="_blank">DOI</a></li>
+  <li>Wang, N., Liu, H., Qi, G., Hua, W., <span class="me">Tanaka, K.</span>, Li, X., Zhang, Y., Wang, Y., Lu, H., &amp; Luo, L. (2026). How to motivate green action among small farmers: Evidence from China. <em>Sustainability</em>, 18(3), 1669. <a class="doi" href="https://doi.org/10.3390/su18031669" rel="noopener" target="_blank">DOI</a></li>
+  <li><span class="me">Tanaka, K.</span>, Kito, T., &amp; Tanaka, K. (2026). Who Pays for Preparedness? Valuing Disaster App Features Through a Factorial Survey Experiment in Flood-Prone Communities. <em>International Journal of Disaster Risk Reduction</em>. 133:105933. <a class="doi" href="https://doi.org/10.1016/j.ijdrr.2025.105933" rel="noopener" target="_blank">DOI</a></li>
+  <li><span class="me">田中勝也</span>・松本礼史・竹内真司・松岡俊二（2026）「災害リスクの不確実性と市民意識の変容プロセス ― 首都直下地震を考える市民会議における6時点パネルデータの縦断的分析 ―」『災害情報』24(2).</li>
+  <li>王瑒・<span class="me">田中勝也</span>・向山雅之（2026）「札幌市における企業のグリーンインフラ導入に対する選好分析」『都市計画論文集』61(3).</li>
+  <li>上田一慶・<span class="me">田中勝也</span>（2026）「歩道空間の利便性および快適性の改善に向けた住民選好の分析―横浜市を対象として」都市計画論文集, 61(1).</li>
+</ul>
+<p class="year">2025年</p>
+<ul class="pubs">
+  <li><span class="me">Tanaka, K.</span>, Akaishi, K. &amp; Yokota, T. (2025). Public preferences for flood warning improvements: An inferred valuation approach addressing social desirability bias. <em>International Journal of Disaster Risk Reduction</em>, 126, 105571. <a class="doi" href="https://doi.org/10.1016/j.ijdrr.2025.105571" rel="noopener" target="_blank">DOI</a></li>
+  <li>Du, S., <span class="me">Tanaka, K.</span>, &amp; Yagi, H. (2025). Farmers’ Adoption of Water Management Practice for Methane Reduction in Rice Paddies: A Spatial Analysis in Shiga, Japan. <em>Sustainability</em>, 17(8), 3468. <a class="doi" href="https://doi.org/10.3390/su17083468" rel="noopener" target="_blank">DOI</a></li>
+</ul>
+<p class="year">2024年</p>
+<ul class="pubs">
+  <li>Lu, C., <span class="me">Tanaka, K.</span>, Shen, Q. (2024) Residents’ preferences on green infrastructure in Wuhan, China. Sustainability 16(23):10303. <a class="doi" href="https://doi.org/10.3390/su162310303" rel="noopener" target="_blank">DOI</a></li>
+  <li>Du, S., <span class="me">Tanaka, K.</span> (2024) “Residents’ preferences for urban agriculture in Shanghai” <em>Heliyon</em>. <a class="doi" href="https://doi.org/10.1016/j.heliyon.2024.e30974" rel="noopener" target="_blank">DOI</a></li>
+  <li>Yagi, H., <span class="me">Tanaka, K.</span>, Fujii, Y., &amp; Inoue, N. (2024). Stakeholder management and organizational form of arable farms: a comparison of paddy farm corporations in Japan. <em>International Food and Agribusiness Management Review</em>. <a class="doi" href="https://doi.org/10.22434/ifamr2022.0005" rel="noopener" target="_blank">DOI</a></li>
+</ul>
+<p class="year">2023年</p>
+<ul class="pubs">
+  <li>Kohon, J., <span class="me">Tanaka, K.</span>, Himes, D., Toda, E., Carder, P., Carlson, B. (2023) “Extreme Heat Vulnerability among Older Adults: A Multi-level Risk Index for Portland, Oregon” <em>The Gerontologist</em>. <a class="doi" href="https://doi.org/10.1093/geront/gnad074" rel="noopener" target="_blank">DOI</a></li>
+  <li>Carlson, B., Kohon, J.N., Carder, P.C., Himes, D., Toda, E., <span class="me">Tanaka, K.</span> (2023) “Climate Change Policies and Older Adults: An Analysis of States’ Climate Adaptation Plans” <em>The Gerontologist</em>. <a class="doi" href="https://doi.org/10.1093/geront/gnad077" rel="noopener" target="_blank">DOI</a></li>
+  <li>Kim, Y., <span class="me">Tanaka, K.</span>, Perrings, C. (2023). “The impact of international conservation agreements on protected areas: Empirical findings from the Convention on Biological Diversity using causal inference” <em>Environmental Management</em>. <a class="doi" href="https://doi.org/10.1007/s00267-023-01818-9" rel="noopener" target="_blank">DOI</a></li>
+  <li>近藤紀章・<span class="me">田中勝也</span>（2023）「まちづくり意識に対する住民の主観評価と推論評価の比較」都市計画論集, 58(3):555-561. <a class="doi" href="https://doi.org/10.11361/journalcpij.58.555" rel="noopener" target="_blank">DOI</a></li>
+</ul>
+<p class="year">2022年</p>
+<ul class="pubs">
+  <li><span class="me">Tanaka, K.</span>, Nelson, H., McCullar, N., Parulekar, N., (2022). “Citizens’ preferences on green infrastructure practices and their enhancement in Portland, Oregon” <em>Journal of Environmental Management</em>. 318: 115415. <a class="doi" href="https://doi.org/10.1016/j.jenvman.2022.115415" rel="noopener" target="_blank">DOI</a></li>
+  <li>Wu, Z., Hua, W., Luo, L., <span class="me">Tanaka, K.</span> (2022). Technical Efficiency of Maize Production and Its Influencing Factors in the World’s Largest Groundwater Drop Funnel Area, China. <em>Agriculture</em>, 12(5), 649; <a class="doi" href="https://doi.org/10.3390/agriculture12050649" rel="noopener" target="_blank">DOI</a></li>
+  <li><span class="me">Tanaka, K.</span>, Hanley, N., Kuhfuss, L. (2022) Farmers’ Preferences Toward an Outcome-based Payment for Ecosystem Service Scheme in Japan, <em>Journal of Agricultural Economics</em>. <a class="doi" href="https://doi.org/10.1111/1477-9552.12478" rel="noopener" target="_blank">DOI</a></li>
+  <li>Qin, Z., <span class="me">Tanaka, K.</span>, Matsuoka, S. (2022) Regional Disparities in Bonding and Bridging Social Capital: An Empirical Study of Rural and Urban Japan, <em>International Journal of Japanese Sociology</em>. <a class="doi" href="https://doi.org/10.1111/ijjs.12130" rel="noopener" target="_blank">DOI</a></li>
+  <li>Ismono, H., Arifin, B., <span class="me">Tanaka, K.</span>, &amp; Kada, R. (2022). Impacts of Coffee Agroforestry and Sustainability Certification on Farmers’ Livelihood in Sumatra-Indonesia. <em>Sustainability Science and Resources</em>, 2, 77–95. <a class="doi" href="https://doi.org/10.55168/ssr2809-6029.2022.2005" rel="noopener" target="_blank">DOI</a></li>
+  <li>近藤紀章・<span class="me">田中勝也</span>（2022）「生活道路の空間再編が交通静穏化と身体活動の促進に与える影響」『都市計画論文集』57(3):1295-1300. <a class="doi" href="https://doi.org/10.11361/journalcpij.57.1295" rel="noopener" target="_blank">DOI</a></li>
+</ul>
+<p class="year">2021年</p>
+<ul class="pubs">
+  <li>Takahashi, T. and <span class="me">K. Tanaka</span>（2021）”Models Explaining the Levels of Forest Environmental Taxes and other PES Schemes in Japan” <em>Forests</em> 2021, 12(6), 685. <a class="doi" href="https://doi.org/10.3390/f12060685" rel="noopener" target="_blank">DOI</a></li>
+  <li>近藤紀章・<span class="me">田中勝也</span>（2021）「COVID-19 pandemicがオレゴン州ポートランドのMobility Mixに与える影響」『環境情報科学論文集』35:49-54. <a class="doi" href="https://doi.org/10.11492/ceispapers.ceis35.0_49" rel="noopener" target="_blank">DOI</a></li>
+</ul>
+<p class="year">2020年</p>
+<ul class="pubs">
+  <li>Kim, Y., <span class="me">K. Tanaka</span>, S. Matsuoka (2020) Environmental and economic effectiveness of the Kyoto Protocol, <em>PLOS ONE</em> 15(7): e0236299. <a class="doi" href="https://doi.org/10.1371/journal.pone.0236299" rel="noopener" target="_blank">DOI</a></li>
+  <li>Samad, N. S. A., Abdul-Rahim, A. S., Mohd Yusof, M. J., &amp; <span class="me">Tanaka, K.</span> (2020). Assessing the Economic Value of Urban Green Spaces in Kuala Lumpur. <em>Environmental Science and Pollution Research</em>, 27(10), 10367–10390. <a class="doi" href="https://doi.org/10.1007/s11356-019-07593-7" rel="noopener" target="_blank">DOI</a></li>
+  <li>大西茂・<span class="me">田中勝也</span>（2020）「地場産農産物に対する消費者の選好」『農林業問題研究』56(2):27-37.</li>
+</ul>
+<p class="year">2019年</p>
+<ul class="pubs">
+  <li>薗巳晴・<span class="me">田中勝也</span>・柘植隆宏・大沼あゆみ（2019）「遺伝資源へのアクセスと利益配分（ABS）をめぐる法と経済」『環境経済・政策研究』12(2):19-30.</li>
+  <li><span class="me">田中勝也</span>（2019）「持続可能な農業農村における農業環境支払の役割と課題」『農村計画学会誌』38(2):139-140.</li>
+  <li><span class="me">田中勝也</span>・長廣修平（2019）「森林の生態系サービスの価値に対する主観評価と推論評価の比較」『環境経済・政策研究』12(1):44-58.</li>
+  <li>京井尋佑・<span class="me">田中勝也</span> (2019) 「空間的自己相関を考慮した環境直接支払の採択要因」土木学会論文集G（環境）, 75(1):20-29.</li>
+  <li>近藤紀章・中野桂・<span class="me">田中勝也</span>（2019）「生活意識構造の特性をふまえたペットの飼い主による社会参加の可能性」『土木学会論文集G（環境）』75.</li>
+  <li>大西茂・<span class="me">田中勝也</span>（2019）「エシカル消費としての地域農産物に対する消費者選好」『環境情報科学学術研究論文集』Vol.33.</li>
+  <li>近藤紀章・中野桂・<span class="me">田中勝也</span>（2019）「社会属性と地域特性が将来居住地選択に与える影響に関する研究」『都市計画論文集』54(3):766 ～ 771.</li>
+  <li>近藤紀章・中野桂・<span class="me">田中勝也</span>（2019）「コミュニティへの関与実態と関与意向が居住地選好に与える影響」『環境情報科学学術研究論文集』Vol.33.</li>
+</ul>
+<p class="year">2018年</p>
+<ul class="pubs">
+  <li>Choi, A.S., C-K. Lee, <span class="me">K. Tanaka</span>, X. Hong (2018) “Value spillovers from the Korean DMZ areas and social desirability” <em>Journal of Behavioral and Experimental Economics</em> 75:95-104.</li>
+  <li>Nur Syafiqah, A.S., A.S. Abdul-Rahim, Mohd Johari, M. Y. and <span class="me">Tanaka, K.</span> (2018) “An Economic Valuation of Urban Green Spaces in Kuala Lumpur City” Pertanika Journal of Social Sciences and Humanities 26(1):469-490.</li>
+  <li>夏吾太・<span class="me">田中勝也</span>（2018）「環境直接支払制度の普及要因に関する都道府県別パネルデータ分析」『土木学会論文集G（環境）』74(30):110-116.</li>
+  <li><span class="me">田中勝也</span>・中野桂・道上浩也（2018）「ソーシャル・キャピタルが地方創生に与える影響– 市区町村GISデータによる空間計量経済分析 –」『経済分析』Vol.197, pp.53-69.</li>
+</ul>
+<p class="year">2017年</p>
+<ul class="pubs">
+  <li>Kim, Y., <span class="me">K. Tanaka</span>, and C. Ge (2017) “Estimating the provincial environmental Kuznets curve in China: a geographically weighted regression approach” Stochastic Environmental Research and Risk Assessment 2017:1-17.</li>
+  <li>Kada, R., B. Arifin, H. Ismono, <span class="me">K. Tanaka</span> (2017) “From Agroforestry to Coffee Certification: An Examination of Sustainability of Smallholder Farmers in Sekampung Watersheds, Sumatra-Indonesia” Proceedings of the Asian Food Safety and Security Association Conference 2016, 87-91.</li>
+  <li>覃子懿・<span class="me">田中勝也</span>（2017）「日本におけるソーシャル・キャピタルの規定要因 – ボンディング型とブリッジング型の比較」『環境情報科学学術研究論文集』31:213-218.</li>
+  <li>胡笳・<span class="me">田中勝也</span>・松岡俊二（2017）「日本のNPO活動水準を規定する組織要因と地域要因の分析」『ノンプロフィット・レビュー』17(1):39-48.</li>
+  <li>Kim, Y. and <span class="me">K. Tanaka</span>, and X. Zhang (2017) “A Spatial Analysis of the Causal Factors Influencing China’s Air Pollution” Asian Journal of Atmospheric Environment 11(3):194-201.</li>
+  <li>Kim, Y., <span class="me">K. Tanaka</span>, and S. Matsuoka (2017) “Institutional Mechanisms and the Consequences of International Environmental Agreements,” Global Environmental Politics 17(1):77-98.</li>
+</ul>
+<p class="year">2016年</p>
+<ul class="pubs">
+  <li>Cho, S., <span class="me">K. Tanaka</span>, J. Wu, Rober, R.K., and Kim, T. (2016) “Effects of nuclear power plant shutdowns on electricity consumption and greenhouse gas emissions after the Tohoku Earthquake” Energy Economics 55:223-233.</li>
+</ul>
+<p class="year">2015年</p>
+<ul class="pubs">
+  <li>夏吾太・<span class="me">田中勝也</span>（2015）「中国の生態系サービス支払におけるスリップ効果 − 退耕還林政策における分析事例 −」『環境システム研究論文集』 第43巻.</li>
+  <li><span class="me">田中勝也</span>（2015）「環境直接支払の費用対効果におけるターゲティング戦略の影響」『土木学会論文集G（環境）』71(3):93-101.</li>
+</ul>
+<p class="year">2014年以前</p>
+<ul class="pubs">
+  <li>金柔美・<span class="me">田中勝也</span>・松岡俊二（2012）「国際環境レジームの有効性に関する定量分析：長距離越境大気汚染条約（LRTAP）を事例として」『環境情報科学学術研究論文集』26号.</li>
+  <li><span class="me">田中勝也</span>・松岡俊二・Thi Thi Kinh (2012)「ミャンマーデルタ地帯における安全な飲料水の供給に向けた便益評価」人間と環境 38(1): 7-12, 2012年.</li>
+  <li>Jago-on K.A.B. et al. (2009) “Urbanization and Subsurface Environmental Issues: An Attempt at DPSIR Model Application in Asian Cities,” Science of the Total Environment 407(9): 30</li>
+  <li>Watanabe, M., &amp; <span class="me">Tanaka, K.</span> (2007). Efficiency Analysis of Chinese Industry: A Directional Distance Function Approach. <em>Energy Policy</em>, 35(12), 6323–6331.</li>
+  <li>Wu, J., &amp; <span class="me">Tanaka, K.</span> (2005). Reducing Nitrogen Runoff from the Upper Mississippi River Basin to Control Hypoxia in the Gulf of Mexico: Easements or Taxes? <em>Marine Resource Economics</em>, 20(2), 121–144. <a class="doi" href="https://doi.org/10.1086/mre.20.2.42629465" rel="noopener" target="_blank">DOI</a></li>
+  <li><span class="me">Tanaka, K.</span>, &amp; Wu, J. (2004). Evaluating the Effect of Conservation Policies on Agricultural Land Use: A Site-specific Modeling Approach. <em>Canadian Journal of Agricultural Economics</em>, 52(3), 217–235.</li>
+  <li>Wu, J., Adams, R. M., Kling, C. L., &amp; <span class="me">Tanaka, K.</span> (2004). From Microlevel Decisions to Landscape Changes: An Assessment of Agricultural Conservation Policies. <em>American Journal of Agricultural Economics</em>, 86(1), 26–41.</li>
+</ul>
+</section>
+
+<section id="presentations">
+<h2>学会報告（過去5年間）</h2>
+<p class="year">2024年</p>
+<ul class="pubs">
+  <li>Nishishiba, M., <span class="me">Tanaka, K.</span>, (2024) U.S.-Japan Cross-National Comparison on Disaster Communication: A Citizen Survey. American Society for Public Administration’s 2024 Annual Conference.</li>
+  <li>Lu, C., <span class="me">Tanaka, K.</span>, McCullar, N., &amp; Parulekar, N. (2024). Exploring the drivers of citizen participation in green infrastructure maintenance: An empirical analysis for Portland. The 13th Congress of the Asian Association of Environmental and Resource Economics.</li>
+  <li>Du, S., <span class="me">Tanaka, K.</span>, Sasaki, H., Horie, T., Horie, S. (2024). Effectiveness of nudge in reducing methane emissions from agriculture. The 6th Congress of Research Network on Economic Experiments for the Common Agricultural Policy.</li>
+  <li>Du, S., <span class="me">Tanaka, K.</span>, Sasaki, H., Horie, T., Horie, S. (2024). Effectiveness of nudge in reducing methane emissions from agriculture. The 13th Congress of the Asian Association of Environmental and Resource Economics.</li>
+  <li>Wang, Y., &amp; <span class="me">Tanaka, K.</span> (2024). Citizens' preferences for small urban green infrastructure and social desirability bias in Shenzhen, China. The 7th International Eco-Civilization for a Sustainable and Desirable Future (Eco-Summit 2024).</li>
+  <li>Wang, Y., &amp; <span class="me">Tanaka, K.</span> (2024). Citizens' preferences for small urban green infrastructure and social desirability bias in Shenzhen, China. The 13th Congress of the Asian Association of Environmental and Resource Economics.</li>
+  <li><span class="me">田中勝也</span>・赤石一英（2024年）「横浜市における熱中症対策への市民選好と支払意思額」『日本災害情報学会第29回大会』.</li>
+  <li><span class="me">田中勝也</span>・赤石一英・横田崇・草野富二雄（2024年）「要因サーベイ実験による豪雨時避難行動の規定要因分析」『日本災害情報学会第28回大会』.</li>
+  <li>李楠森・<span class="me">田中勝也</span>（2024年）「ソーシャル・キャピタルと地域リスクが災害への備えに及ぼす影響：ソフトとハードな対策の統合的分析」『日本災害情報学会第28回大会』.</li>
+</ul>
+<p class="year">2023年</p>
+<ul class="pubs">
+  <li>Chang, L., <span class="me">Tanaka, K.</span>, Shen, Q. (2023). Citizens' preferences on green infrastructure in Wuhan, China. The 12th Congress of the Asian Association of Environmental and Resource Economics.</li>
+  <li>Du, S., <span class="me">Tanaka, K.</span> (2023). Residents' preferences for urban agriculture in Shanghai. The 12th Congress of the Asian Association of Environmental and Resource Economics.</li>
+  <li>Nishiyama, S., <span class="me">Tanaka, K.</span>, Yamaguchi, T., Mukoyama, M. (2023). Firms’ preferences for green infrastructure adoption in Japan. The 13th International Conference on Landscape and Ecological Engineering.</li>
+  <li><span class="me">田中勝也</span>・赤石一英・横田崇（2023年）「洪水関連情報の社会的価値とバイアスの低減」『日本災害情報学会第27回大会』.</li>
+  <li>杜聖一・<span class="me">田中勝也</span>・八木洋憲（2023年）「保全型農業における水田のメタン排出抑制の空間計量経済分析」『農村計画学会2023年秋期大会』.</li>
+</ul>
+</section>
+
+<section id="books">
+<h2>書籍</h2>
+<ul class="pubs">
+  <li>ニック・ハンレー、ジェイソン・ショグレン、ベン・ホワイト著、<span class="me">田中勝也</span>監訳（2021）『環境経済学入門』昭和堂.</li>
+  <li><span class="me">田中勝也</span>（2018）「協働ガバナンスと持続可能な地域社会―全国自治体アンケートによる指標化―」松岡俊二編『社会イノベーションと地域の持続性』有斐閣.</li>
+  <li><span class="me">田中勝也</span>（2014）「環境こだわり農業の影響評価：MIKEモデルによる定量分析」西澤栄一郎編『農業環境政策の経済分析』日本評論社.</li>
+  <li><span class="me">田中勝也</span>・金柔美（2013）「国際環境条約の有効性と東アジアの環境協力制度」松岡俊二編『アジアの環境ガバナンスと地域統合』勁草書房.</li>
+  <li><span class="me">田中勝也</span>（2012）「食料資源と水環境：農業における水質汚染をどう解決するか」馬奈木俊介編『資源と環境の経済学：ケーススタディで学ぶ』昭和堂.</li>
+  <li>Horiuchi, K., Matsumoto, R., &amp; <span class="me">Tanaka, K.</span> (2012). Energy and environmental institutions in East Asia. In S. Amako, S. Matsuoka, &amp; K. Horiuchi (Eds.), <em>Regional Integration in East Asia: Theoretical and Historical Perspectives</em>. Tokyo: United Nations University Press.</li>
+  <li>堀内賢志・松本礼史・<span class="me">田中勝也</span>（2011）「東アジアのエネルギー・環境制度」『アジア地域統合の展開』勁草書房.</li>
+</ul>
+</section>
+
 </main>
 
-<footer>© 2026 Tanaka Laboratory. All rights reserved.</footer>
+<footer>
+  <span>© 2026 Tanaka Laboratory, Shiga University</span>
+  <span><a href="https://scholar.google.com/citations?user=ZWzGPJcAAAAJ&amp;hl=ja" rel="noopener" target="_blank">Google Scholar</a> · <a href="https://orcid.org/0000-0003-0455-0133" rel="noopener" target="_blank">ORCID</a> · <a href="en.html">English</a></span>
+</footer>
 
 </body>
 </html>

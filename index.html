@@ -1,233 +1,143 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>田中勝也研究室｜環境経済学 × 気候・災害リスク × データサイエンス</title>
 <meta content="滋賀大学・田中勝也研究室。環境経済学を基盤に、気候・災害リスク下の意思決定、リスクコミュニケーション、気候変動適応、グリーンインフラ、持続可能な都市交通を研究しています。" name="description"/>
-<style>
-    /* ---- Base typography & layout ---- */
-    :root{
-      --font-body: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo", sans-serif;
-      --font-head: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo", sans-serif;
-      --text: #111;
-      --muted: #666;
-      --link: #0366d6;
-      --rule: #eee;
-      --accent: #0aa77f;
-      --maxw: 880px;
-    }
-    html { font-size: 16px; }
-    body{
-      font-family: var(--font-body);
-      color: var(--text);
-      line-height: 1.8;
-      margin:0;
-      letter-spacing: 0.01em;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      background: #fff;
-    }
-    header, nav, main, footer{max-width: var(--maxw); margin: 0 auto; padding: 0 16px;}
-    header{padding-top:24px; padding-bottom:8px;}
-
-    /* ---- Brand / Title ---- */
-    .brand{
-      font-family: var(--font-head);
-      font-weight: 800;
-      margin:0;
-      letter-spacing: 0.02em;
-      line-height: 1.35;
-      font-size: clamp(1.6rem, 1.8vw + 1.2rem, 2.4rem);
-    }
-
-    /* ---- Navigation ---- */
-    nav{
-      display:flex; flex-wrap:wrap; gap: 12px;
-      padding: 10px 16px 14px 16px;
-      border-bottom:1px solid var(--rule);
-    }
-    nav a{
-      color: var(--link);
-      text-decoration:none;
-      font-weight: 600;
-      font-size: 0.98rem;
-      padding: 4px 0;
-    }
-    nav a:hover{text-decoration:underline}
-
-    /* ---- Headings ---- */
-    h2, h3 { font-family: var(--font-head); line-height: 1.45; margin: 1.4rem 0 .8rem; }
-    h2{
-      font-weight: 700;
-      font-size: clamp(1.35rem, 1.0vw + 1.0rem, 1.8rem);
-      border-left: 6px solid var(--accent);
-      padding-left: 10px;
-    }
-    h3{ font-weight:700; font-size: 1.15rem; color: var(--muted); }
-
-    /* ---- Text & lists ---- */
-    p, li { font-size: 1rem; }
-    ul, ol { padding-left: 1.25rem; }
-    li{ margin-bottom: .35rem; }
-    .muted{ color: var(--muted); }
-
-    /* ---- Grid for main/aside ---- */
-    .grid{ display:grid; grid-template-columns: 1fr; gap: 20px; }
-    @media (min-width: 860px){
-      .grid{ grid-template-columns: 2fr 1fr; }
-    }
-
-    /* ---- Sections & footer ---- */
-    section { margin: 2.0rem 0; }
-    footer{
-      margin-top: 3rem; padding-top: 1rem; padding-bottom:2rem;
-      border-top:1px solid var(--rule);
-      font-size:.95rem; color: var(--muted);
-    }
-
-    /* ---- Blog feed items ---- */
-    .pubs li{ margin-bottom:.45rem }
-    #rss-feed ul{ list-style: none; padding-left: 0; }
-    #rss-feed li{ margin: .6rem 0; }
-    #rss-feed .date{ font-weight:700; }
-
-    /* ---- Notice Box (Pattern A) ---- */
-    .notice-box {
-      background-color: #f0fdf9; /* 薄い緑色の背景 */
-      border: 2px solid var(--accent); /* アクセントカラーの枠線 */
-      border-radius: 6px;
-      padding: 1.2rem;
-      margin-bottom: 2rem;
-    }
-    .notice-box h3 {
-      color: var(--accent);
-      margin: 0 0 0.5rem 0;
-      border: none; /* デフォルトの見出しスタイルを打ち消し */
-      padding: 0;
-      font-size: 1.1rem;
-    }
-    .notice-box p {
-      margin: 0;
-      line-height: 1.6;
-    }
-    /* リンクを目立たせるための追加スタイル */
-    .notice-box a.btn-link {
-        font-weight: bold;
-        color: #0366d6;
-    }
-  </style>
+<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
+
 <header>
-<p class="brand">田中勝也研究室｜環境経済学 × 気候・災害リスク × データサイエンス</p>
+  <p class="brand"><a href="index.html">田中勝也研究室</a></p>
+  <p class="tagline">環境経済学 × 気候・災害リスク × データサイエンス</p>
 </header>
+
 <nav>
-<a href="index.html">ホーム</a>
-<a href="members.html">メンバー</a>
-<a href="pub.html">研究業績</a>
-<a href="funding.html">外部資金</a>
-<a href="lec">講義</a>
-<a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">研究室ブログ</a>
-<a href="fs.html">FactorialSurvey</a>
-<a href="en.html">English</a>
+  <a href="index.html" class="active" aria-current="page">ホーム</a>
+  <a href="members.html">メンバー</a>
+  <a href="pub.html">研究業績</a>
+  <a href="funding.html">外部資金</a>
+  <a href="lec">講義</a>
+  <a href="fs.html">FactorialSurvey</a>
+  <a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">研究室ブログ ↗</a>
+  <a class="lang" href="en.html">English</a>
 </nav>
+
 <main>
-<section id="about"><div class="notice-box">
-<h3>クラウドワークスよりお越しの方へ</h3>
-<p>
-          現在、本研究室ではアンケート調査の業務をクラウドワークスにて依頼しております。<br/>
-          依頼詳細をご確認の上、ご協力いただけますと幸いです。<br/>
-<span class="muted" style="font-size:0.9rem">※本サイトは研究室の公式ページです。依頼主の身元確認としてご覧の方も、どうぞ安心してお引き受けください。</span>
-</p>
-</div>
-<h2>研究紹介</h2>
-<h3 style="color:var(--text); margin-top:0;">気候・災害リスク社会の意思決定科学</h3>
-<p><strong>田中 勝也</strong><br/>
-滋賀大学 経済学部 教授<br/>
-国立研究開発法人 防災科学技術研究所 客員研究員<br/>
-米国ポートランド州立大学 Global Senior Fellow<br/>
-韓国梨花女子大学 Global Fellow
-</p>
-<p><strong>専門分野</strong><br/>
-環境経済学 / 気候・災害リスク / 災害リスクコミュニケーション / 行動意思決定 / 空間データサイエンス
-</p>
-<p>田中勝也研究室では、環境経済学を基盤として、気候変動や自然災害などのリスクに対する人々の認知・意思決定と、効果的な政策・情報提供のあり方を研究しています。</p>
-<p>アンケート調査、選択実験、要因サーベイ実験、空間データ分析、機械学習などを用いて、人々の行動や政策選好を定量的に明らかにし、実社会の課題解決につなげることを目指しています。</p>
-<p>現在、以下の4つを主要な研究領域としています。</p>
-<ol>
-<li><strong>災害リスクコミュニケーションと避難行動</strong><br/>災害情報のわかりやすさ、警報への信頼、空振りや情報慣れ、避難意思決定を研究します。</li>
-<li><strong>気候変動適応と都市レジリエンス</strong><br/>洪水、地震、猛暑などのリスクに対する備えと、持続可能で強靱な都市のあり方を研究します。</li>
-<li><strong>グリーンインフラと環境政策</strong><br/>防災、暑熱緩和、生態系保全などの便益を評価し、市民や企業に受け入れられる政策を検討します。</li>
-<li><strong>持続可能な交通・都市空間</strong><br/>歩行、自転車、公共交通、交通静穏化など、人と環境にやさしい都市交通政策を研究します。</li>
-</ol>
-<p>これらの研究を通じて、<strong>「気候リスク社会における意思決定科学」</strong>の構築を目指しています。</p>
-<p>環境問題、防災、都市、交通、データ分析に関心を持ち、実証研究を通じて社会課題に取り組みたい学部生・大学院生を歓迎します。</p>
+
+<div class="notice"><strong>クラウドワークスよりお越しの方へ</strong>　本研究室では現在、アンケート調査の業務をクラウドワークスにて依頼しております。本サイトは研究室の公式ページですので、依頼主の身元確認としてご覧の方も、安心してお引き受けください。</div>
+
+<section id="about">
+  <div class="profile">
+    <img src="tanaka.jpg" alt="田中勝也の顔写真" width="150" height="188"/>
+    <div>
+      <p class="name">田中 勝也<small>Katsuya Tanaka</small></p>
+      <ul>
+        <li>滋賀大学 経済学部 教授</li>
+        <li>防災科学技術研究所 客員研究員</li>
+        <li>米国ポートランド州立大学 Global Senior Fellow</li>
+        <li>韓国梨花女子大学 Global Fellow</li>
+      </ul>
+      <p class="fields">環境経済学 · 気候・災害リスク · 災害リスクコミュニケーション · 行動意思決定 · 空間データサイエンス</p>
+      <div class="btns">
+        <a class="btn" href="pub.html">研究業績</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=ZWzGPJcAAAAJ&amp;hl=ja" rel="noopener" target="_blank">Google Scholar</a>
+        <a class="btn" href="https://orcid.org/0000-0003-0455-0133" rel="noopener" target="_blank">ORCID</a>
+        <a class="btn" href="mailto:tanakak@biwako.shiga-u.ac.jp">メール</a>
+      </div>
+    </div>
+  </div>
 </section>
-<div class="grid">
+
+<section id="research">
+  <h2>研究紹介</h2>
+  <p class="lead"><strong>気候・災害リスク社会の意思決定科学。</strong>環境経済学を基盤として、気候変動や自然災害などのリスクに対する人々の認知・意思決定と、効果的な政策・情報提供のあり方を研究しています。アンケート調査、選択実験、要因サーベイ実験、空間データ分析、機械学習などを用いて、人々の行動や政策選好を定量的に明らかにし、実社会の課題解決につなげることを目指しています。</p>
+
+  <div class="cards">
+    <div class="card"><h4>災害リスクコミュニケーションと避難行動</h4><p>災害情報のわかりやすさ、警報への信頼、空振りや情報慣れ、避難意思決定を研究します。</p></div>
+    <div class="card"><h4>気候変動適応と都市レジリエンス</h4><p>洪水、地震、猛暑などのリスクに対する備えと、持続可能で強靱な都市のあり方を研究します。</p></div>
+    <div class="card"><h4>グリーンインフラと環境政策</h4><p>防災、暑熱緩和、生態系保全などの便益を評価し、市民や企業に受け入れられる政策を検討します。</p></div>
+    <div class="card"><h4>持続可能な交通・都市空間</h4><p>歩行、自転車、公共交通、交通静穏化など、人と環境にやさしい都市交通政策を研究します。</p></div>
+  </div>
+</section>
+
+<section id="news">
+  <h2>最近の論文</h2>
+  <ul class="pubs">
+    <li><span class="me">Tanaka, K.</span>, Dill, J., McNeil, N., Geller, R., &amp; Kondo, N. (Forthcoming). What Are Safer Streets Worth? Bridging Resident Preferences and Policy Design in Traffic Calming. <em>Transportation Research Part A: Policy and Practice</em>.</li>
+    <li><span class="me">Tanaka, K.</span> &amp; Akaishi, K. (2026). Survival First: How Citizens Prioritize Competing Climate-Health Risk Countermeasures Under Fiscal Constraints. <em>Risk Analysis</em>, 46(8), e70315. <a class="doi" href="https://doi.org/10.1111/risa.70315" rel="noopener" target="_blank">DOI</a></li>
+    <li><span class="me">Tanaka, K.</span>, Kito, T., &amp; Tanaka, K. (2026). When Flood Warnings Fail: Psychological Predictors of Information Clarity and Evacuation Intention. <em>International Journal of Disaster Risk Reduction</em>, 137. <a class="doi" href="https://doi.org/10.1016/j.ijdrr.2026.106075" rel="noopener" target="_blank">DOI</a></li>
+  </ul>
+  <p style="text-align:right;"><a href="pub.html">→ 研究業績の一覧へ</a></p>
+</section>
+
 <section id="members">
-<h2>メンバー</h2>
-<p>
-          研究室には現在、博士後期課程2名、博士前期課程2名、学部生6名が在籍しています。<br/>
-          それぞれ自分の関心を深め、実証分析の技術を学びながら社会課題にアプローチしています。
-        </p>
-<p>
-          また、学外の客員研究員も4名所属しています。<br/>
-          各メンバーの研究テーマは<strong><a href="/members.html">メンバーページ</a></strong>をご覧ください。
-        </p>
-<h2 id="blog">研究室ブログ（Note）</h2>
-<div id="rss-feed">
-<p>読み込み中...</p>
+  <h2>メンバー</h2>
+  <p>それぞれが自分の関心を深め、実証分析の技術を学びながら社会課題にアプローチしています。</p>
+  <div class="stats">
+  <div class="stat"><span class="num">2</span><span class="lbl">博士後期課程</span></div>
+  <div class="stat"><span class="num">2</span><span class="lbl">博士前期課程</span></div>
+  <div class="stat"><span class="num">6</span><span class="lbl">学部生</span></div>
+  <div class="stat"><span class="num">3</span><span class="lbl">客員研究員</span></div>
 </div>
-<p class="muted">※Noteの最新記事を即時反映（画像は表示されません）</p>
-<p style="text-align:right;">
-<a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">→ すべての投稿を見る</a>
-</p>
+  <p style="text-align:right;"><a href="members.html">→ メンバーと研究テーマ</a></p>
+  <div class="notice"><strong>研究室を志望する方へ</strong>　環境問題、防災、都市、交通、データ分析に関心を持ち、実証研究を通じて社会課題に取り組みたい学部生・大学院生を歓迎します。</div>
 </section>
-<aside id="contact">
-<h2>連絡先</h2>
-<p>
-          滋賀大学 環境総合研究センター<br/> 
-          田中勝也研究室<br/>
-          〒522-8522 滋賀県彦根市馬場1-1-1<br/>
-          Email: tanakak [at] biwako.shiga-u.ac.jp
-        </p>
-</aside>
-</div>
+
+<section id="blog">
+  <h2>研究室ブログ（note）</h2>
+  <div id="rss-feed"><p class="muted">読み込み中…</p></div>
+  <p style="text-align:right;"><a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">→ すべての投稿を見る</a></p>
+</section>
+
+<section id="contact">
+  <h2>連絡先</h2>
+  <div class="contact">
+    <p>滋賀大学 経済学部　田中勝也研究室<br/>
+    〒522-8522 滋賀県彦根市馬場1-1-1<br/>
+    Email: tanakak [at] biwako.shiga-u.ac.jp</p>
+  </div>
+</section>
+
 </main>
-<footer>© 2026 Tanaka Laboratory. All rights reserved.</footer>
+
+<footer>
+  <span>© 2026 Tanaka Laboratory, Shiga University</span>
+  <span><a href="https://scholar.google.com/citations?user=ZWzGPJcAAAAJ&amp;hl=ja" rel="noopener" target="_blank">Google Scholar</a> · <a href="https://orcid.org/0000-0003-0455-0133" rel="noopener" target="_blank">ORCID</a> · <a href="en.html">English</a></span>
+</footer>
+
 <script>
+  (function () {
     const feedUrl = "https://note.com/tanakak_lab/rss";
     const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(feedUrl);
-
+    const box = document.getElementById("rss-feed");
+    const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
     fetch(proxyUrl)
       .then(res => res.json())
       .then(data => {
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(data.contents, "text/xml");
-        const items = xml.querySelectorAll("item");
-        const container = document.getElementById("rss-feed");
-        container.innerHTML = "<ul></ul>";
-        const list = container.querySelector("ul");
-
-        items.forEach((item, index) => {
-          if (index >= 5) return;
+        const xml = new DOMParser().parseFromString(data.contents, "text/xml");
+        const items = Array.from(xml.querySelectorAll("item")).slice(0, 5);
+        if (!items.length) throw new Error("empty feed");
+        const ul = document.createElement("ul");
+        items.forEach(item => {
           const title = item.querySelector("title").textContent;
           const link = item.querySelector("link").textContent;
-          const pubDate = new Date(item.querySelector("pubDate").textContent).toLocaleDateString();
-          const descHTML = item.querySelector("description").textContent;
-          const descText = descHTML.replace(/<[^>]+>/g, "").trim().slice(0, 60);
-
+          const d = new Date(item.querySelector("pubDate").textContent);
+          const date = d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日";
+          const desc = item.querySelector("description").textContent.replace(/<[^>]+>/g, "").trim().slice(0, 60);
           const li = document.createElement("li");
-          li.innerHTML = `<strong>📌 ${pubDate}</strong>　<a href="${link}" target="_blank" rel="noopener">${title}</a><br><span class="muted">　${descText}...</span>`;
-          list.appendChild(li);
+          li.innerHTML = '<span class="date">' + date + '</span><a href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(title) + '</a><br><span class="desc">' + esc(desc) + '…</span>';
+          ul.appendChild(li);
         });
+        box.replaceChildren(ul);
       })
       .catch(err => {
-        document.getElementById("rss-feed").innerHTML = "<p>ブログの読み込みに失敗しました。</p>";
+        box.innerHTML = '<p class="muted">ブログの読み込みに失敗しました。<a href="https://note.com/tanakak_lab" target="_blank" rel="noopener">noteで直接ご覧ください。</a></p>';
         console.error("RSS読み込みエラー:", err);
       });
-  </script>
+  })();
+</script>
 </body>
 </html>

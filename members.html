@@ -1,175 +1,80 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>研究室メンバー｜田中勝也研究室</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>研究室メンバー｜田中勝也研究室</title>
 <meta content="田中勝也研究室のメンバー紹介。客員研究員、大学院生、学部生の研究テーマを掲載しています。" name="description"/>
-  
-  <style>
-    /* ---- Base typography & layout ---- */
-    :root{
-      --font-body: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo", sans-serif;
-      --font-head: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo", sans-serif;
-      --text: #111;
-      --muted: #666;
-      --link: #0366d6;
-      --rule: #eee;
-      --accent: #0aa77f;
-      --maxw: 880px;
-    }
-    html { font-size: 16px; }
-    body{
-      font-family: var(--font-body);
-      color: var(--text);
-      line-height: 1.8;
-      margin:0;
-      letter-spacing: 0.01em;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      background: #fff;
-    }
-    header, nav, main, footer{max-width: var(--maxw); margin: 0 auto; padding: 0 16px;}
-    header{padding-top:24px; padding-bottom:8px;}
-
-    /* ---- Brand / Title ---- */
-    .brand{
-      font-family: var(--font-head);
-      font-weight: 800;
-      margin:0;
-      letter-spacing: 0.02em;
-      line-height: 1.35;
-      font-size: clamp(1.6rem, 1.8vw + 1.2rem, 2.4rem);
-    }
-
-    /* ---- Navigation ---- */
-    nav{
-      display:flex; flex-wrap:wrap; gap: 12px;
-      padding: 10px 16px 14px 16px;
-      border-bottom:1px solid var(--rule);
-    }
-    nav a{
-      color: var(--link);
-      text-decoration:none;
-      font-weight: 600;
-      font-size: 0.98rem;
-      padding: 4px 0;
-    }
-    nav a:hover{text-decoration:underline}
-
-    /* ---- Headings ---- */
-    h2, h3 { font-family: var(--font-head); line-height: 1.45; margin: 1.4rem 0 .8rem; }
-    h2{
-      font-weight: 700;
-      font-size: clamp(1.35rem, 1.0vw + 1.0rem, 1.8rem);
-      border-left: 6px solid var(--accent);
-      padding-left: 10px;
-    }
-    h3{ font-weight:700; font-size: 1.15rem; color: var(--muted); }
-
-    /* ---- Text & lists ---- */
-    p, li { font-size: 1rem; }
-    ul, ol { padding-left: 1.25rem; }
-    li{ margin-bottom: .35rem; }
-    .muted{ color: var(--muted); }
-
-    /* ---- Grid for main/aside ---- */
-    .grid{ display:grid; grid-template-columns: 1fr; gap: 20px; }
-    @media (min-width: 860px){
-      .grid{ grid-template-columns: 2fr 1fr; }
-    }
-
-    /* ---- Sections & footer ---- */
-    section { margin: 2.0rem 0; }
-    footer{
-      margin-top: 3rem; padding-top: 1rem; padding-bottom:2rem;
-      border-top:1px solid var(--rule);
-      font-size:.95rem; color: var(--muted);
-    }
-
-    /* ---- Blog feed items ---- */
-    .pubs li{ margin-bottom:.45rem }
-    #rss-feed ul{ list-style: none; padding-left: 0; }
-    #rss-feed li{ margin: .6rem 0; }
-    #rss-feed .date{ font-weight:700; }
-
-    /* ---- Notice Box (Pattern A) ---- */
-    .notice-box {
-      background-color: #f0fdf9; /* 薄い緑色の背景 */
-      border: 2px solid var(--accent); /* アクセントカラーの枠線 */
-      border-radius: 6px;
-      padding: 1.2rem;
-      margin-bottom: 2rem;
-    }
-    .notice-box h3 {
-      color: var(--accent);
-      margin: 0 0 0.5rem 0;
-      border: none; /* デフォルトの見出しスタイルを打ち消し */
-      padding: 0;
-      font-size: 1.1rem;
-    }
-    .notice-box p {
-      margin: 0;
-      line-height: 1.6;
-    }
-    /* リンクを目立たせるための追加スタイル */
-    .notice-box a.btn-link {
-        font-weight: bold;
-        color: #0366d6;
-    }
-  </style>
-
+<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
 
 <header>
-<p class="brand">田中勝也研究室｜環境経済学 × 気候・災害リスク × データサイエンス</p>
+  <p class="brand"><a href="index.html">田中勝也研究室</a></p>
+  <p class="tagline">環境経済学 × 気候・災害リスク × データサイエンス</p>
 </header>
 
 <nav>
-<a href="index.html">ホーム</a>
-<a href="members.html">メンバー</a>
-<a href="pub.html">研究業績</a>
-<a href="funding.html">外部資金</a>
-<a href="lec">講義</a>
-<a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">研究室ブログ</a>
-<a href="fs.html">FactorialSurvey</a>
-<a href="en.html">English</a>
+  <a href="index.html">ホーム</a>
+  <a href="members.html" class="active" aria-current="page">メンバー</a>
+  <a href="pub.html">研究業績</a>
+  <a href="funding.html">外部資金</a>
+  <a href="lec">講義</a>
+  <a href="fs.html">FactorialSurvey</a>
+  <a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">研究室ブログ ↗</a>
+  <a class="lang" href="en.html">English</a>
 </nav>
 
 <main>
-  <section>
-    <h2>研究室メンバー</h2>
-    <p>2026年度の研究室のメンバーと研究テーマです。</p>
 
-    <h3>客員研究員</h3>
-    <ul>
-      <li>赤石 一英（成田航空地方気象台）- 災害情報とリスクコミュニケーション</li>
-      <li>金 柔美（韓国梨花女子大学）- グリーンインフラ、防災</li>
-      <li>Jacklyn Kohon（ポートランド州立大学）- 米国北西部における災害リスク（猛暑・山火事）</li>
-    </ul>
+<h1 class="page-title">研究室メンバー</h1>
+<p>2026年度の研究室メンバーと研究テーマです。</p>
+<div class="stats">
+  <div class="stat"><span class="num">2</span><span class="lbl">博士後期課程</span></div>
+  <div class="stat"><span class="num">2</span><span class="lbl">博士前期課程</span></div>
+  <div class="stat"><span class="num">6</span><span class="lbl">学部生</span></div>
+  <div class="stat"><span class="num">3</span><span class="lbl">客員研究員</span></div>
+</div>
 
-    <h3>大学院生</h3>
-    <ul>
-      <li>李 楠森（D3）- 災害リスクと防災行動</li>
-      <li>王 瑒（D3）- 市民・企業のグリーンインフラ選好</li>
-      <li>包 昕阳（M2）- 防災ゲームによる災害関連行動の実証</li>
-      <li>西山 蒼大（M2）- 一般住宅におけるグリーンインフラ選好</li>
-    </ul>
+<section id="visiting">
+<h2>客員研究員</h2>
+<div class="members">
+  <div class="member"><div class="who">赤石 一英</div><div class="aff">成田航空地方気象台</div><div class="theme">災害情報とリスクコミュニケーション</div></div>
+  <div class="member"><div class="who">金 柔美</div><div class="aff">韓国梨花女子大学</div><div class="theme">グリーンインフラ、防災</div></div>
+  <div class="member"><div class="who">Jacklyn Kohon</div><div class="aff">ポートランド州立大学</div><div class="theme">米国北西部における災害リスク（猛暑・山火事）</div></div>
+</div>
+</section>
 
-    <h3>学部生</h3>
-    <ul>
-      <li>早坂 剛（DS4回生）- 自転車が安全に走られる走行環境・まちづくり</li>
-      <li>土屋 香佳（経済4回生）- 住宅密集地における市民のグリーンインフラへの選好</li>
-      <li>徳和目 脩太（経済4回生）- 災害情報のわかりやすさに向けた表明選好分析</li>
-      <li>井上 裕策（経済4回生）- MaaSの普及に向けた要因サーベイ実験</li>
-      <li>大石 悠太（経済3回生） - テーマ探索中</li>
-      <li>Gautam Sushil（経済3回生） - テーマ探索中</li>
-    </ul>
-  </section>
+<section id="grad">
+<h2>大学院生</h2>
+<div class="members">
+  <div class="member"><div class="who">李 楠森<span class="yr">D3</span></div><div class="theme">災害リスクと防災行動</div></div>
+  <div class="member"><div class="who">王 瑒<span class="yr">D3</span></div><div class="theme">市民・企業のグリーンインフラ選好</div></div>
+  <div class="member"><div class="who">包 昕阳<span class="yr">M2</span></div><div class="theme">防災ゲームによる災害関連行動の実証</div></div>
+  <div class="member"><div class="who">西山 蒼大<span class="yr">M2</span></div><div class="theme">一般住宅におけるグリーンインフラ選好</div></div>
+</div>
+</section>
+
+<section id="undergrad">
+<h2>学部生</h2>
+<div class="members">
+  <div class="member"><div class="who">早坂 剛<span class="yr">DS4回生</span></div><div class="theme">自転車が安全に走られる走行環境・まちづくり</div></div>
+  <div class="member"><div class="who">土屋 香佳<span class="yr">経済4回生</span></div><div class="theme">住宅密集地における市民のグリーンインフラへの選好</div></div>
+  <div class="member"><div class="who">徳和目 脩太<span class="yr">経済4回生</span></div><div class="theme">災害情報のわかりやすさに向けた表明選好分析</div></div>
+  <div class="member"><div class="who">井上 裕策<span class="yr">経済4回生</span></div><div class="theme">MaaSの普及に向けた要因サーベイ実験</div></div>
+  <div class="member"><div class="who">大石 悠太<span class="yr">経済3回生</span></div><div class="theme">テーマ探索中</div></div>
+  <div class="member"><div class="who">Gautam Sushil<span class="yr">経済3回生</span></div><div class="theme">テーマ探索中</div></div>
+</div>
+</section>
+
+<div class="notice"><strong>研究室を志望する方へ</strong>　環境問題、防災、都市、交通、データ分析に関心を持ち、実証研究を通じて社会課題に取り組みたい学部生・大学院生を歓迎します。進学を検討中の方は、メールでお気軽にご連絡ください。</div>
+
 </main>
 
-<footer>© 2026 Tanaka Laboratory. All rights reserved.</footer>
+<footer>
+  <span>© 2026 Tanaka Laboratory, Shiga University</span>
+  <span><a href="https://scholar.google.com/citations?user=ZWzGPJcAAAAJ&amp;hl=ja" rel="noopener" target="_blank">Google Scholar</a> · <a href="https://orcid.org/0000-0003-0455-0133" rel="noopener" target="_blank">ORCID</a> · <a href="en.html">English</a></span>
+</footer>
 
 </body>
 </html>
