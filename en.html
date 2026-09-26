@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -7,172 +6,279 @@
 <title>Tanaka Laboratory | Environmental Economics × Climate and Disaster Risk × Data Science</title>
 <meta content="Tanaka Laboratory at Shiga University studies decision-making and policy under climate and disaster risks, grounded in environmental economics and data science." name="description"/>
 <style>
-    /* ---- Base typography & layout ---- */
-    :root{
-      --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans JP", "Yu Gothic UI", "Yu Gothic", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-      --font-head: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans JP", "Yu Gothic UI", "Yu Gothic", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-      --text: #111;
-      --muted: #666;
-      --link: #0366d6;
-      --rule: #eee;
-      --accent: #0aa77f;
-      --maxw: 880px;
-    }
-    html { font-size: 16px; }
-    body{
-      font-family: var(--font-body);
-      color: var(--text);
-      line-height: 1.8;
-      margin:0;
-      letter-spacing: 0.01em;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      background: #fff;
-    }
-    header, nav, main, footer{max-width: var(--maxw); margin: 0 auto; padding: 0 16px;}
-    header{padding-top:24px; padding-bottom:8px;}
+  /* ---- Base typography & layout ---- */
+  :root{
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans JP", "Yu Gothic UI", "Yu Gothic", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    --text: #111;
+    --muted: #666;
+    --link: #0366d6;
+    --rule: #eee;
+    --accent: #0aa77f;
+    --accent-soft: #f0fdf9;
+    --card: #fafafa;
+    --maxw: 880px;
+  }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body{
+    font-family: var(--font-body);
+    color: var(--text);
+    line-height: 1.75;
+    margin: 0;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #fff;
+  }
+  a{ color: var(--link); }
+  header, nav, main, footer{ max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+  header{ padding-top: 28px; padding-bottom: 6px; }
 
-    /* ---- Brand / Title ---- */
-    .brand{
-      font-family: var(--font-head);
-      font-weight: 800;
-      margin:0;
-      letter-spacing: 0.02em;
-      line-height: 1.35;
-      font-size: clamp(1.6rem, 1.8vw + 1.2rem, 2.4rem);
-    }
+  /* ---- Brand ---- */
+  .brand{ font-weight: 800; margin: 0; letter-spacing: 0.01em; line-height: 1.25;
+    font-size: clamp(1.6rem, 1.5vw + 1.2rem, 2.2rem); }
+  .tagline{ margin: .25rem 0 0; color: var(--muted); font-size: 1rem; }
 
-    /* ---- Navigation ---- */
-    nav{
-      display:flex; flex-wrap:wrap; gap: 12px;
-      padding: 10px 16px 14px 16px;
-      border-bottom:1px solid var(--rule);
-    }
-    nav a{
-      color: var(--link);
-      text-decoration:none;
-      font-weight: 600;
-      font-size: 0.98rem;
-      padding: 4px 0;
-    }
-    nav a:hover{text-decoration:underline}
+  /* ---- Navigation ---- */
+  nav{
+    display: flex; flex-wrap: wrap; gap: 6px 18px;
+    padding-top: 10px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+    position: sticky; top: 0; background: rgba(255,255,255,.96); z-index: 10;
+  }
+  nav a{ color: var(--link); text-decoration: none; font-weight: 600; font-size: .96rem; padding: 2px 0; }
+  nav a:hover{ text-decoration: underline; }
+  nav .lang{ margin-left: auto; color: var(--muted); }
 
-    /* ---- Headings ---- */
-    h2, h3 { font-family: var(--font-head); line-height: 1.45; margin: 1.4rem 0 .8rem; }
-    h2{
-      font-weight: 700;
-      font-size: clamp(1.35rem, 1.0vw + 1.0rem, 1.8rem);
-      border-left: 6px solid var(--accent);
-      padding-left: 10px;
-    }
-    h3{ font-weight:700; font-size: 1.15rem; color: var(--muted); }
+  /* ---- Headings ---- */
+  h2{
+    font-weight: 700; line-height: 1.4;
+    font-size: clamp(1.3rem, .8vw + 1rem, 1.6rem);
+    border-left: 6px solid var(--accent);
+    padding-left: 10px;
+    margin: 0 0 1rem;
+  }
+  h3{ font-weight: 700; font-size: 1.05rem; color: var(--muted); margin: 1.6rem 0 .6rem; }
+  section{ margin: 2.8rem 0; scroll-margin-top: 64px; }
+  p{ margin: .6rem 0; }
 
-    /* ---- Text & lists ---- */
-    p, li { font-size: 1rem; }
-    ul{ padding-left: 1.25rem; }
-    li{ margin-bottom: .45rem; }
-    .muted{ color: var(--muted); }
+  /* ---- Profile card ---- */
+  .profile{
+    display: flex; gap: 24px; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 20px;
+  }
+  .profile img{
+    width: 150px; height: 188px; object-fit: cover; border-radius: 8px; flex-shrink: 0;
+  }
+  .profile .name{ font-size: 1.35rem; font-weight: 800; margin: 0 0 .3rem; }
+  .profile ul{ list-style: none; padding: 0; margin: 0 0 .8rem; color: #333; }
+  .profile li{ margin: 0; line-height: 1.6; }
+  .profile .fields{ font-size: .95rem; color: var(--muted); margin: 0 0 .9rem; }
+  .btns{ display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn{
+    display: inline-block; padding: 5px 12px; border-radius: 999px;
+    border: 1px solid var(--accent); color: #077a5d; background: #fff;
+    font-size: .9rem; font-weight: 600; text-decoration: none; line-height: 1.5;
+  }
+  .btn:hover{ background: var(--accent-soft); }
+  @media (max-width: 600px){
+    .profile{ flex-direction: column; align-items: center; text-align: center; }
+    .btns{ justify-content: center; }
+  }
 
-    /* ---- Grid ---- */
-    .grid{ display:grid; grid-template-columns: 1fr; gap: 20px; }
-    @media (min-width: 860px){
-      .grid{ grid-template-columns: 2fr 1fr; }
-    }
+  /* ---- Research cards ---- */
+  .cards{ display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 1rem; }
+  @media (min-width: 640px){ .cards{ grid-template-columns: 1fr 1fr; } }
+  .card{
+    border: 1px solid var(--rule); border-top: 4px solid var(--accent);
+    border-radius: 8px; padding: 14px 16px; background: #fff;
+  }
+  .card h4{ margin: 0 0 .35rem; font-size: 1.02rem; }
+  .card p{ margin: 0; font-size: .95rem; color: #333; line-height: 1.65; }
 
-    /* ---- Sections & footer ---- */
-    section { margin: 2.0rem 0; }
-    footer{
-      margin-top: 3rem; padding-top: 1rem; padding-bottom:2rem;
-      border-top:1px solid var(--rule);
-      font-size:.95rem; color: var(--muted);
-    }
+  /* ---- Publications ---- */
+  .pubs{ list-style: none; padding: 0; margin: 0; }
+  .pubs li{
+    padding: .55rem 0 .55rem 14px; border-left: 2px solid var(--rule);
+    margin-bottom: .35rem; line-height: 1.65;
+  }
+  .pubs .me{ font-weight: 700; }
+  .pubs .tag{
+    display: inline-block; font-size: .78rem; font-weight: 700; color: #077a5d;
+    background: var(--accent-soft); border-radius: 4px; padding: 0 6px; margin-left: 4px;
+  }
+  .pubs a.doi{
+    font-size: .82rem; font-weight: 600; text-decoration: none;
+    border: 1px solid #cfe0f5; border-radius: 4px; padding: 0 6px; margin-left: 4px; white-space: nowrap;
+  }
+  .pubs a.doi:hover{ background: #f2f7fd; }
 
-    /* ---- Boxes & pubs ---- */
-    .note-box{background:#fafafa; border:1px solid var(--rule); padding:12px; border-radius:8px}
-    .pubs li{ margin-bottom:.45rem }
-  </style>
+  /* ---- Contact / footer ---- */
+  .contact{ background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 20px; }
+  .muted{ color: var(--muted); }
+  footer{
+    margin-top: 3rem; padding-top: 1rem; padding-bottom: 2rem;
+    border-top: 1px solid var(--rule); font-size: .92rem; color: var(--muted);
+  }
+</style>
 </head>
 <body>
-<header>
-<p class="brand">Tanaka Laboratory | Environmental Economics × Climate and Disaster Risk × Data Science</p>
-</header>
-<nav>
-<a href="index.html">日本語 (Home)</a>
-<a href="members.html">メンバー</a>
-<a href="pub.html">研究業績</a>
-<a href="grants.html">外部資金</a>
-<a href="class.html">講義</a>
-<a href="fse.html">要因サーベイ実験</a>
-<a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">研究室ブログ</a>
-<a href="fs.html">R package: FactorialSurvey</a>
-</nav>
-<main>
-<section>
-<h2>Research Overview</h2>
-<h3 style="color:var(--text); margin-top:0;">Understanding decisions and designing policies in a climate-risk society</h3>
-<p><strong>Katsuya Tanaka</strong><br/>
-Professor, Faculty of Economics, Shiga University<br/>
-Visiting Researcher, National Research Institute for Earth Science and Disaster Resilience (NIED), Japan<br/>
-Global Senior Fellow, Portland State University, USA<br/>
-Global Fellow, Ewha Womans University, Korea
-</p>
-<p><strong>Research fields</strong><br/>
-Environmental economics / Climate and disaster risk / Disaster risk communication / Behavioral decision-making / Spatial data science
-</p>
-<p>The Tanaka Laboratory studies how individuals and communities perceive, communicate, and respond to climate and disaster risks.</p>
-<p>Grounded in environmental economics, our research combines survey research, choice experiments, factorial survey experiments, spatial data analysis, and machine learning to evaluate behavioral responses, public preferences, and policy outcomes.</p>
-<p>Our main research areas are:</p>
-<ol>
-<li><strong>Disaster risk communication and evacuation behavior</strong><br/>We examine the clarity and credibility of disaster information, trust in warnings, false-alarm effects, information fatigue, and evacuation decisions.</li>
-<li><strong>Climate adaptation and urban resilience</strong><br/>We study preparedness for floods, earthquakes, and extreme heat, and explore pathways toward sustainable and resilient communities.</li>
-<li><strong>Green infrastructure and environmental policy</strong><br/>We evaluate benefits such as risk reduction, heat mitigation, and ecosystem conservation, and investigate policies that are acceptable to citizens and organizations.</li>
-<li><strong>Sustainable mobility and urban space</strong><br/>We study walking, cycling, public transport, traffic calming, and other policies for healthier and more sustainable cities.</li>
-</ol>
-<p>Across these areas, we seek to develop an integrated <strong>science of decision-making for climate-risk societies</strong>.</p>
-<p>We welcome undergraduate and graduate students interested in applying empirical methods to real-world environmental and societal challenges.</p>
-</section>
-<div class="grid">
-<section>
-<h2>Publications in English (Last Five Years)</h2>
-<ul class="pubs">
-<li>Tanaka, K. &amp; Akaishi, K. (In Press). Survival first: How citizens prioritize competing climate-health risk countermeasures under fiscal constraints. <em>Risk Analysis</em>.
-<li>Tanaka, K., Kito, T., &amp; Tanaka, K. (2026). When Flood Warnings Fail: Psychological Predictors of Information Clarity and Evacuation Intention. <em>International Journal of Disaster Risk Reduction</em>, 137. <a href="https://doi.org/10.1016/j.ijdrr.2026.106075">https://doi.org/10.1016/j.ijdrr.2026.106075</a></li>
-<li>Du, S., Tanaka, K., Sasaki, H., Horie, T., &amp; Horie, S. (2026). Promoting Methane Reductions Through Behavioural Nudges and Informational Boosts: A Field Choice Experiment in Japanese Rice Farming. <em>Journal of Agricultural Economics </em>. <a href="https://doi.org/10.1111/1477-9552.70038">https://doi.org/10.1111/1477-9552.70038</a></li>
-<li>Han, J., Kim. Y., &amp; Tanaka, K. (2026). The Role of Green Infrastructure in Enhancing Flood Resilience: A Spatial Perspective. <em>Environmental Management</em>, 76, 169. <a href="https://doi.org/10.1007/s00267-026-02470-9">https://doi.org/10.1007/s00267-026-02470-9</a></li>
-<li>Wang, N., Liu, H., Qi, G., Hua, W., Tanaka, K., Li, X., Zhang, Y., Wang, Y., Lu, H., &amp; Luo, L. (2026). How to motivate green action among small farmers: Evidence from China. <em>Sustainability</em>, 18(3), 1669. <a href="https://doi.org/10.3390/su18031669">https://doi.org/10.3390/su18031669</a></li>
-<li>Tanaka, K., Kito, T., &amp; Tanaka, K. (2026). Who Pays for Preparedness? Valuing Disaster App Features Through a Factorial Survey Experiment in Flood-Prone Communities. <em>International Journal of Disaster Risk Reduction</em>, 133, 105933.</li>
-<li>Tanaka, K., Akaishi, K., &amp; Yokota, T. (2025). Public preferences for flood warning improvements: An inferred valuation approach addressing social desirability bias. <em>International Journal of Disaster Risk Reduction</em>, 126, 105571. <a href="https://doi.org/10.1016/j.ijdrr.2025.105571">https://doi.org/10.1016/j.ijdrr.2025.105571</a></li>
-<li>Du, S., Tanaka, K., &amp; Yagi, H. (2025). Farmers’ Adoption of Water Management Practice for Methane Reduction in Rice Paddies: A Spatial Analysis in Shiga, Japan. <em>Sustainability</em>, 17(8), 3468. <a href="https://doi.org/10.3390/su17083468">https://doi.org/10.3390/su17083468</a></li>
-<li>Lu, C., Tanaka, K., &amp; Shen, Q. (2024). Residents’ preferences on green infrastructure in Wuhan, China. <em>Sustainability</em>, 16(23), 10303. <a href="https://doi.org/10.3390/su162310303">https://doi.org/10.3390/su162310303</a></li>
-<li>Du, S., &amp; Tanaka, K. (2024). Residents’ preferences for urban agriculture in Shanghai. <em>Heliyon</em>. <a href="https://doi.org/10.1016/j.heliyon.2024.e30974">https://doi.org/10.1016/j.heliyon.2024.e30974</a></li>
-<li>Yagi, H., Tanaka, K., Fujii, Y., &amp; Inoue, N. (2024). Stakeholder management and organizational form of arable farms: a comparison of paddy farm corporations in Japan. <em>International Food and Agribusiness Management Review</em>. <a href="https://doi.org/10.22434/ifamr2022.0005">https://doi.org/10.22434/ifamr2022.0005</a></li>
-<li>Kohon, J., Tanaka, K., Himes, D., Toda, E., Carder, P., &amp; Carlson, B. (2023). Extreme Heat Vulnerability among Older Adults: A Multi-level Risk Index for Portland, Oregon. <em>The Gerontologist</em>. <a href="https://doi.org/10.1093/geront/gnad074">https://doi.org/10.1093/geront/gnad074</a></li>
-<li>Carlson, B., Kohon, J. N., Carder, P. C., Himes, D., Toda, E., &amp; Tanaka, K. (2023). Climate Change Policies and Older Adults: An Analysis of States’ Climate Adaptation Plans. <em>The Gerontologist</em>. <a href="https://doi.org/10.1093/geront/gnad077">https://doi.org/10.1093/geront/gnad077</a></li>
-<li>Kim, Y., Tanaka, K., &amp; Perrings, C. (2023). The impact of international conservation agreements on protected areas: Empirical findings from the Convention on Biological Diversity using causal inference. <em>Environmental Management</em>. <a href="https://doi.org/10.1007/s00267-023-01818-9">https://doi.org/10.1007/s00267-023-01818-9</a></li>
-<li>Tanaka, K., Nelson, H., McCullar, N., &amp; Parulekar, N. (2022). Citizens’ preferences on green infrastructure practices and their enhancement in Portland, Oregon. <em>Journal of Environmental Management</em>, 318, 115415. <a href="https://doi.org/10.1016/j.jenvman.2022.115415">https://doi.org/10.1016/j.jenvman.2022.115415</a></li>
-<li>Wu, Z., Hua, W., Luo, L., &amp; Tanaka, K. (2022). Technical Efficiency of Maize Production and Its Influencing Factors in the World’s Largest Groundwater Drop Funnel Area, China. <em>Agriculture</em>, 12(5), 649. <a href="https://doi.org/10.3390/agriculture12050649">https://doi.org/10.3390/agriculture12050649</a></li>
-<li>Tanaka, K., Hanley, N., &amp; Kuhfuss, L. (2022). Farmers’ Preferences Toward an Outcome‑based Payment for Ecosystem Service Scheme in Japan. <em>Journal of Agricultural Economics</em>. <a href="https://doi.org/10.1111/1477-9552.12478">https://doi.org/10.1111/1477-9552.12478</a></li>
-<li>Qin, Z., Tanaka, K., &amp; Matsuoka, S. (2022). Regional Disparities in Bonding and Bridging Social Capital: An Empirical Study of Rural and Urban Japan. <em>International Journal of Japanese Sociology</em>. <a href="https://doi.org/10.1111/ijjs.12130">https://doi.org/10.1111/ijjs.12130</a></li>
 
-</ul>
-<p class="muted">See the full list on the <a href="pub.html">publications page</a>.</p>
+<header>
+  <p class="brand">Tanaka Laboratory</p>
+  <p class="tagline">Environmental Economics × Climate and Disaster Risk × Data Science</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#working-papers">Working Papers</a>
+  <a href="#publications">Publications</a>
+  <a href="#software">Software</a>
+  <a href="#contact">Contact</a>
+  <a class="lang" href="index.html">日本語</a>
+</nav>
+
+<main>
+
+<!-- ============ About ============ -->
+<section id="about">
+  <div class="profile">
+    <img src="tanaka.jpg" alt="Portrait of Katsuya Tanaka" width="150" height="188"/>
+    <div>
+      <p class="name">Katsuya Tanaka</p>
+      <ul>
+        <li>Professor, Faculty of Economics, Shiga University</li>
+        <li>Visiting Researcher, National Research Institute for Earth Science and Disaster Resilience (NIED), Japan</li>
+        <li>Global Senior Fellow, Portland State University, USA</li>
+        <li>Global Fellow, Ewha Womans University, Korea</li>
+      </ul>
+      <p class="fields">Environmental economics · Climate and disaster risk · Disaster risk communication · Behavioral decision-making · Spatial data science</p>
+      <div class="btns">
+        <a class="btn" href="https://scholar.google.com/citations?user=ZWzGPJcAAAAJ&amp;hl=en" rel="noopener" target="_blank">Google Scholar</a>
+        <a class="btn" href="https://orcid.org/0000-0003-0455-0133" rel="noopener" target="_blank">ORCID</a>
+        <a class="btn" href="#working-papers">SSRN Working Papers</a>
+        <a class="btn" href="mailto:tanakak@biwako.shiga-u.ac.jp">Email</a>
+      </div>
+    </div>
+  </div>
 </section>
-<aside>
-<h2>Lab Updates</h2>
-<div class="note-box">
-<p>Latest posts from our <a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">Note</a> appear on the Japanese top page. English summaries will be added here in the future.</p>
-</div>
-<h2>Contact</h2>
-<p>
-          Tanaka Laboratory<br/>Research Center for Sustainability &amp; Environment, Shiga University<br/>
-          1-1-1 Bamba, Hikone, Shiga 522-8522, Japan<br/>
-          Email: tanakak [at] biwako.shiga-u.ac.jp
-        </p>
-</aside>
-</div>
+
+<!-- ============ Research ============ -->
+<section id="research">
+  <h2>Research</h2>
+  <p><strong>Understanding decisions and designing policies in a climate-risk society.</strong>
+  The Tanaka Laboratory studies how individuals and communities perceive, communicate, and respond to climate and disaster risks. Grounded in environmental economics, we combine survey research, choice experiments, factorial survey experiments, spatial data analysis, and machine learning to evaluate behavioral responses, public preferences, and policy outcomes.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h4>Disaster risk communication &amp; evacuation</h4>
+      <p>Clarity and credibility of disaster information, trust in warnings, false-alarm effects, information fatigue, and evacuation decisions.</p>
+    </div>
+    <div class="card">
+      <h4>Climate adaptation &amp; urban resilience</h4>
+      <p>Preparedness for floods, earthquakes, and extreme heat, and pathways toward sustainable, resilient communities.</p>
+    </div>
+    <div class="card">
+      <h4>Green infrastructure &amp; environmental policy</h4>
+      <p>Benefits such as risk reduction, heat mitigation, and ecosystem conservation, and policies acceptable to citizens and organizations.</p>
+    </div>
+    <div class="card">
+      <h4>Sustainable mobility &amp; urban space</h4>
+      <p>Walking, cycling, public transport, traffic calming, and street redesign for healthier and more sustainable cities.</p>
+    </div>
+  </div>
+
+  <p>Across these areas, we seek to develop an integrated <strong>science of decision-making for climate-risk societies</strong>. We welcome undergraduate and graduate students interested in applying empirical methods to real-world environmental and societal challenges.</p>
+</section>
+
+<!-- ============ Working papers ============ -->
+<section id="working-papers">
+  <h2>Working Papers</h2>
+  <ul class="pubs">
+    <li><span class="me">Tanaka, K.</span>, &amp; Nishishiba, M. (2026). Beyond Information Delivery: Communication Effectiveness, Risk Perception, and Earthquake Preparedness in Portland, Oregon. <a class="doi" href="https://ssrn.com/abstract=6864548" rel="noopener" target="_blank">SSRN</a></li>
+    <li>Kondo, N., &amp; <span class="me">Tanaka, K.</span> (2026). Strategic Bundling and Political Feasibility: A User-Segmented Valuation of Multimodal Street Redesign. <a class="doi" href="https://ssrn.com/abstract=6025935" rel="noopener" target="_blank">SSRN</a></li>
+    <li><span class="me">Tanaka, K.</span>, Takada, G., Dill, J., McNeil, N., Geller, R., &amp; Kondo, N. (2025). Green Streets, Stronger Bonds: Causal Evidence on How Sustainable Transport Infrastructure Builds Urban Resilience. <a class="doi" href="https://ssrn.com/abstract=5736387" rel="noopener" target="_blank">SSRN</a></li>
+    <li><span class="me">Tanaka, K.</span>, Akaishi, K., Yokota, T., &amp; Kusano, F. (2025). Crossing the Behavioral Threshold: Social Amplification and Climate Risk Management in Urban Flood Evacuation Intention. <a class="doi" href="https://ssrn.com/abstract=5667853" rel="noopener" target="_blank">SSRN</a></li>
+    <li><span class="me">Tanaka, K.</span> (2025). A Unified Framework for Estimating Willingness to Pay Using Factorial Survey Experiments. <a class="doi" href="https://dx.doi.org/10.2139/ssrn.5238343" rel="noopener" target="_blank">SSRN</a></li>
+  </ul>
+</section>
+
+<!-- ============ Publications ============ -->
+<section id="publications">
+  <h2>Peer-Reviewed Publications <span class="muted" style="font-size:.9rem;font-weight:600;">(last five years)</span></h2>
+
+  <h3>Forthcoming</h3>
+  <ul class="pubs">
+    <li><span class="me">Tanaka, K.</span>, Dill, J., McNeil, N., Geller, R., &amp; Kondo, N. (Forthcoming). What Are Safer Streets Worth? Bridging Resident Preferences and Policy Design in Traffic Calming. <em>Transportation Research Part A: Policy and Practice</em>.</li>
+  </ul>
+
+  <h3>2026</h3>
+  <ul class="pubs">
+    <li><span class="me">Tanaka, K.</span>, &amp; Akaishi, K. (2026). Survival First: How Citizens Prioritize Competing Climate-Health Risk Countermeasures Under Fiscal Constraints. <em>Risk Analysis</em>, 46(8), e70315. <a class="doi" href="https://doi.org/10.1111/risa.70315" rel="noopener" target="_blank">DOI</a></li>
+    <li><span class="me">Tanaka, K.</span>, Kito, T., &amp; Tanaka, K. (2026). When Flood Warnings Fail: Psychological Predictors of Information Clarity and Evacuation Intention. <em>International Journal of Disaster Risk Reduction</em>, 137, 106075. <a class="doi" href="https://doi.org/10.1016/j.ijdrr.2026.106075" rel="noopener" target="_blank">DOI</a></li>
+    <li>Du, S., <span class="me">Tanaka, K.</span>, Sasaki, H., Horie, T., &amp; Horie, S. (2026). Promoting Methane Reductions Through Behavioural Nudges and Informational Boosts: A Field Choice Experiment in Japanese Rice Farming. <em>Journal of Agricultural Economics</em>. <a class="doi" href="https://doi.org/10.1111/1477-9552.70038" rel="noopener" target="_blank">DOI</a></li>
+    <li>Han, J., Kim, Y., &amp; <span class="me">Tanaka, K.</span> (2026). The Role of Green Infrastructure in Enhancing Flood Resilience: A Spatial Perspective. <em>Environmental Management</em>, 76, 169. <a class="doi" href="https://doi.org/10.1007/s00267-026-02470-9" rel="noopener" target="_blank">DOI</a></li>
+    <li>Wang, N., Liu, H., Qi, G., Hua, W., <span class="me">Tanaka, K.</span>, Li, X., Zhang, Y., Wang, Y., Lu, H., &amp; Luo, L. (2026). How to Motivate Green Action among Small Farmers: Evidence from China. <em>Sustainability</em>, 18(3), 1669. <a class="doi" href="https://doi.org/10.3390/su18031669" rel="noopener" target="_blank">DOI</a></li>
+    <li><span class="me">Tanaka, K.</span>, Kito, T., &amp; Tanaka, K. (2026). Who Pays for Preparedness? Valuing Disaster App Features Through a Factorial Survey Experiment in Flood-Prone Communities. <em>International Journal of Disaster Risk Reduction</em>, 133, 105933. <a class="doi" href="https://doi.org/10.1016/j.ijdrr.2025.105933" rel="noopener" target="_blank">DOI</a></li>
+  </ul>
+
+  <h3>2025</h3>
+  <ul class="pubs">
+    <li><span class="me">Tanaka, K.</span>, Akaishi, K., &amp; Yokota, T. (2025). Public Preferences for Flood Warning Improvements: An Inferred Valuation Approach Addressing Social Desirability Bias. <em>International Journal of Disaster Risk Reduction</em>, 126, 105571. <a class="doi" href="https://doi.org/10.1016/j.ijdrr.2025.105571" rel="noopener" target="_blank">DOI</a></li>
+    <li>Du, S., <span class="me">Tanaka, K.</span>, &amp; Yagi, H. (2025). Farmers’ Adoption of Water Management Practice for Methane Reduction in Rice Paddies: A Spatial Analysis in Shiga, Japan. <em>Sustainability</em>, 17(8), 3468. <a class="doi" href="https://doi.org/10.3390/su17083468" rel="noopener" target="_blank">DOI</a></li>
+  </ul>
+
+  <h3>2024</h3>
+  <ul class="pubs">
+    <li>Lu, C., <span class="me">Tanaka, K.</span>, &amp; Shen, Q. (2024). Residents’ Preferences on Green Infrastructure in Wuhan, China. <em>Sustainability</em>, 16(23), 10303. <a class="doi" href="https://doi.org/10.3390/su162310303" rel="noopener" target="_blank">DOI</a></li>
+    <li>Du, S., &amp; <span class="me">Tanaka, K.</span> (2024). Residents’ Preferences for Urban Agriculture in Shanghai. <em>Heliyon</em>. <a class="doi" href="https://doi.org/10.1016/j.heliyon.2024.e30974" rel="noopener" target="_blank">DOI</a></li>
+    <li>Yagi, H., <span class="me">Tanaka, K.</span>, Fujii, Y., &amp; Inoue, N. (2024). Stakeholder Management and Organizational Form of Arable Farms: A Comparison of Paddy Farm Corporations in Japan. <em>International Food and Agribusiness Management Review</em>. <a class="doi" href="https://doi.org/10.22434/ifamr2022.0005" rel="noopener" target="_blank">DOI</a></li>
+  </ul>
+
+  <h3>2023</h3>
+  <ul class="pubs">
+    <li>Kohon, J., <span class="me">Tanaka, K.</span>, Himes, D., Toda, E., Carder, P., &amp; Carlson, B. (2023). Extreme Heat Vulnerability among Older Adults: A Multi-level Risk Index for Portland, Oregon. <em>The Gerontologist</em>. <a class="doi" href="https://doi.org/10.1093/geront/gnad074" rel="noopener" target="_blank">DOI</a></li>
+    <li>Carlson, B., Kohon, J. N., Carder, P. C., Himes, D., Toda, E., &amp; <span class="me">Tanaka, K.</span> (2023). Climate Change Policies and Older Adults: An Analysis of States’ Climate Adaptation Plans. <em>The Gerontologist</em>. <a class="doi" href="https://doi.org/10.1093/geront/gnad077" rel="noopener" target="_blank">DOI</a></li>
+    <li>Kim, Y., <span class="me">Tanaka, K.</span>, &amp; Perrings, C. (2023). The Impact of International Conservation Agreements on Protected Areas: Empirical Findings from the Convention on Biological Diversity Using Causal Inference. <em>Environmental Management</em>. <a class="doi" href="https://doi.org/10.1007/s00267-023-01818-9" rel="noopener" target="_blank">DOI</a></li>
+  </ul>
+
+  <h3>2022</h3>
+  <ul class="pubs">
+    <li><span class="me">Tanaka, K.</span>, Nelson, H., McCullar, N., &amp; Parulekar, N. (2022). Citizens’ Preferences on Green Infrastructure Practices and Their Enhancement in Portland, Oregon. <em>Journal of Environmental Management</em>, 318, 115415. <a class="doi" href="https://doi.org/10.1016/j.jenvman.2022.115415" rel="noopener" target="_blank">DOI</a></li>
+    <li>Wu, Z., Hua, W., Luo, L., &amp; <span class="me">Tanaka, K.</span> (2022). Technical Efficiency of Maize Production and Its Influencing Factors in the World’s Largest Groundwater Drop Funnel Area, China. <em>Agriculture</em>, 12(5), 649. <a class="doi" href="https://doi.org/10.3390/agriculture12050649" rel="noopener" target="_blank">DOI</a></li>
+    <li><span class="me">Tanaka, K.</span>, Hanley, N., &amp; Kuhfuss, L. (2022). Farmers’ Preferences Toward an Outcome-Based Payment for Ecosystem Service Scheme in Japan. <em>Journal of Agricultural Economics</em>. <a class="doi" href="https://doi.org/10.1111/1477-9552.12478" rel="noopener" target="_blank">DOI</a></li>
+    <li>Qin, Z., <span class="me">Tanaka, K.</span>, &amp; Matsuoka, S. (2022). Regional Disparities in Bonding and Bridging Social Capital: An Empirical Study of Rural and Urban Japan. <em>International Journal of Japanese Sociology</em>. <a class="doi" href="https://doi.org/10.1111/ijjs.12130" rel="noopener" target="_blank">DOI</a></li>
+  </ul>
+
+  <p class="muted" style="margin-top:1.4rem;">For earlier work, see <a href="https://scholar.google.com/citations?user=ZWzGPJcAAAAJ&amp;hl=en" rel="noopener" target="_blank">Google Scholar</a>. A complete list including Japanese-language papers is on the <a href="pub.html">Japanese publications page</a>.</p>
+</section>
+
+<!-- ============ Software ============ -->
+<section id="software">
+  <h2>Software</h2>
+  <div class="card">
+    <h4>FactorialSurvey (R package)</h4>
+    <p>Tools for designing and analyzing factorial survey experiments, including willingness-to-pay estimation. <a href="fs.html">Learn more →</a></p>
+  </div>
+</section>
+
+<!-- ============ Contact ============ -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact">
+    <p style="margin:0;">
+      Katsuya Tanaka<br/>
+      Faculty of Economics, Shiga University<br/>
+      1-1-1 Bamba, Hikone, Shiga 522-8522, Japan<br/>
+      Email: tanakak [at] biwako.shiga-u.ac.jp
+    </p>
+  </div>
+</section>
+
 </main>
-<footer>
-    © 2026 Tanaka Laboratory. All rights reserved.
-  </footer>
+
+<footer>© 2026 Tanaka Laboratory. All rights reserved.</footer>
+
 </body>
 </html>
