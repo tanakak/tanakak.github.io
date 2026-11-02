@@ -61,7 +61,7 @@
   <div class="card"><h4>実査の準備</h4><p><code>fs_assign()</code> がブロックと提示順を回答者に割り付けます。提示順はウィリアムズ計画に基づき、順序効果と持ち越し効果を均等にします。<code>fs_vignette_text()</code> でビネットの文章を作り、<code>fs_export()</code> で CSV、Excel、Qualtrics の Loop &amp; Merge 用の表に書き出せます。</p></div>
   <div class="card"><h4>必要な回答者数</h4><p><code>fs_power()</code> は、想定した効果のもとで調査をシミュレーションし、回答者数ごとに各効果を検出できる確率（検出力）と WTP の精度を示します。<code>fs_simulate_ratings()</code> で模擬データも作れます。</p></div>
   <div class="card"><h4>推定</h4><p>0〜10点などの評定にはベータ回帰（<code>fs_betareg()</code>）、受け入れる／受け入れないの二値回答にはロジット（<code>fs_logit()</code>）を使います。どちらも <code>cluster = ~ id</code> で回答者単位のクラスター頑健標準誤差を計算します。1〜7点や0〜100点の尺度にも対応しました。</p></div>
-  <div class="card"><h4>支払意思額</h4><p><code>fs_mwtp()</code> は属性ごとの限界支払意思額（MWTP）を一括で計算します。区間はデルタ法、Krinsky–Robb 法、Fieller 法から選べます。新しい <code>fs_ewtp()</code> は、属性の組み合わせ（政策シナリオ）全体の期待支払意思額（EWTP）を <a href="https://doi.org/10.1016/j.tra.2026.105293" rel="noopener" target="_blank">Tanaka et al. (2027)</a> の式で計算します。</p></div>
+  <div class="card"><h4>支払意思額</h4><p><code>fs_mwtp()</code> は属性ごとの限界支払意思額（MWTP）を一括で計算します。区間はデルタ法、Krinsky–Robb 法、Fieller 法から選べます。新しい <code>fs_ewtp()</code> は、属性の組み合わせ（政策シナリオ）全体の期待支払意思額（EWTP）を <a href="https://doi.org/10.1016/j.tra.2026.105293" rel="noopener" target="_blank">Tanaka et al. (2027)</a> の方法で計算します。</p></div>
   <div class="card"><h4>図とデータ</h4><p>推定結果と WTP は <code>plot()</code> で図にできます（ggplot2、白黒印刷向け）。授業で集めた弁当の評価データ <code>bento</code>（学生48人×8ビネット）を同梱し、英語の解説（ビネット）を追加しました。</p></div>
 </div>
 </section>
