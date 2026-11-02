@@ -154,6 +154,11 @@ p{ margin: .6rem 0; }
 .member .aff{ font-size: .85rem; color: var(--muted); }
 .member .theme{ font-size: .93rem; color: #333; margin-top: 2px; line-height: 1.6; }
 
+/* ---- News list ---- */
+.news-list{ list-style: none; padding: 0; margin: 0; }
+.news-list li{ padding: .6rem 0; border-bottom: 1px solid var(--rule); line-height: 1.6; }
+.news-list .date{ font-size: .82rem; color: var(--muted); display: block; }
+
 /* ---- Blog feed ---- */
 #rss-feed ul{ list-style: none; padding: 0; margin: 0; }
 #rss-feed li{ padding: .6rem 0; border-bottom: 1px solid var(--rule); line-height: 1.6; }
