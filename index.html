@@ -6,6 +6,17 @@
 <title>田中勝也研究室｜環境経済学 × 気候・災害リスク × データサイエンス</title>
 <meta content="滋賀大学・田中勝也研究室。環境経済学を基盤に、気候・災害リスク下の意思決定、リスクコミュニケーション、気候変動適応、グリーンインフラ、持続可能な都市交通を研究しています。" name="description"/>
 <link href="style.css" rel="stylesheet"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta property="og:title" content="田中勝也研究室｜環境経済学 × 気候・災害リスク × データサイエンス"/>
+<meta property="og:description" content="滋賀大学・田中勝也研究室。環境経済学を基盤に、気候・災害リスク下の意思決定、リスクコミュニケーション、気候変動適応、グリーンインフラ、持続可能な都市交通を研究しています。"/>
+<meta property="og:url" content="https://tanakak.github.io/"/>
+<meta property="og:image" content="https://tanakak.github.io/ogp.png"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="田中勝也研究室"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
 </head>
 <body>
 
@@ -22,12 +33,10 @@
   <a href="lec">講義</a>
   <a href="fs.html">FactorialSurvey</a>
   <a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">研究室ブログ ↗</a>
-  <a class="lang" href="en.html" style="margin-left:auto; padding:.25em .9em; border:1px solid #0aa77f; border-radius:999px; color:#0aa77f; font-weight:600;">English ↗</a>
+  <a class="lang" href="en.html">English</a>
 </nav>
 
 <main>
-
-<div class="notice"><strong>クラウドワークスよりお越しの方へ</strong>　本研究室では現在、アンケート調査の業務をクラウドワークスにて依頼しております。本サイトは研究室の公式ページですので、依頼主の身元確認としてご覧の方も、安心してお引き受けください。</div>
 
 <section id="about">
   <div class="profile">
@@ -110,6 +119,7 @@
     〒522-8522 滋賀県彦根市馬場1-1-1<br/>
     Email: tanakak [at] biwako.shiga-u.ac.jp</p>
   </div>
+  <p class="small-note" id="crowdworks"><strong>クラウドワークスよりお越しの方へ</strong>　本研究室では現在、アンケート調査の業務をクラウドワークスにて依頼しております。本サイトは研究室の公式ページですので、依頼主の身元確認としてご覧の方も、安心してお引き受けください。</p>
 </section>
 
 </main>
@@ -121,25 +131,17 @@
 
 <script>
   (function () {
-    const feedUrl = "https://note.com/tanakak_lab/rss";
-    const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(feedUrl);
+    // blog.json は GitHub Actions（.github/workflows/update-blog.yml）が毎日 note のRSSから更新します
     const box = document.getElementById("rss-feed");
-    const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-    fetch(proxyUrl)
-      .then(res => res.json())
-      .then(data => {
-        const xml = new DOMParser().parseFromString(data.contents, "text/xml");
-        const items = Array.from(xml.querySelectorAll("item")).slice(0, 5);
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+    fetch("blog.json", { cache: "no-cache" })
+      .then(res => { if (!res.ok) throw new Error(res.status); return res.json(); })
+      .then(items => {
         if (!items.length) throw new Error("empty feed");
         const ul = document.createElement("ul");
         items.forEach(item => {
-          const title = item.querySelector("title").textContent;
-          const link = item.querySelector("link").textContent;
-          const d = new Date(item.querySelector("pubDate").textContent);
-          const date = d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日";
-          const desc = item.querySelector("description").textContent.replace(/<[^>]+>/g, "").trim().slice(0, 60);
           const li = document.createElement("li");
-          li.innerHTML = '<span class="date">' + date + '</span><a href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(title) + '</a><br><span class="desc">' + esc(desc) + '…</span>';
+          li.innerHTML = '<span class="date">' + esc(item.date) + '</span><a href="' + esc(item.link) + '" target="_blank" rel="noopener">' + esc(item.title) + '</a><br><span class="desc">' + esc(item.desc) + '</span>';
           ul.appendChild(li);
         });
         box.replaceChildren(ul);

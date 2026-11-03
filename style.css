@@ -45,7 +45,24 @@ nav{
 nav a{ color: var(--link); text-decoration: none; font-weight: 600; font-size: .96rem; padding: 2px 0; border-bottom: 2px solid transparent; }
 nav a:hover{ border-bottom-color: #cfe0f5; }
 nav a.active{ color: var(--text); border-bottom-color: var(--accent); }
-nav .lang{ margin-left: auto; color: var(--muted); }
+nav .lang{
+  margin-left: auto; padding: 1px 12px; border: 1px solid var(--accent); border-radius: 999px;
+  color: var(--accent-deep); white-space: nowrap;
+}
+nav .lang:hover{ background: var(--accent-soft); border-color: var(--accent); }
+/* スマホではメニューを1行に収め、横スクロールにする */
+@media (max-width: 640px){
+  nav{
+    flex-wrap: nowrap; overflow-x: auto; gap: 0 16px;
+    padding-top: 8px; padding-bottom: 8px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    -webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
+            mask-image: linear-gradient(to right, #000 85%, transparent);
+  }
+  nav::-webkit-scrollbar{ display: none; }
+  nav a{ white-space: nowrap; flex-shrink: 0; }
+  nav .lang{ margin-right: 24px; }
+}
 
 /* ---- Headings & sections ---- */
 h1.page-title{ font-size: clamp(1.4rem, 1vw + 1.1rem, 1.8rem); margin: 2rem 0 .4rem; }
@@ -173,6 +190,8 @@ p code, li code{ background: #f3f3f3; border-radius: 4px; padding: 0 4px; }
 /* ---- Contact ---- */
 .contact{ background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 20px; }
 .contact p{ margin: 0; }
+.small-note{ font-size: .85rem; color: var(--muted); line-height: 1.65; margin-top: 1rem; }
+.small-note strong{ color: #444; }
 
 /* ---- Footer ---- */
 footer{
