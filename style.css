@@ -256,3 +256,23 @@ footer a{ color: var(--muted); }
 .card .more a{ text-decoration: none; font-weight: 600; }
 h2 .h-link{ color: inherit; text-decoration: none; }
 .diverging .bar-label .v{ margin-left: .6em; font-size: .82rem; color: #555; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ---- Home: question inside the research section ---- */
+#research .question{ margin: .2rem 0 1.2rem; }
+#research .question .q-sub{ max-width: none; }
+
+/* ---- Compact profile card on phones ---- */
+@media (max-width: 600px){
+  #about .profile{
+    display: grid; grid-template-columns: 84px 1fr; gap: 4px 14px;
+    align-items: start; text-align: left; padding: 14px;
+  }
+  #about .profile > div{ display: contents; }
+  #about .profile img{ width: 84px; height: 105px; grid-row: span 2; }
+  #about .profile .name{ font-size: 1.15rem; grid-column: 2; }
+  #about .profile .name small{ display: block; margin-left: 0; }
+  #about .profile ul{ grid-column: 2; font-size: .84rem; margin: 0; }
+  #about .profile .fields{ display: none; }
+  #about .profile > div > p:not(.name):not(.fields){ grid-column: 1 / -1; margin-top: 8px; }
+  #about .profile .btns{ grid-column: 1 / -1; justify-content: flex-start; margin-top: 10px; }
+}
