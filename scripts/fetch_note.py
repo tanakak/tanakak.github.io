@@ -17,7 +17,7 @@ for it in root.iter("item"):
     if not title or not link:
         continue
     d = parsedate_to_datetime(it.findtext("pubDate"))
-    desc = re.sub(r"<[^>]+>", "", it.findtext("description") or "")
+    desc = re.sub(r"<[^>]+>", " ", it.findtext("description") or "")
     desc = re.sub(r"\s+", " ", desc).strip()
     items.append({
         "title": title,
