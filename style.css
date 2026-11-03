@@ -79,6 +79,14 @@ p{ margin: .6rem 0; }
 .muted{ color: var(--muted); }
 .lead{ font-size: 1.02rem; }
 
+/* ---- Lab question (top of home) ---- */
+.question{ margin: 2rem 0 1.8rem; }
+.question .q{
+  font-weight: 800; line-height: 1.5; letter-spacing: .02em; margin: 0;
+  font-size: clamp(1.25rem, 1.4vw + .95rem, 1.75rem); text-wrap: balance;
+}
+.question .q-sub{ color: #444; margin: .7rem 0 0; max-width: 46em; line-height: 1.85; }
+
 /* ---- Notice ---- */
 .notice{
   background: var(--accent-soft); border: 1px solid #bfeadd; border-left: 5px solid var(--accent);
@@ -146,11 +154,11 @@ p{ margin: .6rem 0; }
   margin-bottom: .35rem; line-height: 1.7;
 }
 .pubs .me{ font-weight: 700; }
-.pubs a.doi{
+.pubs a.doi, .news-list a.doi{
   font-size: .8rem; font-weight: 600; text-decoration: none;
   border: 1px solid #cfe0f5; border-radius: 4px; padding: 0 6px; margin-left: 4px; white-space: nowrap;
 }
-.pubs a.doi:hover{ background: #f2f7fd; }
+.pubs a.doi:hover, .news-list a.doi:hover{ background: #f2f7fd; }
 .year{ font-weight: 800; color: var(--accent-deep); font-size: 1rem; margin: 1.4rem 0 .4rem; }
 
 /* ---- Tags / badges ---- */
