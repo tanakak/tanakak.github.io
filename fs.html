@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>FactorialSurvey (R package)｜田中勝也研究室</title>
-<meta content="FactorialSurvey: An R package for designing and analysing factorial survey experiments (FSE), including beta regression workflows and WTP estimation." name="description"/>
+<title>FactorialSurvey（Rパッケージ）｜田中勝也研究室</title>
+<meta content="要因サーベイ実験（FSE）の計画づくりから標本サイズの検討、推定、支払意思額（WTP）の分析までを一続きで行うRパッケージ FactorialSurvey の紹介。" name="description"/>
 <link href="style.css" rel="stylesheet"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"/>
 <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
-<meta property="og:title" content="FactorialSurvey (R package)｜田中勝也研究室"/>
-<meta property="og:description" content="FactorialSurvey: An R package for designing and analysing factorial survey experiments (FSE), including beta regression workflows and WTP estimation."/>
+<meta property="og:title" content="FactorialSurvey（Rパッケージ）｜田中勝也研究室"/>
+<meta property="og:description" content="要因サーベイ実験（FSE）の計画づくりから標本サイズの検討、推定、支払意思額（WTP）の分析までを一続きで行うRパッケージ FactorialSurvey の紹介。"/>
 <meta property="og:url" content="https://tanakak.github.io/fs.html"/>
 <meta property="og:image" content="https://tanakak.github.io/ogp.png"/>
 <meta property="og:type" content="article"/>
@@ -18,59 +18,54 @@
 <meta property="og:locale" content="ja_JP"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="canonical" href="https://tanakak.github.io/fs.html"/>
+<link rel="alternate" hreflang="ja" href="https://tanakak.github.io/fs.html"/>
+<link rel="alternate" hreflang="en" href="https://tanakak.github.io/en-fs.html"/>
+<link rel="alternate" hreflang="x-default" href="https://tanakak.github.io/fs.html"/>
 </head>
 <body>
-
 <header>
-  <p class="brand"><a href="index.html">田中勝也研究室</a></p>
-  <p class="tagline">環境経済学 × 気候・災害リスク × データサイエンス</p>
+<p class="brand"><a href="index.html">田中勝也研究室</a></p>
+<p class="tagline">環境経済学 × 気候・災害リスク × データサイエンス</p>
 </header>
-
 <nav>
-  <a href="index.html">ホーム</a>
-  <a href="research.html">研究紹介</a>
-  <a href="members.html">メンバー</a>
-  <a href="pub.html">研究業績</a>
-  <a href="funding.html">外部資金</a>
-  <a href="fs.html" class="active" aria-current="page">FactorialSurvey</a>
-  <a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">研究室ブログ ↗</a>
-  <a class="lang" href="en.html">English</a>
+<a href="index.html">ホーム</a>
+<a href="research.html">研究紹介</a>
+<a href="members.html">メンバー</a>
+<a href="pub.html">研究業績</a>
+<a href="funding.html">外部資金</a>
+<a href="fs.html" class="active" aria-current="page">FactorialSurvey</a>
+<a href="https://note.com/tanakak_lab" rel="noopener" target="_blank">研究室ブログ ↗</a>
+<a class="lang" href="en-fs.html">English</a>
 </nav>
-
 <main>
-
-<h1 class="page-title">FactorialSurvey <span class="muted" style="font-size:1rem;font-weight:600;">R package</span></h1>
-<p class="lead"><strong>FactorialSurvey</strong> is an R toolkit for <em>factorial survey experiments (FSE)</em>—a vignette-based approach to measure preferences and intentions. It supports a practical workflow from <strong>D-efficient design</strong> and <strong>power analysis</strong> through <strong>estimation</strong> to <strong>WTP analysis</strong>.</p>
-<p class="muted" lang="ja">要因サーベイ実験（FSE）の設計から標本サイズの検討、推定、支払意思額（WTP）の分析までを一貫して行うためのRパッケージです。</p>
-<div class="notice" lang="ja"><strong>2026年11月</strong>　パッケージを更新しました。→ <a href="fs-update-2026-11.html">更新内容・使い方・今後の予定</a></div>
+<h1 class="page-title">FactorialSurvey <span class="muted" style="font-size:1rem;font-weight:600;">Rパッケージ</span></h1>
+<p class="lead"><strong>FactorialSurvey</strong> は、要因サーベイ実験（factorial survey experiment, FSE）のためのRパッケージです。要因サーベイ実験は、条件を組み合わせた仮想の場面（ビネット）を回答者に評価してもらい、選好や行動の意図を測る方法です。D効率的な計画づくりと標本サイズの検討から、推定、支払意思額（WTP）の分析までを一続きで行えます。</p>
+<div class="notice"><strong>2026年11月</strong>　パッケージを更新しました。→ <a href="fs-update-2026-11.html">更新内容・使い方・今後の予定</a></div>
 <div class="btns" style="margin-top:.8rem;">
-  <a class="btn" href="https://github.com/tanakak/FactorialSurvey" rel="noopener" target="_blank">GitHub</a>
-  <a class="btn" href="https://github.com/tanakak/FactorialSurvey/issues" rel="noopener" target="_blank">Issues</a>
-  <a class="btn" href="#citation">How to cite</a>
+<a class="btn" href="https://github.com/tanakak/FactorialSurvey" rel="noopener" target="_blank">GitHub</a>
+<a class="btn" href="https://github.com/tanakak/FactorialSurvey/issues" rel="noopener" target="_blank">Issues</a>
+<a class="btn" href="#citation">引用のしかた</a>
 </div>
-
 <section id="features">
-<h2>Features</h2>
+<h2>主な機能</h2>
 <div class="cards">
-  <div class="card"><h4>Design</h4><p>Build D-efficient sets of vignettes with <code>fs_defficient()</code>. <code>fs_efficiency()</code> and <code>fs_design_eval()</code> report D- and A-efficiency for any design, including one built elsewhere.</p></div>
-  <div class="card"><h4>Fielding</h4><p>Render vignettes as text with <code>fs_vignette_text()</code>, assign blocks and carryover-balanced orders with <code>fs_assign()</code>, and write them out for survey platforms with <code>fs_export()</code>.</p></div>
-  <div class="card"><h4>Sample size</h4><p>Simulate the survey before fielding with <code>fs_power()</code> and <code>fs_simulate_ratings()</code> to see how often each effect would be detected and how precise WTP would be.</p></div>
-  <div class="card"><h4>Estimation</h4><p>Beta regression for bounded ratings such as 0–10 scales (<code>fs_betareg()</code>) and logit for yes/no responses (<code>fs_logit()</code>), with standard errors clustered by respondent (<code>cluster = ~ id</code>). <code>summary()</code> reports fit statistics and average marginal effects.</p></div>
-  <div class="card"><h4>Willingness to pay</h4><p>Marginal WTP for each attribute with <code>fs_mwtp()</code>, and expected WTP for complete scenarios with <code>fs_ewtp()</code>. Delta-method or Krinsky–Robb intervals.</p></div>
-  <div class="card"><h4>Plots</h4><p><code>plot()</code> methods for models, WTP and power results, built on ggplot2, with <code>theme_fs()</code> for black-and-white print.</p></div>
+<div class="card"><h4>計画づくり</h4><p><code>fs_defficient()</code> で、D効率的なビネットの組み合わせを作ります。<code>fs_efficiency()</code> と <code>fs_design_eval()</code> は、ほかのツールで作った計画も含めて、D効率とA効率を示します。</p></div>
+<div class="card"><h4>調査での配布</h4><p><code>fs_vignette_text()</code> でビネットを文章にし、<code>fs_assign()</code> でブロックと提示順（順序の影響が偏らないもの）を割り当て、<code>fs_export()</code> で調査システム向けに書き出します。</p></div>
+<div class="card"><h4>標本サイズ</h4><p>実施の前に <code>fs_power()</code> と <code>fs_simulate_ratings()</code> で調査を模擬し、それぞれの効果をどのくらいの確率で検出できるか、WTPをどの程度の精度で推定できるかを確かめます。</p></div>
+<div class="card"><h4>推定</h4><p>0〜10点のように上限と下限のある評価にはベータ回帰（<code>fs_betareg()</code>）、はい・いいえの回答にはロジット（<code>fs_logit()</code>）を使います。標準誤差は回答者ごとにクラスター化できます（<code>cluster = ~ id</code>）。<code>summary()</code> で適合度と平均限界効果を表示します。</p></div>
+<div class="card"><h4>支払意思額</h4><p><code>fs_mwtp()</code> で属性ごとの限界WTPを、<code>fs_ewtp()</code> で場面全体の期待WTPを求めます。信頼区間はデルタ法または Krinsky–Robb 法で計算します。</p></div>
+<div class="card"><h4>図</h4><p>推定結果、WTP、検出力の結果には <code>plot()</code> があります（ggplot2 を使用）。白黒で印刷するためのテーマ <code>theme_fs()</code> も用意しています。</p></div>
 </div>
 </section>
-
 <section id="install">
-<h2>Installation</h2>
+<h2>インストール</h2>
 <pre><code># from GitHub (development)
 # install.packages("remotes")
 remotes::install_github("tanakak/FactorialSurvey")</code></pre>
 </section>
-
 <section id="quickstart">
-<h2>Quick start</h2>
-<p class="muted">A single copy-and-paste script. It loads example data (48 students × 8 lunch-box vignettes, rated 0–10) from GitHub, fits a beta regression with standard errors clustered by respondent, and estimates marginal and expected WTP. The script is also available as <a href="https://github.com/tanakak/fs/blob/main/fs_demo.R" rel="noopener" target="_blank">fs_demo.R</a>.</p>
+<h2>クイックスタート</h2>
+<p class="muted">コピーしてそのまま実行できるスクリプトです。例題のデータ（学生48人が弁当のビネット8つを0〜10点で評価したもの）をGitHubから読み込み、回答者ごとにクラスター化した標準誤差でベータ回帰を推定し、限界WTPと期待WTPを求めます。同じスクリプトを <a href="https://github.com/tanakak/fs/blob/main/fs_demo.R" rel="noopener" target="_blank">fs_demo.R</a> として公開しています。スクリプト内のコメントは英語です。</p>
 <pre><code>#################################################################
 # FactorialSurvey demo: a lunch-box (bento) factorial survey
 #################################################################
@@ -289,33 +284,29 @@ plot(ewtp) + ggplot2::labs(x = "Expected willingness to pay (yen)")
 # vignette of the package:
 #   https://github.com/tanakak/FactorialSurvey/blob/master/vignettes/FactorialSurvey.Rmd</code></pre>
 </section>
-
 <section id="docs">
-<h2>Teaching materials</h2>
-<p>The package vignette <a href="https://github.com/tanakak/FactorialSurvey/blob/master/vignettes/FactorialSurvey.Rmd" rel="noopener" target="_blank"><em>Getting started with FactorialSurvey</em></a> walks through the whole workflow, from designing the vignettes and choosing the number of respondents to estimating WTP. <span class="muted">An English paper describing the package and a book in Japanese on factorial survey experiments are in preparation.</span></p>
+<h2>解説・教材</h2>
+<p>パッケージの解説文書 <a href="https://github.com/tanakak/FactorialSurvey/blob/master/vignettes/FactorialSurvey.Rmd" rel="noopener" target="_blank"><em>Getting started with FactorialSurvey</em></a>（英語）で、ビネットの設計と回答者数の決め方から、WTPの推定までの流れを説明しています。<span class="muted">パッケージを紹介する英語論文と、要因サーベイ実験についての日本語の教科書を準備しています。</span></p>
 </section>
-
 <section id="citation">
-<h2>Citation</h2>
-<p>If you use the package, please cite the working paper:</p>
+<h2>引用のしかた</h2>
+<p>パッケージを使った研究では、次のワーキングペーパーを引用してください。</p>
 <ul class="pubs">
   <li><span class="me">Tanaka, K.</span> (2025). A Unified Framework for Estimating Willingness to Pay Using Factorial Survey Experiments. SSRN Working Paper. <a class="doi" href="https://dx.doi.org/10.2139/ssrn.5238343" rel="noopener" target="_blank">SSRN</a></li>
 </ul>
 </section>
-
 <section id="status">
-<h2>Status</h2>
+<h2>現状</h2>
 <div class="cards">
-  <div class="card"><h4>Package</h4><p>Current version: 0.3.0 (GitHub; CRAN submission in preparation)<br/>License: MIT</p></div>
-  <div class="card"><h4>Support</h4><p>Bug reports and feature requests: please open a ticket on <a href="https://github.com/tanakak/FactorialSurvey/issues" rel="noopener" target="_blank">GitHub Issues</a>.</p></div>
+<div class="card"><h4>パッケージ</h4><p>現在のバージョン：0.3.0（GitHubで公開。CRANへの登録を準備中）<br/>ライセンス：MIT</p></div>
+<div class="card"><h4>問い合わせ</h4><p>不具合の報告や機能の要望は、<a href="https://github.com/tanakak/FactorialSurvey/issues" rel="noopener" target="_blank">GitHub Issues</a> にお寄せください。</p></div>
 </div>
 </section>
-
 </main>
 
 <footer>
   <span>© 2026 Tanaka Laboratory, Shiga University</span>
-  <span><a href="https://scholar.google.com/citations?user=ZWzGPJcAAAAJ&amp;hl=ja" rel="noopener" target="_blank">Google Scholar</a> · <a href="https://orcid.org/0000-0003-0455-0133" rel="noopener" target="_blank">ORCID</a> · <a href="en.html">English</a></span>
+  <span><a href="https://scholar.google.com/citations?user=ZWzGPJcAAAAJ&amp;hl=ja" rel="noopener" target="_blank">Google Scholar</a> · <a href="https://orcid.org/0000-0003-0455-0133" rel="noopener" target="_blank">ORCID</a> · <a href="en-fs.html">English</a></span>
 </footer>
 
 <script data-goatcounter="https://tanakak.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>

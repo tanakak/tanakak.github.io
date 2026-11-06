@@ -40,6 +40,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://tanakak.github.io/en-fs.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://tanakak.github.io/fs-update-2026-11.html</loc>
     <lastmod>2026-11-06</lastmod>
     <priority>0.6</priority>
