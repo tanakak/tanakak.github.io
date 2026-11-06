@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://tanakak.github.io/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tanakak.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tanakak.github.io/en.html"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://tanakak.github.io/research.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tanakak.github.io/research.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tanakak.github.io/en-research.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tanakak.github.io/members.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tanakak.github.io/pub.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tanakak.github.io/funding.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tanakak.github.io/profile.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tanakak.github.io/fs.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tanakak.github.io/fs-update-2026-11.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tanakak.github.io/en.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tanakak.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tanakak.github.io/en.html"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tanakak.github.io/en-research.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tanakak.github.io/research.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tanakak.github.io/en-research.html"/>
+    <priority>0.8</priority>
+  </url>
+</urlset>
