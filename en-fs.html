@@ -93,223 +93,23 @@ remotes::install_github("tanakak/FactorialSurvey")</code></pre>
 </section>
 
 <section id="quickstart">
-<h2>Quick start</h2>
-<p class="muted">A single copy-and-paste script. It installs the packages from CRAN, loads example data (48 students × 8 lunch-box vignettes, rated 0–10) from GitHub, fits a beta regression with standard errors clustered by respondent, and estimates marginal and expected WTP. The script is also available as <a href="https://github.com/tanakak/fs/blob/main/fs_demo.R" rel="noopener" target="_blank">fs_demo.R</a>.</p>
-<pre><code>#################################################################
-# FactorialSurvey demo: a lunch-box (bento) factorial survey
-#################################################################
+<h2>Getting started</h2>
+<p>The package vignette <a href="https://cran.r-project.org/web/packages/FactorialSurvey/vignettes/FactorialSurvey.html" rel="noopener" target="_blank"><em>Getting started with FactorialSurvey</em></a> walks through the whole workflow with lunch boxes as the example: designing the vignettes, deciding how many respondents are needed, estimating the model and computing willingness to pay. Once the package is installed, it can also be opened in R with <code>vignette("FactorialSurvey", package = "FactorialSurvey")</code>.</p>
+<p>The package includes <code>bento</code>, real ratings of eight lunch-box vignettes by 48 students on a 0–10 scale, so you can try it right after installation:</p>
+<pre><code>library(FactorialSurvey)
 
-# 48 university students each rated 8 lunch-box vignettes on a 0-10 scale
-# (0 = "would definitely not buy", 10 = "would definitely buy").
-# Each vignette varied four attributes:
-#   - x1: Main dish (0 = grilled fish, 1 = teriyaki chicken, 2 = tofu hamburger)
-#   - x2: Side dish included (1 = yes, 0 = no)
-#   - x3: Nutrition information shown (1 = yes, 0 = no)
-#   - x4: Price in yen (700, 900, 1100, 1300)
-#
-# This script reads the raw survey files, reshapes them, fits a beta
-# regression with standard errors clustered by respondent, and computes
-# the marginal and expected willingness to pay (WTP).
+# 'bento': 48 students rated 8 lunch-box vignettes on a 0-10 scale
+fit &lt;- fs_betareg(rating ~ main + side + info + price, data = bento,
+                  cluster = ~ respondent, compute_me = FALSE)
+summary(fit)
 
-
-
-#################################################################
-# 0. Preparation: Load Packages
-#################################################################
-
-# Install the packages used in this script from CRAN.
-# Run this once; skip it if the packages are already installed.
-# 'margins' is used by FactorialSurvey for the average marginal effects,
-# and 'dplyr' and 'tidyr' are used below for data handling.
-install.packages(c("FactorialSurvey", "margins", "dplyr", "tidyr"))
-
-# Load the FactorialSurvey package.
-library(FactorialSurvey)
-
-# Load other packages used for data handling.
-library(dplyr)      # For data manipulation.
-library(tidyr)      # For converting between "wide" and "long" formats.
-
-
-
-#################################################################
-# 1. Data Loading
-#################################################################
-
-# --- Load the Data from GitHub ---
-# bento.csv    : one row per respondent; columns fs_q1 to fs_q8 hold the
-#                ratings of vignettes 1 to 8.
-# vignette.csv : one row per vignette; id_fse identifies the vignette and
-#                x1 to x4 give its attributes.
-# [NOTE] To use your own copies instead, replace the URLs with file names,
-#        e.g. read.csv("bento.csv").
-base_url  &lt;- "https://raw.githubusercontent.com/tanakak/fs/main/"
-data      &lt;- read.csv(paste0(base_url, "bento.csv"))
-data_fse  &lt;- read.csv(paste0(base_url, "vignette.csv"))
-
-
-# --- Create Respondent IDs ---
-# Add an 'id' column to identify each row (each respondent).
-data$id &lt;- 1:nrow(data)
-
-# Move the 'id' column to the first position.
-data &lt;- data %&gt;% select(id, everything())
-
-
-# --- Inspect the Data ---
-str(data)
-data_fse
-
-
-
-#################################################################
-# 2. Data Reshaping (from Wide to Long)
-#################################################################
-
-# Convert the data from "wide" format (one row per respondent) to
-# "long" format (one row per rating).
-data_long &lt;- data %&gt;%
-  pivot_longer(
-    # The columns to be reshaped (all columns starting with "fs_q")
-    cols = starts_with("fs_q"),
-
-    # The new column that will store the original column names
-    names_to = "id_fse",
-
-    # The new column that will store the ratings
-    values_to = "rating"
-  ) %&gt;%
-  mutate(
-    # Remove the "fs_q" prefix and convert the vignette number to an integer
-    id_fse = as.integer(gsub("fs_q", "", id_fse))
-  ) %&gt;%
-  # Sort by respondent and vignette
-  arrange(id, id_fse)
-
-head(data_long)
-
-
-
-#################################################################
-# 3. Merging with Vignette Information
-#################################################################
-
-# Join the ratings and the vignette attributes using "id_fse" as the key.
-data_merged &lt;- data_long %&gt;%
-  left_join(data_fse, by = "id_fse")
-
-head(data_merged)
-
-
-
-#################################################################
-# 4. Creating Variables for Analysis
-#################################################################
-
-# Give the attributes intuitive names.
-# 'main' is a factor: R turns it into dummy variables automatically,
-# with the first level (grilled fish) as the reference.
-data_merged &lt;- data_merged %&gt;%
-  mutate(
-    main  = factor(x1, levels = 0:2,
-                   labels = c("grilled fish", "teriyaki chicken",
-                              "tofu hamburger")),
-    side  = x2,
-    info  = x3,
-    price = x4
-  )
-
-summary(data_merged %&gt;% select(rating, main, side, info, price))
-
-
-
-#################################################################
-# 5. Estimating the Model (Beta Regression)
-#################################################################
-
-# fs_betareg() fits a beta regression, which respects the bounds of the
-# rating scale. The 0-10 ratings are mapped onto the open interval (0, 1)
-# automatically (the defaults are scale = c(0, 10) and transform = TRUE).
-#
-# Each student rated eight vignettes, so ratings by the same person are
-# correlated. "cluster = ~ id" makes the standard errors, and everything
-# computed from them (including WTP), robust to this.
-result &lt;- fs_betareg(
-  rating ~ main + side + info + price,
-  data    = data_merged,
-  cluster = ~ id
-)
-
-# Coefficients with cluster-robust standard errors, fit statistics
-# (log-likelihood, AIC, BIC, pseudo R2) and average marginal effects on
-# both the (0-1) scale and the original (0-10) rating scale.
-summary(result)
-
-# The average marginal effects on the (0-10) scale can also be extracted.
-result$marginal_effects_rescaled
-
-
-
-#################################################################
-# 6. Marginal Willingness to Pay (MWTP)
-#################################################################
-
-# fs_mwtp() divides each attribute coefficient by the price coefficient:
-# the MWTP is the price change (in yen) that would offset the attribute.
-# Without 'variable', all attributes are reported.
-mwtp &lt;- fs_mwtp(result, price = "price")
-mwtp
-plot(mwtp) + ggplot2::labs(x = "Marginal willingness to pay (yen)")
-
-# A single attribute: "A side dish is included"
-fs_mwtp(result, variable = "side", price = "price")
-
-# Simulation-based (Krinsky-Robb) intervals instead of the delta method
-fs_mwtp(result, price = "price", method = "krinsky-robb", seed = 1)
-
-
-
-#################################################################
-# 7. Expected Willingness to Pay (EWTP) for Whole Lunch Boxes
-#################################################################
-
-# fs_ewtp() values a complete scenario -- a whole lunch box -- rather than
-# a single attribute. Give one row per scenario; the price is not needed.
-boxes &lt;- data.frame(
-  main = c("grilled fish", "teriyaki chicken", "teriyaki chicken"),
-  side = c(0, 0, 1),
-  info = c(0, 0, 1),
-  row.names = c("Fish, plain", "Chicken, plain", "Chicken, full")
-)
-
-ewtp &lt;- fs_ewtp(result, boxes, price = "price")
-ewtp
-plot(ewtp) + ggplot2::labs(x = "Expected willingness to pay (yen)")
-
-
-
-#################################################################
-# 8. Notes
-#################################################################
-
-# The same data are included in the package as 'bento'
-# (with 'respondent' in place of 'id'), so the model can also be fitted
-# without downloading anything:
-#   fit &lt;- fs_betareg(rating ~ main + side + info + price,
-#                     data = bento, cluster = ~ respondent)
-#
-# For yes/no responses, use fs_logit() in place of fs_betareg();
-# fs_mwtp() and fs_ewtp() work in the same way.
-#
-# For a full walk-through, including how to design the vignettes and
-# decide how many respondents are needed, see the "Getting started"
-# vignette of the package:
-#   vignette("FactorialSurvey", package = "FactorialSurvey")</code></pre>
-</section>
-
-<section id="docs">
-<h2>Documentation</h2>
-<p>The package vignette <a href="https://cran.r-project.org/web/packages/FactorialSurvey/vignettes/FactorialSurvey.html" rel="noopener" target="_blank"><em>Getting started with FactorialSurvey</em></a> walks through the whole workflow, from designing the vignettes and choosing the number of respondents to estimating WTP. Once the package is installed, it can also be opened in R with <code>vignette("FactorialSurvey", package = "FactorialSurvey")</code>. Each function is documented in the <a href="https://cran.r-project.org/web/packages/FactorialSurvey/FactorialSurvey.pdf" rel="noopener" target="_blank">reference manual (PDF)</a>. <span class="muted">An English paper describing the package and a book in Japanese on factorial survey experiments are in preparation.</span></p>
+# Marginal willingness to pay (yen) for each attribute
+fs_mwtp(fit, price = "price")</code></pre>
+<ul>
+  <li>Each function is documented in the <a href="https://cran.r-project.org/web/packages/FactorialSurvey/FactorialSurvey.pdf" rel="noopener" target="_blank">reference manual (PDF)</a>.</li>
+  <li>To start from raw survey files—reading a CSV and reshaping it for analysis—see <a href="https://github.com/tanakak/fs/blob/main/fs_demo.R" rel="noopener" target="_blank">fs_demo.R</a> on GitHub.</li>
+</ul>
+<p class="muted">An English paper describing the package and a book in Japanese on factorial survey experiments are in preparation.</p>
 </section>
 
 <section id="citation">
