@@ -21,6 +21,27 @@
 <link rel="alternate" hreflang="ja" href="https://tanakak.github.io/fs.html"/>
 <link rel="alternate" hreflang="en" href="https://tanakak.github.io/en-fs.html"/>
 <link rel="alternate" hreflang="x-default" href="https://tanakak.github.io/fs.html"/>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "FactorialSurvey",
+ "description": "An R package for designing and analyzing factorial survey (vignette) experiments, from D-efficient design and power analysis to estimation and willingness-to-pay analysis.",
+ "programmingLanguage": "R",
+ "runtimePlatform": "R (>= 4.1)",
+ "softwareVersion": "0.3.0",
+ "datePublished": "2026-11-20",
+ "license": "https://opensource.org/licenses/MIT",
+ "codeRepository": "https://github.com/tanakak/FactorialSurvey",
+ "url": "https://CRAN.R-project.org/package=FactorialSurvey",
+ "identifier": "https://doi.org/10.32614/CRAN.package.FactorialSurvey",
+ "author": {
+  "@type": "Person",
+  "name": "Katsuya Tanaka",
+  "identifier": "https://orcid.org/0000-0003-0455-0133"
+ }
+}
+</script>
 </head>
 <body>
 <header>
@@ -40,9 +61,11 @@
 <main>
 
 <h1 class="page-title">FactorialSurvey <span class="muted" style="font-size:1rem;font-weight:600;">R package</span></h1>
-<p class="lead"><strong>FactorialSurvey</strong> is an R toolkit for <em>factorial survey experiments (FSE)</em>—a vignette-based approach to measure preferences and intentions. It supports a practical workflow from <strong>D-efficient design</strong> and <strong>power analysis</strong> through <strong>estimation</strong> to <strong>WTP analysis</strong>.</p>
-<div class="notice"><strong>November 2026</strong> The package has been updated. → <a href="fs-update-2026-11.html">Release notes (in Japanese)</a></div>
+<p class="lead"><strong>FactorialSurvey</strong> is an R toolkit for <em>factorial survey experiments (FSE)</em>—a vignette-based approach to measure preferences and intentions. It supports a practical workflow from <strong>D-efficient design</strong> and <strong>power analysis</strong> through <strong>estimation</strong> to <strong>WTP analysis</strong>. It is available on CRAN.</p>
+<div class="notice"><strong>November 20, 2026</strong> FactorialSurvey 0.3.0 is now on CRAN. Install it with <code>install.packages("FactorialSurvey")</code>. → <a href="https://github.com/tanakak/FactorialSurvey/blob/master/NEWS.md" rel="noopener" target="_blank">What's new</a></div>
 <div class="btns" style="margin-top:.8rem;">
+  <a class="btn" href="https://CRAN.R-project.org/package=FactorialSurvey" rel="noopener" target="_blank">CRAN</a>
+  <a class="btn" href="https://cran.r-project.org/web/packages/FactorialSurvey/vignettes/FactorialSurvey.html" rel="noopener" target="_blank">Getting started</a>
   <a class="btn" href="https://github.com/tanakak/FactorialSurvey" rel="noopener" target="_blank">GitHub</a>
   <a class="btn" href="https://github.com/tanakak/FactorialSurvey/issues" rel="noopener" target="_blank">Issues</a>
   <a class="btn" href="#citation">How to cite</a>
@@ -55,21 +78,23 @@
   <div class="card"><h4>Fielding</h4><p>Render vignettes as text with <code>fs_vignette_text()</code>, assign blocks and carryover-balanced orders with <code>fs_assign()</code>, and write them out for survey platforms with <code>fs_export()</code>.</p></div>
   <div class="card"><h4>Sample size</h4><p>Simulate the survey before fielding with <code>fs_power()</code> and <code>fs_simulate_ratings()</code> to see how often each effect would be detected and how precise WTP would be.</p></div>
   <div class="card"><h4>Estimation</h4><p>Beta regression for bounded ratings such as 0–10 scales (<code>fs_betareg()</code>) and logit for yes/no responses (<code>fs_logit()</code>), with standard errors clustered by respondent (<code>cluster = ~ id</code>). <code>summary()</code> reports fit statistics and average marginal effects.</p></div>
-  <div class="card"><h4>Willingness to pay</h4><p>Marginal WTP for each attribute with <code>fs_mwtp()</code>, and expected WTP for complete scenarios with <code>fs_ewtp()</code>. Delta-method or Krinsky–Robb intervals.</p></div>
+  <div class="card"><h4>Willingness to pay</h4><p>Marginal WTP for each attribute with <code>fs_mwtp()</code>, and expected WTP for complete scenarios with <code>fs_ewtp()</code>. Expected WTP is computed with WTP truncated at zero. Intervals by the delta method, Krinsky–Robb or Fieller.</p></div>
   <div class="card"><h4>Plots</h4><p><code>plot()</code> methods for models, WTP and power results, built on ggplot2, with <code>theme_fs()</code> for black-and-white print.</p></div>
 </div>
 </section>
 
 <section id="install">
 <h2>Installation</h2>
-<pre><code># from GitHub (development)
-# install.packages("remotes")
+<p>Install the released version from CRAN. It requires R 4.1 or later.</p>
+<pre><code>install.packages("FactorialSurvey")</code></pre>
+<p class="muted">The development version can be installed from GitHub.</p>
+<pre><code># install.packages("remotes")
 remotes::install_github("tanakak/FactorialSurvey")</code></pre>
 </section>
 
 <section id="quickstart">
 <h2>Quick start</h2>
-<p class="muted">A single copy-and-paste script. It loads example data (48 students × 8 lunch-box vignettes, rated 0–10) from GitHub, fits a beta regression with standard errors clustered by respondent, and estimates marginal and expected WTP. The script is also available as <a href="https://github.com/tanakak/fs/blob/main/fs_demo.R" rel="noopener" target="_blank">fs_demo.R</a>.</p>
+<p class="muted">A single copy-and-paste script. It installs the packages from CRAN, loads example data (48 students × 8 lunch-box vignettes, rated 0–10) from GitHub, fits a beta regression with standard errors clustered by respondent, and estimates marginal and expected WTP. The script is also available as <a href="https://github.com/tanakak/fs/blob/main/fs_demo.R" rel="noopener" target="_blank">fs_demo.R</a>.</p>
 <pre><code>#################################################################
 # FactorialSurvey demo: a lunch-box (bento) factorial survey
 #################################################################
@@ -92,18 +117,11 @@ remotes::install_github("tanakak/FactorialSurvey")</code></pre>
 # 0. Preparation: Load Packages
 #################################################################
 
-# Install the FactorialSurvey package from GitHub.
-# Run this once, and again whenever you want the latest version.
-# 'remotes' is needed to install packages from GitHub.
-# "dependencies = TRUE" also installs 'margins', which is used for the
-# average marginal effects, and the other suggested packages.
-# "upgrade = 'never'" leaves your other packages as they are.
-if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")
-}
-remotes::install_github("tanakak/FactorialSurvey",
-                        dependencies = TRUE,
-                        upgrade = "never")
+# Install the packages used in this script from CRAN.
+# Run this once; skip it if the packages are already installed.
+# 'margins' is used by FactorialSurvey for the average marginal effects,
+# and 'dplyr' and 'tidyr' are used below for data handling.
+install.packages(c("FactorialSurvey", "margins", "dplyr", "tidyr"))
 
 # Load the FactorialSurvey package.
 library(FactorialSurvey)
@@ -286,26 +304,31 @@ plot(ewtp) + ggplot2::labs(x = "Expected willingness to pay (yen)")
 # For a full walk-through, including how to design the vignettes and
 # decide how many respondents are needed, see the "Getting started"
 # vignette of the package:
-#   https://github.com/tanakak/FactorialSurvey/blob/master/vignettes/FactorialSurvey.Rmd</code></pre>
+#   vignette("FactorialSurvey", package = "FactorialSurvey")</code></pre>
 </section>
 
 <section id="docs">
-<h2>Teaching materials</h2>
-<p>The package vignette <a href="https://github.com/tanakak/FactorialSurvey/blob/master/vignettes/FactorialSurvey.Rmd" rel="noopener" target="_blank"><em>Getting started with FactorialSurvey</em></a> walks through the whole workflow, from designing the vignettes and choosing the number of respondents to estimating WTP. <span class="muted">An English paper describing the package and a book in Japanese on factorial survey experiments are in preparation.</span></p>
+<h2>Documentation</h2>
+<p>The package vignette <a href="https://cran.r-project.org/web/packages/FactorialSurvey/vignettes/FactorialSurvey.html" rel="noopener" target="_blank"><em>Getting started with FactorialSurvey</em></a> walks through the whole workflow, from designing the vignettes and choosing the number of respondents to estimating WTP. Once the package is installed, it can also be opened in R with <code>vignette("FactorialSurvey", package = "FactorialSurvey")</code>. Each function is documented in the <a href="https://cran.r-project.org/web/packages/FactorialSurvey/FactorialSurvey.pdf" rel="noopener" target="_blank">reference manual (PDF)</a>. <span class="muted">An English paper describing the package and a book in Japanese on factorial survey experiments are in preparation.</span></p>
 </section>
 
 <section id="citation">
 <h2>Citation</h2>
-<p>If you use the package, please cite the working paper:</p>
+<p>If you use the package, please cite both the package and the working paper that describes its methods. The package citation is also shown by <code>citation("FactorialSurvey")</code> in R.</p>
 <ul class="pubs">
+  <li><span class="me">Tanaka, K.</span> (2026). FactorialSurvey: Design and Analysis of Factorial Survey (Vignette) Experiments. R package version 0.3.0. <a class="doi" href="https://CRAN.R-project.org/package=FactorialSurvey" rel="noopener" target="_blank">CRAN</a></li>
   <li><span class="me">Tanaka, K.</span> (2025). A Unified Framework for Estimating Willingness to Pay Using Factorial Survey Experiments. SSRN Working Paper. <a class="doi" href="https://dx.doi.org/10.2139/ssrn.5238343" rel="noopener" target="_blank">SSRN</a></li>
+</ul>
+<p class="muted">For an application of expected WTP for complete policy scenarios (<code>fs_ewtp()</code>), see:</p>
+<ul class="pubs">
+  <li><span class="me">Tanaka, K.</span>, Dill, J., McNeil, N., Geller, R., &amp; Kondo, N. (2027). What Are Safer Streets Worth? Bridging Resident Preferences and Policy Design in Traffic Calming. <em>Transportation Research Part A: Policy and Practice</em>, 215, 105293. <a class="doi" href="https://doi.org/10.1016/j.tra.2026.105293" rel="noopener" target="_blank">DOI</a></li>
 </ul>
 </section>
 
 <section id="status">
-<h2>Status</h2>
+<h2>Version and support</h2>
 <div class="cards">
-  <div class="card"><h4>Package</h4><p>Current version: 0.3.0 (GitHub; CRAN submission in preparation)<br/>License: MIT</p></div>
+  <div class="card"><h4>Package</h4><p>Current version: 0.3.0 (<a href="https://CRAN.R-project.org/package=FactorialSurvey" rel="noopener" target="_blank">CRAN</a>, released November 20, 2026)<br/>Requires: R 4.1 or later<br/>License: MIT</p></div>
   <div class="card"><h4>Support</h4><p>Bug reports and feature requests: please open a ticket on <a href="https://github.com/tanakak/FactorialSurvey/issues" rel="noopener" target="_blank">GitHub Issues</a>.</p></div>
 </div>
 </section>

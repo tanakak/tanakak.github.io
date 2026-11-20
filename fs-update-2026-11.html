@@ -53,6 +53,8 @@
 <h1 class="page-title">FactorialSurvey を更新しました</h1>
 <p class="date">2026年11月2日</p>
 
+<div class="notice"><strong>追記（2026年11月20日）</strong>　この開発版をもとにしたバージョン0.3.0が <a href="https://CRAN.R-project.org/package=FactorialSurvey" rel="noopener" target="_blank">CRAN</a> に登録されました。インストールは <code>install.packages("FactorialSurvey")</code> で行えます。</div>
+
 <p class="lead">要因サーベイ実験（ファクトリアルサーベイ実験、FSE）のためのRパッケージ <strong>FactorialSurvey</strong> の開発版（0.2.0.9000）を GitHub で公開しました。2025年に公開した版から、ビネットの設計、実査の準備、必要な回答者数の検討、推定、支払意思額（WTP）の計算までを、一つのパッケージで通して行えるようになっています。</p>
 
 <p>以前の版を使っていた方に影響する修正（設計のバグ修正と関数の引数名の変更）も含まれているので、<a href="#migrate">以前の版を使っていた方へ</a>もあわせてご覧ください。</p>
@@ -109,8 +111,7 @@
 <h2>使い方</h2>
 
 <h3>インストール</h3>
-<pre><code>install.packages("remotes")
-remotes::install_github("tanakak/FactorialSurvey")
+<pre><code>install.packages("FactorialSurvey")
 library(FactorialSurvey)</code></pre>
 
 <h3>ビネットを設計する</h3>
@@ -170,7 +171,7 @@ fs_ewtp(fit, boxes, price = "price")</code></pre>
 <section id="roadmap">
 <h2>今後の予定</h2>
 <h3>CRAN への登録</h3>
-<p>Windows 環境での R 開発版のチェックなど、提出前の確認を終えたうえで、CRAN（R の公式パッケージ配布サイト）への登録を申請する予定です。登録されれば <code>install.packages("FactorialSurvey")</code> でインストールできるようになります。</p>
+<p>2026年11月20日に、バージョン0.3.0として <a href="https://CRAN.R-project.org/package=FactorialSurvey" rel="noopener" target="_blank">CRAN</a>（R の公式パッケージ配布サイト）に登録されました（追記）。</p>
 
 <h3>論文と書籍</h3>
 <p>パッケージの設計と推定の方法を説明する英語の論文と、要因サーベイ実験の考え方からパッケージを使った分析までを解説する日本語の書籍を準備しています。</p>

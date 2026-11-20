@@ -21,6 +21,27 @@
 <link rel="alternate" hreflang="ja" href="https://tanakak.github.io/fs.html"/>
 <link rel="alternate" hreflang="en" href="https://tanakak.github.io/en-fs.html"/>
 <link rel="alternate" hreflang="x-default" href="https://tanakak.github.io/fs.html"/>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "FactorialSurvey",
+ "description": "An R package for designing and analyzing factorial survey (vignette) experiments, from D-efficient design and power analysis to estimation and willingness-to-pay analysis.",
+ "programmingLanguage": "R",
+ "runtimePlatform": "R (>= 4.1)",
+ "softwareVersion": "0.3.0",
+ "datePublished": "2026-11-20",
+ "license": "https://opensource.org/licenses/MIT",
+ "codeRepository": "https://github.com/tanakak/FactorialSurvey",
+ "url": "https://CRAN.R-project.org/package=FactorialSurvey",
+ "identifier": "https://doi.org/10.32614/CRAN.package.FactorialSurvey",
+ "author": {
+  "@type": "Person",
+  "name": "Katsuya Tanaka",
+  "identifier": "https://orcid.org/0000-0003-0455-0133"
+ }
+}
+</script>
 </head>
 <body>
 <header>
@@ -39,9 +60,11 @@
 </nav>
 <main>
 <h1 class="page-title">FactorialSurvey <span class="muted" style="font-size:1rem;font-weight:600;">Rパッケージ</span></h1>
-<p class="lead"><strong>FactorialSurvey</strong> は、要因サーベイ実験（factorial survey experiment, FSE）のためのRパッケージです。要因サーベイ実験は、条件を組み合わせた仮想の場面（ビネット）を回答者に評価してもらい、選好や行動の意図を測る方法です。D効率的な計画づくりと標本サイズの検討から、推定、支払意思額（WTP）の分析までを一続きで行えます。</p>
-<div class="notice"><strong>2026年11月</strong>　パッケージを更新しました。→ <a href="fs-update-2026-11.html">更新内容・使い方・今後の予定</a></div>
+<p class="lead"><strong>FactorialSurvey</strong> は、要因サーベイ実験（factorial survey experiment, FSE）のためのRパッケージです。要因サーベイ実験は、条件を組み合わせた仮想の場面（ビネット）を回答者に評価してもらい、選好や行動の意図を測る方法です。D効率的な計画づくりと標本サイズの検討から、推定、支払意思額（WTP）の分析までを一続きで行えます。CRAN（Rの公式のパッケージ公開サイト）から入手できます。</p>
+<div class="notice"><strong>2026年11月20日</strong>　CRANに登録されました（バージョン0.3.0）。<code>install.packages("FactorialSurvey")</code> でインストールできます。→ <a href="fs-update-2026-11.html">11月2日の更新のお知らせ（変更点と使い方）</a></div>
 <div class="btns" style="margin-top:.8rem;">
+<a class="btn" href="https://CRAN.R-project.org/package=FactorialSurvey" rel="noopener" target="_blank">CRAN</a>
+<a class="btn" href="https://cran.r-project.org/web/packages/FactorialSurvey/vignettes/FactorialSurvey.html" rel="noopener" target="_blank">解説（英語）</a>
 <a class="btn" href="https://github.com/tanakak/FactorialSurvey" rel="noopener" target="_blank">GitHub</a>
 <a class="btn" href="https://github.com/tanakak/FactorialSurvey/issues" rel="noopener" target="_blank">Issues</a>
 <a class="btn" href="#citation">引用のしかた</a>
@@ -53,19 +76,21 @@
 <div class="card"><h4>調査での配布</h4><p><code>fs_vignette_text()</code> でビネットを文章にし、<code>fs_assign()</code> でブロックと提示順（順序の影響が偏らないもの）を割り当て、<code>fs_export()</code> で調査システム向けに書き出します。</p></div>
 <div class="card"><h4>標本サイズ</h4><p>実施の前に <code>fs_power()</code> と <code>fs_simulate_ratings()</code> で調査を模擬し、それぞれの効果をどのくらいの確率で検出できるか、WTPをどの程度の精度で推定できるかを確かめます。</p></div>
 <div class="card"><h4>推定</h4><p>0〜10点のように上限と下限のある評価にはベータ回帰（<code>fs_betareg()</code>）、はい・いいえの回答にはロジット（<code>fs_logit()</code>）を使います。標準誤差は回答者ごとにクラスター化できます（<code>cluster = ~ id</code>）。<code>summary()</code> で適合度と平均限界効果を表示します。</p></div>
-<div class="card"><h4>支払意思額</h4><p><code>fs_mwtp()</code> で属性ごとの限界WTPを、<code>fs_ewtp()</code> で場面全体の期待WTPを求めます。信頼区間はデルタ法または Krinsky–Robb 法で計算します。</p></div>
+<div class="card"><h4>支払意思額</h4><p><code>fs_mwtp()</code> で属性ごとの限界WTPを、<code>fs_ewtp()</code> で場面全体の期待WTPを求めます。期待WTPは、WTPがマイナスにならないものとして計算します。信頼区間はデルタ法、Krinsky–Robb 法、Fieller 法から選べます。</p></div>
 <div class="card"><h4>図</h4><p>推定結果、WTP、検出力の結果には <code>plot()</code> があります（ggplot2 を使用）。白黒で印刷するためのテーマ <code>theme_fs()</code> も用意しています。</p></div>
 </div>
 </section>
 <section id="install">
 <h2>インストール</h2>
-<pre><code># from GitHub (development)
-# install.packages("remotes")
+<p>CRANから、ほかのRパッケージと同じようにインストールできます。R 4.1以上で動きます。</p>
+<pre><code>install.packages("FactorialSurvey")</code></pre>
+<p class="muted">CRANに出す前の開発版は、GitHubから入れられます。</p>
+<pre><code># install.packages("remotes")
 remotes::install_github("tanakak/FactorialSurvey")</code></pre>
 </section>
 <section id="quickstart">
 <h2>クイックスタート</h2>
-<p class="muted">コピーしてそのまま実行できるスクリプトです。例題のデータ（学生48人が弁当のビネット8つを0〜10点で評価したもの）をGitHubから読み込み、回答者ごとにクラスター化した標準誤差でベータ回帰を推定し、限界WTPと期待WTPを求めます。同じスクリプトを <a href="https://github.com/tanakak/fs/blob/main/fs_demo.R" rel="noopener" target="_blank">fs_demo.R</a> として公開しています。スクリプト内のコメントは英語です。</p>
+<p class="muted">コピーしてそのまま実行できるスクリプトです。パッケージと関連パッケージをCRANから入れ、例題のデータ（学生48人が弁当のビネット8つを0〜10点で評価したもの）をGitHubから読み込み、回答者ごとにクラスター化した標準誤差でベータ回帰を推定し、限界WTPと期待WTPを求めます。同じスクリプトを <a href="https://github.com/tanakak/fs/blob/main/fs_demo.R" rel="noopener" target="_blank">fs_demo.R</a> として公開しています。スクリプト内のコメントは英語です。</p>
 <pre><code>#################################################################
 # FactorialSurvey demo: a lunch-box (bento) factorial survey
 #################################################################
@@ -88,18 +113,11 @@ remotes::install_github("tanakak/FactorialSurvey")</code></pre>
 # 0. Preparation: Load Packages
 #################################################################
 
-# Install the FactorialSurvey package from GitHub.
-# Run this once, and again whenever you want the latest version.
-# 'remotes' is needed to install packages from GitHub.
-# "dependencies = TRUE" also installs 'margins', which is used for the
-# average marginal effects, and the other suggested packages.
-# "upgrade = 'never'" leaves your other packages as they are.
-if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")
-}
-remotes::install_github("tanakak/FactorialSurvey",
-                        dependencies = TRUE,
-                        upgrade = "never")
+# Install the packages used in this script from CRAN.
+# Run this once; skip it if the packages are already installed.
+# 'margins' is used by FactorialSurvey for the average marginal effects,
+# and 'dplyr' and 'tidyr' are used below for data handling.
+install.packages(c("FactorialSurvey", "margins", "dplyr", "tidyr"))
 
 # Load the FactorialSurvey package.
 library(FactorialSurvey)
@@ -282,23 +300,28 @@ plot(ewtp) + ggplot2::labs(x = "Expected willingness to pay (yen)")
 # For a full walk-through, including how to design the vignettes and
 # decide how many respondents are needed, see the "Getting started"
 # vignette of the package:
-#   https://github.com/tanakak/FactorialSurvey/blob/master/vignettes/FactorialSurvey.Rmd</code></pre>
+#   vignette("FactorialSurvey", package = "FactorialSurvey")</code></pre>
 </section>
 <section id="docs">
 <h2>解説・教材</h2>
-<p>パッケージの解説文書 <a href="https://github.com/tanakak/FactorialSurvey/blob/master/vignettes/FactorialSurvey.Rmd" rel="noopener" target="_blank"><em>Getting started with FactorialSurvey</em></a>（英語）で、ビネットの設計と回答者数の決め方から、WTPの推定までの流れを説明しています。<span class="muted">パッケージを紹介する英語論文と、要因サーベイ実験についての日本語の教科書を準備しています。</span></p>
+<p>パッケージの解説文書 <a href="https://cran.r-project.org/web/packages/FactorialSurvey/vignettes/FactorialSurvey.html" rel="noopener" target="_blank"><em>Getting started with FactorialSurvey</em></a>（英語）で、ビネットの設計と回答者数の決め方から、WTPの推定までの流れを説明しています。インストール後は、R で <code>vignette("FactorialSurvey", package = "FactorialSurvey")</code> と入力しても開けます。関数ごとの説明は <a href="https://cran.r-project.org/web/packages/FactorialSurvey/FactorialSurvey.pdf" rel="noopener" target="_blank">リファレンスマニュアル（PDF、英語）</a> にあります。<span class="muted">パッケージを紹介する英語論文と、要因サーベイ実験についての日本語の教科書を準備しています。</span></p>
 </section>
 <section id="citation">
 <h2>引用のしかた</h2>
-<p>パッケージを使った研究では、次のワーキングペーパーを引用してください。</p>
+<p>パッケージを使った研究では、パッケージと、その方法をまとめたワーキングペーパーを引用してください。パッケージの引用情報は、R で <code>citation("FactorialSurvey")</code> と入力しても表示されます。</p>
 <ul class="pubs">
+  <li><span class="me">Tanaka, K.</span> (2026). FactorialSurvey: Design and Analysis of Factorial Survey (Vignette) Experiments. R package version 0.3.0. <a class="doi" href="https://CRAN.R-project.org/package=FactorialSurvey" rel="noopener" target="_blank">CRAN</a></li>
   <li><span class="me">Tanaka, K.</span> (2025). A Unified Framework for Estimating Willingness to Pay Using Factorial Survey Experiments. SSRN Working Paper. <a class="doi" href="https://dx.doi.org/10.2139/ssrn.5238343" rel="noopener" target="_blank">SSRN</a></li>
+</ul>
+<p class="muted">政策シナリオ全体の期待WTP（<code>fs_ewtp()</code>）を使った分析の例は、次の論文にあります。</p>
+<ul class="pubs">
+  <li><span class="me">Tanaka, K.</span>, Dill, J., McNeil, N., Geller, R., &amp; Kondo, N. (2027). What Are Safer Streets Worth? Bridging Resident Preferences and Policy Design in Traffic Calming. <em>Transportation Research Part A: Policy and Practice</em>, 215, 105293. <a class="doi" href="https://doi.org/10.1016/j.tra.2026.105293" rel="noopener" target="_blank">DOI</a></li>
 </ul>
 </section>
 <section id="status">
-<h2>現状</h2>
+<h2>バージョンと問い合わせ</h2>
 <div class="cards">
-<div class="card"><h4>パッケージ</h4><p>現在のバージョン：0.3.0（GitHubで公開。CRANへの登録を準備中）<br/>ライセンス：MIT</p></div>
+<div class="card"><h4>パッケージ</h4><p>現在のバージョン：0.3.0（<a href="https://CRAN.R-project.org/package=FactorialSurvey" rel="noopener" target="_blank">CRAN</a>、2026年11月20日公開）<br/>動作環境：R 4.1以上<br/>ライセンス：MIT</p></div>
 <div class="card"><h4>問い合わせ</h4><p>不具合の報告や機能の要望は、<a href="https://github.com/tanakak/FactorialSurvey/issues" rel="noopener" target="_blank">GitHub Issues</a> にお寄せください。</p></div>
 </div>
 </section>
