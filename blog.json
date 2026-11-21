@@ -1,5 +1,17 @@
 [
  {
+  "title": "【CRAN公開】要因サーベイ実験のRパッケージ「FactorialSurvey」",
+  "link": "https://note.com/tanakak_lab/n/ned98a27ba83a",
+  "date": "2026年11月21日",
+  "desc": "研究室で開発を続けてきたRパッケージ FactorialSurvey が、2026年11月20日にCRAN（Rの公式のパ…"
+ },
+ {
+  "title": "中学生に特別講義を実施しました",
+  "link": "https://note.com/tanakak_lab/n/nbb9f44903537",
+  "date": "2026年11月20日",
+  "desc": "彦根東中学校の1年生5名が学習体験で滋賀大学を訪れ、「日本の災害と備え」をテーマに特別講義を行いました。 前半は、どんな…"
+ },
+ {
   "title": "続・三体から学ぶ防災・減災——災害の多い国は、災害に強い国か",
   "link": "https://note.com/tanakak_lab/n/nc78090e2a244",
   "date": "2026年11月6日",
@@ -16,17 +28,5 @@
   "link": "https://note.com/tanakak_lab/n/n56c96bba7639",
   "date": "2026年11月2日",
   "desc": "研究室で開発している要因サーベイ実験（仮想シナリオに基づいて回答者の選択行動を分析するための実験手法）のRパッケージ「F…"
- },
- {
-  "title": "博士後期課程の王瑒さんが都市計画学会で発表しました",
-  "link": "https://note.com/tanakak_lab/n/nbaed70faecf9",
-  "date": "2026年11月2日",
-  "desc": "博士後期課程の王瑒さんが、北海道大学で開かれた日本都市計画学会 2026年度全国大会（第61回論文発表会）で、論文「札幌…"
- },
- {
-  "title": "三体から学ぶ防災・減災",
-  "link": "https://note.com/tanakak_lab/n/nf9e8766c7cae",
-  "date": "2026年11月2日",
-  "desc": "はじめに 劉慈欣（リウ・ツーシン）のSF長編『三体』三部作は、異星文明との接触と人類の生存をめぐる物語です。英訳版がアジ…"
  }
 ]
