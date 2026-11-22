@@ -1,5 +1,11 @@
 [
  {
+  "title": "石の山は家ではない ― ポアンカレ『科学と仮説』を読む",
+  "link": "https://note.com/tanakak_lab/n/ne44c1e8bf2ee",
+  "date": "2026年11月22日",
+  "desc": "「科学は事実で作られる。家が石で作られるように。しかし、事実を集めただけでは科学にならない。石を積み上げただけでは家にな…"
+ },
+ {
   "title": "【CRAN公開】要因サーベイ実験のRパッケージ「FactorialSurvey」",
   "link": "https://note.com/tanakak_lab/n/ned98a27ba83a",
   "date": "2026年11月21日",
@@ -22,11 +28,5 @@
   "link": "https://note.com/tanakak_lab/n/n0f6cd1e87777",
   "date": "2026年11月5日",
   "desc": "キャンパスのお堀沿いで、ひとつの切り株に目がとまりました。二年前の台風で折れてしまった木だと思います。 続きをみる"
- },
- {
-  "title": "Rパッケージ FactorialSurvey を更新しました",
-  "link": "https://note.com/tanakak_lab/n/n56c96bba7639",
-  "date": "2026年11月2日",
-  "desc": "研究室で開発している要因サーベイ実験（仮想シナリオに基づいて回答者の選択行動を分析するための実験手法）のRパッケージ「F…"
  }
 ]
